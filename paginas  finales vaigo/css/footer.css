@@ -25,12 +25,6 @@ footer>div{
     flex-direction: column;
     
 }
-
-footer>div div {
-    display: flex;
-    flex-direction: row;
-}
-
-footer>div>a>i:hover {
-    transform: scale(1.1);
+footer>div>div>a>i:hover {
+    transform: scale(1.2);
 }
