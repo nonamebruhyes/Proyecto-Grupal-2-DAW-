@@ -1,0 +1,36 @@
+footer {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    background-color: rgba(0, 0, 0, 0.5);
+    align-self: end;
+    color: #ebebeb;
+}
+
+footer>div {
+    text-align: center;
+}
+
+footer>div:nth-child(1) {
+    text-align: left;
+    margin-left: 15px;
+}
+
+footer>div>img {
+    width: 25px;
+}
+
+footer>div{
+    display: flex;
+    flex-direction: column;
+    
+}
+
+footer>div div {
+    display: flex;
+    flex-direction: row;
+}
+
+footer>div>a>i:hover {
+    transform: scale(1.1);
+}
