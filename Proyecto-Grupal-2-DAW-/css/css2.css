@@ -1,0 +1,40 @@
+*{
+    box-sizing: border-box;
+}
+
+main{
+    width: 100%;
+    height: 100%;
+}
+main aside{
+width: auto;
+height: auto;
+}
+main div{
+    width: auto;
+    height: auto;
+}
+@media (max-width:400px){
+    main{
+        
+        background-color:azure;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        align-items: center;
+        justify-content: center;
+
+    }
+ 
+  
+    p,h1{
+        text-align: center;
+    }
+    nav{
+        display: flex;
+        justify-content: center;
+    }
+
+
+    
+}
