@@ -8,6 +8,7 @@ main{
     margin: 0;
     display: flex;
 }
+
 main div{
     color: #ebebeb;
     padding-top: 50px;
@@ -24,13 +25,20 @@ main div{
     max-width: 80%;
     margin: 0 auto;
 }
+
 main button{
     border-style: none;
     color: #ebebeb;
-    background-color: rgb(68, 67, 67);
+    background-color: rgb(34, 33, 33);
     padding: 18px;
+    border-radius: 10px;
     padding-left: 40px;
     padding-right: 40px;
+}
+
+main button:hover{
+    transform: scale(1.03);
+    transition-duration: 0.3s;
 }
 @media(max-width: 425px){
     main div{
