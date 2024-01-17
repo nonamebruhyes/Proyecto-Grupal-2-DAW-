@@ -11,13 +11,92 @@ header {
     align-items: center;
 }
 
-header>span {
+header>h1 {
+    text-align: center;
+    width: 92px;
     order: 2;
     font-size: 30px;
 }
 
+.dropbtn {
+    background-color: rgb(0, 0, 0, 0);
+    transform: scale(0.6);
+    font-size: 16px;
+    border-radius: 10px;
+    border-style:none;
+    cursor: pointer;
+    left: 0;
+}
+
+.dropbtn:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    left: 0;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    margin-left: 0;
+}
+
+.profile-dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.profile-dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.profile-dropdown-content a:hover {
+    background-color: #a7a7a7;
+    transition-duration: 0.5s;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #a7a7a7;
+    transition-duration: 0.5s;
+}
+
+.dropdown a:hover {
+    background-color: #ddd;
+}
+
+.show {
+    display: block;
+}
+
 #usuario {
     order: 3;
+}
+
+#productos{
+    display: none;
 }
 
 #productos img{
@@ -48,10 +127,30 @@ a {
 
 }
 
+@media(max-width: 480px){
+    .profile-dropdown-content{
+        right: 0;
+    }
+}
 
+/*PC*/
 @media (min-width: 480px) {
+
+    .profile{
+        transform: scale(0.6);
+    }
+
+    .profile-dropdown-content{
+        right:6%;
+    }
+
     header {
         order: initial;
+    }
+
+    .dropdown {
+        position: relative;
+        display: none;
     }
     
     #productos>a {
@@ -61,11 +160,11 @@ a {
     }
 
     #productos>ul>li:nth-child(1) {
-        display: none;
+        display: block;
     }
 
     #productos>ul>li:nth-child(2) {
-        display: block;
+        display: none;
     }
 
     #productos {
@@ -87,27 +186,17 @@ body {
     margin: 0;
 }
 
-body>div {
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-}
-
-
-body img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+body{
+    background-image: url(../img/wallpaper/wallpaper.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* Opcional, para mantener la imagen fija al hacer scroll */
+    background-position: center;
 }
 
 
 /*Footer en general*/
 footer {
-    position: fixed;
     left: 0;
     bottom: 0;
     width: 100%;
