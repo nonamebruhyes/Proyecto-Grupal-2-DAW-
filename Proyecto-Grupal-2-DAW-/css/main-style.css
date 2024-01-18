@@ -26,7 +26,7 @@ main div{
     margin: 0 auto;
 }
 
-main button{
+#personalizar{
     border-style: none;
     color: #ebebeb;
     background-color: rgb(34, 33, 33);
@@ -36,9 +36,10 @@ main button{
     padding-right: 40px;
 }
 
-main button:hover{
+#personalizar:hover{
     transform: scale(1.03);
     transition-duration: 0.3s;
+    background-color: rgb(44, 44, 44);
 }
 @media(max-width: 425px){
     main div{
@@ -49,4 +50,10 @@ main button:hover{
         transform: scale(90%);
     }
     
+}
+
+@media(max-height: 800px){
+    main div{
+        max-height: 80%;
+    }
 }

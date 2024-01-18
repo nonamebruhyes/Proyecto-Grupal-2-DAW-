@@ -1,44 +1,112 @@
-var ilustracion = document.getElementById('ilustracion');
-var rectangle1 = document.getElementById('Rectangle1');
-var rectangle2 = document.getElementById('Rectangle2');
-var rectangle3 = document.getElementById('Rectangle3');
-var abierto = false;
+document.addEventListener('DOMContentLoaded', function () {
+    var ilustracion = document.getElementById('ilustracion');
+    var rectangle1 = document.getElementById('Rectangle1');
+    var rectangle3 = document.getElementById('Rectangle3');
 
-/* When the user clicks on the button, 
-toggle between hiding and showing the dropdown content */
-function myFunction() {
-    event.stopPropagation();
-    document.getElementById("myDropdown").classList.toggle("show");
-}
+    var explorarMovil = document.getElementById('explorar-a');
+
+    var abierto = false;
+    var profileAbierto = false;
+    var explorarAbierto = false;
+
+    var explorar2 = false;
 
 
-function profileFunction() {
-    document.getElementById("profileDropdown").classList.toggle("show");
-}
 
-// Close the dropdown if the user clicks outside of it
-document.addEventListener('click', function () {
-    if (abierto) {
-        rectangle1.style.transform = "translate(0px,-6px)";
-        rectangle3.style.transform = "translate(0px,6px)";
-        abierto = false;
+    explorarMovil.addEventListener('click', function (event) {
+        event.stopPropagation();
+        if(!explorar2){
+            document.getElementById('explorar-dropdown-2').style = "display:block;";
+        }
+    });
+
+    document.addEventListener('click',function(){
+        document.getElementById('explorar-dropdown-2').style = "display:none;";
+    });
+
+
+    function myFunction(event) {
+        event.stopPropagation();
+        abierto = !abierto;
+        updateDropdown("myDropdown", abierto, rectangle1, rectangle3);
     }
-    // Agrega la transición aquí fuera del if-else para que se aplique en ambos casos.
-    rectangle1.style.transitionDuration = "0.3s";
-    rectangle3.style.transitionDuration = "0.3s";
-})
 
-ilustracion.addEventListener('click', function (event) {
-    if (!abierto) {
-        rectangle1.style.transform = "translate(0px,21px)";
-        rectangle3.style.transform = "translate(0px,-21px)";
-        abierto = true;
-    } else {
-        rectangle1.style.transform = "translate(0px,-6px)";
-        rectangle3.style.transform = "translate(0px,6px)";
-        abierto = false;
+    function explorarFunction(event) {
+        event.stopPropagation();
+        explorarAbierto = !explorarAbierto;
+        updateDropdown("explorarDropdown", explorarAbierto);
     }
-    // Agrega la transición aquí fuera del if-else para que se aplique en ambos casos.
-    rectangle1.style.transitionDuration = "0.3s";
-    rectangle3.style.transitionDuration = "0.3s";
+
+    function profileFunction(event) {
+        event.stopPropagation();
+        profileAbierto = !profileAbierto;
+        updateDropdown("profileDropdown", profileAbierto);
+
+        // Reset the animation for the myFunction SVG
+        abierto = false;
+        updateDropdown("myDropdown", abierto, rectangle1, rectangle3);
+    }
+
+    function updateDropdown(dropdownId, isOpen, customRectangle1, customRectangle3) {
+        var dropdown = document.getElementById(dropdownId);
+        var defaultRectangle1 = rectangle1;
+        var defaultRectangle3 = rectangle3;
+
+        if (customRectangle1 && customRectangle3) {
+            defaultRectangle1 = customRectangle1;
+            defaultRectangle3 = customRectangle3;
+        }
+
+        if (isOpen) {
+            defaultRectangle1.style.transform = "translate(0px,21px)";
+            defaultRectangle3.style.transform = "translate(0px,-21px)";
+        } else {
+            defaultRectangle1.style.transform = "translate(0px,-6px)";
+            defaultRectangle3.style.transform = "translate(0px,6px)";
+        }
+
+        dropdown.classList.toggle("show", isOpen);
+    }
+
+    document.addEventListener('click', function (event) {
+        if (abierto) {
+            updateDropdown("myDropdown", false);
+            abierto = false;
+        }
+
+        if (profileAbierto) {
+            updateDropdown("profileDropdown", false);
+            profileAbierto = false;
+        }
+
+        if (explorarAbierto) {
+            updateDropdown("explorarDropdown", false);
+            explorarAbierto = false;
+        }
+    });
+
+    ilustracion.addEventListener('click', function (event) {
+        event.stopPropagation();
+        abierto = !abierto;
+        updateDropdown("myDropdown", abierto);
+    });
+
+    var explorarBtn = document.getElementById('explorar-btn');
+    explorarBtn.addEventListener('click', function (event) {
+        event.stopPropagation();
+        explorarAbierto = !explorarAbierto;
+        updateDropdown("explorarDropdown", explorarAbierto);
+    });
+
+    // Separate event listener for the profile button
+    var profileDropdownBtn = document.querySelector('.profile-dropdown .dropbtn');
+    profileDropdownBtn.addEventListener('click', profileFunction);
+
+    // Separate event listener for the profile SVG
+    var profileSVG = document.querySelector('.profile');
+    profileSVG.addEventListener('click', function (event) {
+        event.stopPropagation();
+        // Animation code for the profile SVG if needed
+        profileFunction(event);
+    });
 });

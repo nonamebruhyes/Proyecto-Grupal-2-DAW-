@@ -7,19 +7,19 @@
     <link rel="stylesheet" href="./css/general-styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="css/main-style.css">
-    <link rel="stylesheet" href="css/header.css">
-    <link rel="stylesheet" href="css/footer.css">
-
     <title>Vaigo</title>
 </head>
 
 <body>
+    <div class="background-container">
+
+    </div>
     <header>
         <h1>Vaigo</h1>
 
         <div class="dropdown">
 
-            <button onclick="myFunction()" class="dropbtn">
+            <button class="dropbtn">
                 <svg class="ilustracion" id="ilustracion" width="100" height="100" viewBox="0 0 100 100" fill="none"
                     xmlns="http://www.w3.org/2000/svg">
                     <g id="Frame 1">
@@ -39,51 +39,77 @@
             </button>
 
             <div id="myDropdown" class="dropdown-content">
-                <a href="#home">Explorar</a>
-                <a href="#about">Sobre nosotros</a>
+                <a href="#home" id="explorar-a">Planes</a>
+                <a href="#about" id="">Sobre nosotros</a>
                 <a href="#contact">Contacto</a>
+            </div>
+
+            <div id="explorar-dropdown-2" class="explorar-dropdown-2">
+
+                <a href="#home" id="" href="www.youtube.com" class="a">Explorar</a>
+                <a href="#about" class="a">Nuestros planes</a>
+                <a href="#contact" class="a">Compartir tus viajes</a>
+
             </div>
 
         </div>
 
-        <div id="productos">
+        <div id="explorar-dropdown">
 
-            <ul>
-                <li><a href>Explorar</a></li>
-                <li><a href>Nuestro Planes </a></li>
-                <li><a href>Compartir tus viajes</a></li>
-            </ul>
-            <a href>Sobre nosotros</a>
-            <a href>Contacto</a>
+            <button class="explorar-dropbtn" id="explorar-btn">
+                Planes
+            </button>
+
+            <div id="explorarDropdown" class="explorar-dropdown-content">
+
+                <a href="#home" class="a">Explorar</a>
+                <a href="#about" class="a">Nuestros planes</a>
+                <a href="#contact" class="a">Compartir tus viajes</a>
+
+            </div>
+
+            <a href="" class="a">Sobre nosotros</a>
+            <a href="" class="a">Contacto</a>
 
         </div>
+
         <div id="usuario">
 
 
             <div class="profile-dropdown">
 
-                <button onclick="profileFunction()" class="dropbtn">
-                    <svg class="profile" width="100px" height="100px" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <button class="dropbtn">
+                    <svg class="profile" width="100px" height="100px" viewBox="0 0 40 40" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
                         <g id="Frame">
-                        <g id="Group 3">
-                        <path id="Vector" d="M20.2 21.3C20.0833 21.2833 19.9333 21.2833 19.8 21.3C16.8667 21.2 14.5333 18.8 14.5333 15.85C14.5333 12.8333 16.9667 10.3833 20 10.3833C23.0167 10.3833 25.4667 12.8333 25.4667 15.85C25.45 18.8 23.1333 21.2 20.2 21.3Z" stroke="#F6F6F6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <g id="Group 3">
+                                <path id="Vector"
+                                    d="M20.2 21.3C20.0833 21.2833 19.9333 21.2833 19.8 21.3C16.8667 21.2 14.5333 18.8 14.5333 15.85C14.5333 12.8333 16.9667 10.3833 20 10.3833C23.0167 10.3833 25.4667 12.8333 25.4667 15.85C25.45 18.8 23.1333 21.2 20.2 21.3Z"
+                                    stroke="#F6F6F6" stroke-width="2.5" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </g>
+                            <g id="Group 2">
+                                <path id="Vector_2"
+                                    d="M31.2333 32.3002C28.2667 35.0168 24.3333 36.6668 20 36.6668C15.6667 36.6668 11.7334 35.0168 8.76668 32.3002C8.93335 30.7335 9.93335 29.2002 11.7167 28.0002C16.2834 24.9668 23.75 24.9668 28.2833 28.0002C30.0667 29.2002 31.0667 30.7335 31.2333 32.3002Z"
+                                    stroke="#F6F6F6" stroke-width="2.5" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </g>
+                            <g id="Group 1">
+                                <path id="Vector_3"
+                                    d="M20 36.6667C29.2047 36.6667 36.6667 29.2047 36.6667 20C36.6667 10.7953 29.2047 3.33333 20 3.33333C10.7953 3.33333 3.33333 10.7953 3.33333 20C3.33333 29.2047 10.7953 36.6667 20 36.6667Z"
+                                    stroke="#F6F6F6" stroke-width="2.5" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </g>
                         </g>
-                        <g id="Group 2">
-                        <path id="Vector_2" d="M31.2333 32.3002C28.2667 35.0168 24.3333 36.6668 20 36.6668C15.6667 36.6668 11.7334 35.0168 8.76668 32.3002C8.93335 30.7335 9.93335 29.2002 11.7167 28.0002C16.2834 24.9668 23.75 24.9668 28.2833 28.0002C30.0667 29.2002 31.0667 30.7335 31.2333 32.3002Z" stroke="#F6F6F6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-                        </g>
-                        <g id="Group 1">
-                        <path id="Vector_3" d="M20 36.6667C29.2047 36.6667 36.6667 29.2047 36.6667 20C36.6667 10.7953 29.2047 3.33333 20 3.33333C10.7953 3.33333 3.33333 10.7953 3.33333 20C3.33333 29.2047 10.7953 36.6667 20 36.6667Z" stroke="#F6F6F6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-                        </g>
-                        </g>
-                        </svg>
+                    </svg>
                 </button>
-    
+
                 <div id="profileDropdown" class="profile-dropdown-content">
-                    <a href="#home">Perfil</a>
-                    <a href="#about">Inicio de sesion</a>
-                    <a href="#contact">Registrarse</a>
+                    <a href="#home" class="a">Perfil</a>
+                    <a href="#about" class="a">Inicio de sesion</a>
+                    <a href="#contact" class="a">Registrarse</a>
                 </div>
-    
+
             </div>
 
         </div>
@@ -95,7 +121,7 @@
         <div>
             <h1>Viajes a tu gusto</h1>
             <h3>Elije como quieres viajar</h3>
-            <button>PERSONALIZAR</button>
+            <a href="./paginashtml/filtrado_viajes.html"><button id="personalizar">PERSONALIZAR</button></a>
         </div>
 
     </main>
@@ -130,6 +156,7 @@
         </div>
 
     </footer>
+    </div>
 </body>
 <script src="./js/general-script.js"></script>
 
