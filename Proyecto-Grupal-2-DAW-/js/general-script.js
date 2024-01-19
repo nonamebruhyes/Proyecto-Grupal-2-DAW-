@@ -15,6 +15,10 @@ document.addEventListener('DOMContentLoaded', function () {
         document.getElementById('explorar-dropdown-2').style = "display:none;";
     });
 
+    document.getElementById("profile").addEventListener('click',function(){
+        document.getElementById('explorar-dropdown-2').style = "display:none;";
+    });
+
     explorarMovil.addEventListener('click', function (event) {
         event.stopPropagation();
         if(!explorar2){

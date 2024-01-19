@@ -19,7 +19,8 @@ header>h1 {
     font-size: 30px;
 }
 
-#Rectangle1, #Rectangle3{
+#Rectangle1,
+#Rectangle3 {
     transition-duration: 0.3s;
 }
 
@@ -29,7 +30,7 @@ header>h1 {
     transform: scale(0.6);
     font-size: 16px;
     border-radius: 10px;
-    border-style:none;
+    border-style: none;
     cursor: pointer;
     left: 0;
 }
@@ -38,7 +39,7 @@ header>h1 {
     background-color: rgb(0, 0, 0, 0);
     font-size: 16px;
 
-    border-style:none;
+    border-style: none;
     cursor: pointer;
     left: 0;
 }
@@ -48,7 +49,7 @@ header>h1 {
 }
 
 .dropdown {
-    display: inline-block;  
+    display: inline-block;
 }
 
 .dropdown-content {
@@ -126,13 +127,41 @@ header>h1 {
 
 .show {
     display: block;
+    animation: fadeIn 0.5s ease-in-out, scaleIn 0.3s ease-in-out;
+}
+
+@keyframes scaleIn {
+    from {
+        background-color: rgb(46, 46, 46,0.5);
+        top:40px;
+        transform: scaleY(0);
+    }
+
+    to {
+        background-color: #ebebeb;
+        top:106px;
+        transform: scaleY(1);
+    } 
+}
+
+@keyframes fadeIn {
+    from {
+
+        
+        opacity: 0;
+    }
+
+    to {
+        
+        opacity: 1;
+    }
 }
 
 #usuario {
     order: 3;
 }
 
-#explorar-dropdown{
+#explorar-dropdown {
     display: none;
 }
 
@@ -149,6 +178,10 @@ header>h1 {
     display: block;
 }
 
+.transicion {
+    transition: width 10s;
+}
+
 header>div>ul>li {
     list-style: none;
     display: none;
@@ -160,8 +193,8 @@ a {
 
 }
 
-@media(max-width: 650px){
-    .profile-dropdown-content{
+@media(max-width: 650px) {
+    .profile-dropdown-content {
         right: 0;
     }
 
@@ -170,7 +203,11 @@ a {
         left: 150px;
     }
 
-    .explorar-dropdown-2{
+    header h1 {
+        margin-left: 0px;
+    }
+
+    .explorar-dropdown-2 {
         display: none;
         flex-direction: column;
         position: absolute;
@@ -189,7 +226,7 @@ a {
         text-decoration: none;
         display: block;
     }
-    
+
     .explorar-dropdown-2 a:hover {
         background-color: #a7a7a7;
         transition-duration: 0.5s;
@@ -200,15 +237,16 @@ a {
 @media (min-width: 650px) {
 
 
-    .profile{
+
+    .profile {
         transform: scale(0.6);
     }
 
-    .profile-dropdown-content{
-        right:6%;
+    .profile-dropdown-content {
+        right: 6%;
     }
 
-    #explorar-btn{
+    #explorar-btn {
         color: #ebebeb;
         height: 106px;
         padding: 0;
@@ -217,13 +255,13 @@ a {
         font-size: 16px;
     }
 
-    #explorar-btn:hover{
+    #explorar-btn:hover {
         background-color: rgba(32, 32, 32, 0.3);
         color: #ebebeb;
         transition-duration: 0.7s;
     }
 
-    #explorar-dropdown{
+    #explorar-dropdown {
         height: 106px;
         display: flex;
     }
@@ -232,13 +270,13 @@ a {
         order: initial;
     }
 
-    
+
 
     .dropdown {
         position: relative;
         display: none;
     }
-    
+
     #explorar-dropdown>a {
         display: flex;
         align-items: center;
@@ -255,7 +293,7 @@ a {
         width: 200px;
     }
 
-    #explorar-dropdown>a:hover{
+    #explorar-dropdown>a:hover {
         background-color: rgba(32, 32, 32, 0.3);
         color: #ebebeb;
         transition-duration: 0.7s;
@@ -281,11 +319,11 @@ body {
     margin: 0;
 }
 
-body{
+body {
     background-image: url(../img/wallpaper/wallpaper.jpg);
     height: 100%;
     background-repeat: no-repeat;
-    background-size:cover;
+    background-size: cover;
     background-position: center center;
 
 }
@@ -336,6 +374,7 @@ footer>div>div>a>i:hover {
 
 /*Adaptacion a movil*/
 @media(max-width:640px) {
+
     /*Ordena los iconos en vertical*/
     footer>div>div {
         flex-direction: column;
@@ -353,7 +392,7 @@ footer>div>div>a>i:hover {
         width: 70%;
     }
 
-    
+
 
     /*Hace separacion entre los iconos*/
     footer div div a i {
@@ -363,7 +402,7 @@ footer>div>div>a>i:hover {
     /*Cambia el tipo de posicion del interior de los divs de redes sociales*/
     footer div div {
         width: 60px;
-        justify-content:center;
+        justify-content: center;
     }
 
 }
