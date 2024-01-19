@@ -11,7 +11,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
     var explorar2 = false;
 
-
+    document.getElementById("ilustracion").addEventListener('click',function(){
+        document.getElementById('explorar-dropdown-2').style = "display:none;";
+    });
 
     explorarMovil.addEventListener('click', function (event) {
         event.stopPropagation();
