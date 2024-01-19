@@ -1,7 +1,4 @@
-header>div>ul>li>img {
-    width: 25px;
-}
-
+/*Header general*/
 header {
     color: #ebebeb;
     background-color: rgba(0, 0, 0, 0.7);
@@ -18,27 +15,18 @@ header>h1 {
     order: 2;
     font-size: 30px;
 }
-
+/*Animacion SVG menu*/
 #Rectangle1,
 #Rectangle3 {
     transition-duration: 0.3s;
 }
 
-
+/*Drop menu movil*/
 .dropbtn {
     background-color: rgb(0, 0, 0, 0);
     transform: scale(0.6);
     font-size: 16px;
     border-radius: 10px;
-    border-style: none;
-    cursor: pointer;
-    left: 0;
-}
-
-.explorar-dropbtn {
-    background-color: rgb(0, 0, 0, 0);
-    font-size: 16px;
-
     border-style: none;
     cursor: pointer;
     left: 0;
@@ -51,6 +39,17 @@ header>h1 {
 .dropdown {
     display: inline-block;
 }
+
+.explorar-dropbtn {
+    background-color: rgb(0, 0, 0, 0);
+    font-size: 16px;
+
+    border-style: none;
+    cursor: pointer;
+    left: 0;
+}
+
+
 
 .dropdown-content {
     display: none;
