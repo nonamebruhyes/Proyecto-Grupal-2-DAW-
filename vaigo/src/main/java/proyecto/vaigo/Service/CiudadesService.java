@@ -1,0 +1,31 @@
+package proyecto.vaigo.Service;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import proyecto.vaigo.model.dto.CiudadesDTO;
+import proyecto.vaigo.model.entity.Ciudades;
+import proyecto.vaigo.repository.CiudadesRepository;
+
+import java.util.List;
+import java.util.stream.Collectors;
+
+@Service
+public class CiudadesService {
+    private static final Logger log = LoggerFactory.getLogger(CiudadesService.class);
+
+    @Autowired
+    private CiudadesRepository ciudadesRepository;
+
+    public List<CiudadesDTO> findAll() {
+        log.info("ClienteServiceImpl - findAll: Lista de todos los cliente");
+        List<CiudadesDTO> listaClientesDTO = ciudadesRepository.findAll()
+                .stream()
+                .map(p -> CiudadesDTO.convertToDTO(p))
+                .collect(Collectors.toList());
+
+        return listaClientesDTO;
+    }
+
+}
