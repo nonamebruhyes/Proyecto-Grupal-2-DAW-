@@ -13,6 +13,7 @@ public class CiudadesDTO implements Serializable {
     private String ciudad;
     public static CiudadesDTO convertToDTO(Ciudades ciudades) {
         // Creamos el clienteDTO y asignamos los valores basicos
+        //cambio
         CiudadesDTO ciudadesDTO = new CiudadesDTO();
         ciudadesDTO.setId(ciudades.getId());
         ciudadesDTO.setCiudad(ciudades.getCiudad());
