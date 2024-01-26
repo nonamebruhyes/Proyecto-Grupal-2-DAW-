@@ -1,8 +1,13 @@
+html {
+    scroll-behavior:smooth;
+}
+
 header>div>ul>li>img {
     width: 25px;
 }
 
 header {
+    height: 105px;
     color: #ebebeb;
     background-color: rgba(0, 0, 0, 0.7);
     width: 100%;
@@ -251,7 +256,9 @@ a {
 /*PC*/
 @media (min-width: 650px) {
 
-
+    body {
+        background-position: fixed;
+    }
 
     .profile {
         transform: scale(0.6);
@@ -335,8 +342,8 @@ body {
 }
 
 body {
+    min-height: 100vh;
     background-image: url(../img/wallpaper/wallpaper.jpg);
-    height: 100%;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;

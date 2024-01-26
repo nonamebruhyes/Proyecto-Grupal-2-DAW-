@@ -7,11 +7,14 @@ function FiltroFunction() {
    var a= document.getElementById("dropdown-content");
  
    if(!abierto){
+    window.scrollTo(0,0);
     a.style="display:block;"
     abierto=true;
+    document.body.style.overflow = "hidden";
    }else{
     a.style="display:none;"
     abierto = false;
+    document.body.style.overflow = "auto";
    }
 
 }
