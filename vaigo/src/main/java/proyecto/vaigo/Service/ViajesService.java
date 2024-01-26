@@ -1,4 +1,10 @@
 package proyecto.vaigo.Service;
 
-public class ViajesService {
+import proyecto.vaigo.model.dto.ExcursionDTO;
+import proyecto.vaigo.model.dto.ViajesDTO;
+
+import java.util.List;
+
+public interface ViajesService {
+    List<ViajesDTO> findAll();
 }

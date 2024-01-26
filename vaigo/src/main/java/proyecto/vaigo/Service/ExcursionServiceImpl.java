@@ -1,4 +1,30 @@
 package proyecto.vaigo.Service;
 
-public class ExcursionServiceImpl {
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import proyecto.vaigo.model.dto.ExcursionDTO;
+import proyecto.vaigo.repository.ExcursionRepository;
+
+import java.util.List;
+import java.util.stream.Collectors;
+
+@Service
+public class ExcursionServiceImpl implements ExcursionService {
+    private static final Logger log = LoggerFactory.getLogger(ExcursionServiceImpl.class);
+
+    @Autowired
+    private ExcursionRepository excursionRepository;
+
+    @Override
+    public List<ExcursionDTO> findAll() {
+        log.info("ClienteServiceImpl - findAll: Lista de todos los cliente");
+        List<ExcursionDTO> listaExcursionDTO = excursionRepository.findAll()
+                .stream()
+                .map(p -> ExcursionDTO.convertToDTO(p))
+                .collect(Collectors.toList());
+
+        return listaExcursionDTO;
+    }
 }

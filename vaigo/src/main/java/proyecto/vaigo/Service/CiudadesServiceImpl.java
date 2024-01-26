@@ -11,12 +11,13 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
-public class CiudadesServiceImpl {
+public class CiudadesServiceImpl implements CiudadesService{
     private static final Logger log = LoggerFactory.getLogger(CiudadesServiceImpl.class);
 
     @Autowired
     private CiudadesRepository ciudadesRepository;
 
+    @Override
     public List<CiudadesDTO> findAll() {
         log.info("ClienteServiceImpl - findAll: Lista de todos los cliente");
         List<CiudadesDTO> listaCiudadesDTO = ciudadesRepository.findAll()

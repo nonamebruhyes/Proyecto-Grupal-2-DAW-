@@ -1,4 +1,10 @@
 package proyecto.vaigo.Service;
 
-public class TransporteService {
+import proyecto.vaigo.model.dto.ExcursionDTO;
+import proyecto.vaigo.model.dto.TransporteDTO;
+
+import java.util.List;
+
+public interface TransporteService {
+    List<TransporteDTO> findAll();
 }

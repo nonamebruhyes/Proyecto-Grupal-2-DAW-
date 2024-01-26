@@ -1,4 +1,32 @@
 package proyecto.vaigo.Service;
 
-public class ItinerarioServiceImpl {
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import proyecto.vaigo.model.dto.ItinerarioDTO;
+
+import proyecto.vaigo.repository.ItinerarioRepository;
+
+import java.util.List;
+import java.util.stream.Collectors;
+
+@Service
+public class ItinerarioServiceImpl implements ItinerarioService {
+    private static final Logger log = LoggerFactory.getLogger(ItinerarioServiceImpl.class);
+
+    @Autowired
+    private ItinerarioRepository itinerarioRepository;
+
+    @Override
+    public List<ItinerarioDTO> findAll() {
+        log.info("ClienteServiceImpl - findAll: Lista de todos los cliente");
+        List<ItinerarioDTO> listaItinerarioDTO = itinerarioRepository.findAll()
+                .stream()
+                .map(p -> ItinerarioDTO.convertToDTO(p))
+                .collect(Collectors.toList());
+
+        return listaItinerarioDTO;
+    }
 }

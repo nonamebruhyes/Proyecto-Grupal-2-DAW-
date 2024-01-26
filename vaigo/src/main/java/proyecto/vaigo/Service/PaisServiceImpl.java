@@ -1,4 +1,7 @@
 package proyecto.vaigo.Service;
 
-public class PaisServiceImpl {
+import org.springframework.stereotype.Service;
+
+@Service
+public class PaisServiceImpl implements PaisService{
 }
