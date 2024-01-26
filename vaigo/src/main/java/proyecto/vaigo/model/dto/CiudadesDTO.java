@@ -6,14 +6,13 @@ import proyecto.vaigo.model.entity.Ciudades;
 import java.io.Serializable;
 
 @Data
-
 public class CiudadesDTO implements Serializable {
     private static final long serialVersionUID = 1L;
     private Long id;
     private String ciudad;
     public static CiudadesDTO convertToDTO(Ciudades ciudades) {
         // Creamos el clienteDTO y asignamos los valores basicos
-        //cambio
+        // no
         CiudadesDTO ciudadesDTO = new CiudadesDTO();
         ciudadesDTO.setId(ciudades.getId());
         ciudadesDTO.setCiudad(ciudades.getCiudad());
