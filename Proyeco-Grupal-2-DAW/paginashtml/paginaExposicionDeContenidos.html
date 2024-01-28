@@ -179,8 +179,13 @@
         </div>
         <article id="filtromovil">
           <div id="dropdown-content">
-            <h1>Filtros:</h1>
-            <button class="boton-filtro" onclick="FiltroFunction()">Filtro <img src="../img/icons/Feather-core-filter.svg.png" alt=""></button>
+            <div>
+              <h2>Filtros:</h2>
+              <div>
+                <button class="boton-x" onclick="FiltroFunction()"><img src="../img/icons/x-symbol.svg" alt=""></button>
+              </div>
+              
+            </div>
             <div id="fil2">
               <aside class="contenedor">
                 <p>Planes:</p>
@@ -230,7 +235,17 @@
                   <option value="value3">Value 3</option>
                 </select>
               </aside>
+              <aside class="contenedor">
+                <p>Ciudad:</p>
+                <select name="select">
+                  <option value="value1">Todos</option>
+                  <option value="value2" selected>Value 2</option>
+                  <option value="value3">Value 3</option>
+                </select>
+              </aside>         
             </div>
+            <button class="boton-filtro boton-aplicar" onclick="FiltroFunction()">Aplicar Filtros<img src="../img/icons/Feather-core-filter.svg.png" alt=""></button>
+
           </div>
           <button class="boton-filtro" onclick="FiltroFunction()">Filtro <img src="../img/icons/Feather-core-filter.svg.png" alt=""></button>
   
@@ -273,7 +288,7 @@
 
 
           </div>
-          <hr class="horizontal">
+       
           <div>
 
             <img src="../img/wallpaper/wallpaper.jpg" alt="" />
@@ -306,7 +321,6 @@
             </div>
 
           </div>
-          <hr class="horizontal">
           <div>
 
             <img src="../img/wallpaper/wallpaper.jpg" alt="" />

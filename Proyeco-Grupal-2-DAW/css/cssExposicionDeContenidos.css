@@ -195,7 +195,6 @@ main>div>div>div img {
 }
 
 .contenido div span {
-  opacity: 0.9;
   font-size: 25px;
   background-color: rgb(41, 116, 133);
   padding: 5px;
@@ -513,15 +512,46 @@ select option {
   #fil2 {
     display: flex;
     flex-direction: column;
-    height: 100%;
+    height: 81%;
     width: 100%;
-
+    overflow: scroll;
     background-color: rgba(57, 55, 53, 0.98);
-    border-radius: 6px;
+
   }
 
-  .show {
+  .show-2 {
     display: block;
+    animation: aparecer 0.3s ease-in-out  ;
+  }
+
+  @keyframes aparecer {
+    from{
+      transform: scaleX(0);
+      left: 100%;
+    }
+    to{
+      left: 0;
+      transform: scaleX(1);
+      
+    }
+  }
+
+  .show-2-out {
+    animation: desaparecer 0.3s ease-in-out;
+    left: 100%;
+    transform: scaleX(0);
+  }
+
+  @keyframes desaparecer {
+    from{
+      transform: scaleX(1);
+      left: 0;
+    }
+    to{
+      left: 100%;
+      transform: scaleX(0);
+      
+    }
   }
 
   .boton-filtro{
@@ -541,6 +571,50 @@ select option {
   }
   .boton-filtro:hover{
     background-color: #c8c8c8;
+  }
+
+  .boton-aplicar{
+    height: 62px;
+    font-size: 20px;
+    background-color: #c0b497;
+    color: #5c5c5c;
+  }
+
+  #dropdown-content>div:nth-child(1){
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(97, 95, 94, 0.98);
+  }
+
+  #dropdown-content>div:nth-child(1) h2{
+    color: #ebebeb;
+    text-align: left;
+    padding: 20px;
+    width: 60%;
+    height: fit-content;
+    font-size: 25px;
+  }
+
+  #dropdown-content>div:nth-child(1) img{
+    width: 25px;
+  }
+
+  #dropdown-content>div:nth-child(1) div{
+    display: flex;
+    justify-content: center;
+    width: 68.8px;
+    height: 68.8px;
+    background-color: #b8b8b8;
+  }
+
+  .boton-x{
+    height: 68.8px;
+    width: 68.8px;
+  }
+
+  .contenedor:last-child{
+    margin-bottom: 10px;
   }
 
 }

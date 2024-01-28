@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', function () {
     var ilustracion = document.getElementById('ilustracion');
     var rectangle1 = document.getElementById('Rectangle1');
     var rectangle3 = document.getElementById('Rectangle3');
-
+    
     var explorarMovil = document.getElementById('explorar-a');
 
     var abierto = false;
