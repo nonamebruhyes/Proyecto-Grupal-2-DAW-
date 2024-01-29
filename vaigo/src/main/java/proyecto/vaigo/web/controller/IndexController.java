@@ -16,6 +16,8 @@ import java.util.List;
 @RestController
 @RequestMapping("/")
 public class IndexController {
+    private static final Logger log =
+            LoggerFactory.getLogger(IndexController.class);
 
     @GetMapping("/index")
     public ModelAndView inicio(){
@@ -23,6 +25,8 @@ public class IndexController {
         modelAndView.setViewName("index.html");
         return modelAndView;
     }
+    @Autowired
+    private CiudadesServiceImpl ciudadesServiceImpl;
 
     @RequestMapping(method = RequestMethod.GET)
     public List<CiudadesDTO> findAll() {

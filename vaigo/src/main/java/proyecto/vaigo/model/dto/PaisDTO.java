@@ -16,15 +16,15 @@ public class PaisDTO implements Serializable{
         PaisDTO paisDTO = new PaisDTO();
         paisDTO.setId(pais.getId());
         paisDTO.setPais(pais.getPais());
-        paisDTO.setClima(pais.getClima());
+       // paisDTO.setClima(pais.getClima());
 
         return paisDTO;
     }
     public static Pais convertoToEntity(PaisDTO paisDTO){
         Pais pais = new Pais();
-        pais.setId(paisDTO.getId());
+        //pais.setId(paisDTO.getId());
         pais.setPais(paisDTO.getPais());
-        pais.setClima(paisDTO.getClima());
+       // pais.setClima(paisDTO.getClima());
 
         return pais;
     }

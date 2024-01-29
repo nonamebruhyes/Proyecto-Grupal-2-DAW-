@@ -10,8 +10,8 @@ import java.io.Serializable;
 public class ItinerarioDTO implements Serializable{
     private long id;
     private long idExcursion;
-/*
-    public static ItinerarioDTO convItinerarioDTO(Itinerario itinerario){
+
+    public static ItinerarioDTO convertToDTO(Itinerario itinerario){
         ItinerarioDTO itinerarioDTO = new ItinerarioDTO();
         itinerarioDTO.setId(itinerario.getId());
         itinerarioDTO.setIdExcursion(itinerario.getIdExcursion());
@@ -20,11 +20,11 @@ public class ItinerarioDTO implements Serializable{
     }
     public static Itinerario convertToEntity(ItinerarioDTO itinerarioDTO){
         Itinerario  itinerario = new Itinerario();
-        itinerario.setId(itinerarioDTO.getId());
-        itinerario.setIdExcursion(itinerarioDTO.getIdExcursion());
+        //itinerario.setId(itinerarioDTO.getId());
+        //itinerario.setIdExcursion(itinerarioDTO.getIdExcursion());
 
         return itinerario;
     }
 
- */
+
 }
