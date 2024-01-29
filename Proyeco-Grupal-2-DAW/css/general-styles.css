@@ -16,10 +16,13 @@ header {
     align-items: center;
 }
 
-header>h1 {
+header>a{
+    order: 2;
+}
+
+header>a>h1 {
     text-align: center;
     width: 92px;
-    margin-left: 20px;
     order: 2;
     font-size: 30px;
 }
