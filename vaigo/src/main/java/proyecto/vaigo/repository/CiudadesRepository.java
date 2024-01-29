@@ -7,5 +7,5 @@ import proyecto.vaigo.model.entity.Ciudades;
 
 @Repository
 @Transactional
-public interface CiudadesRepository  extends JpaRepository<Ciudades, Long> {
+public interface CiudadesRepository  extends JpaRepository<Ciudades, Integer> {
 }

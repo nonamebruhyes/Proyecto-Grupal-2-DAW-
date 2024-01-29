@@ -8,19 +8,16 @@ import java.util.Date;
 
 @Data
 public class HabitacionDTO implements Serializable {
-    private static final long serialVersionUID = 1L;
-    private Long id;
+    private int id;
     private String estado;
-    private Date fechaInicio;
-    private Date fechaFin;
+    private Date inicio;
+    private int fin;
+    private int idHotel
 
     public static HabitacionDTO convertToDTO(Habitacion habitacion) {
         // Creamos el clienteDTO y asignamos los valores basicos
         HabitacionDTO habitacionDTO = new HabitacionDTO();
-        habitacionDTO.setId(habitacion.getId());
-        habitacionDTO.setEstado(habitacion.getEstado());
-        habitacionDTO.setFechaInicio(habitacion.getFechaInicio());
-        habitacionDTO.setFechaFin(habitacion.getFechaFin());
+        HabitacionDTO
         // Retorna el DTO
         return habitacionDTO;
     }

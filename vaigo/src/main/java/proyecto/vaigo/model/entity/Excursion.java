@@ -32,9 +32,6 @@ public class Excursion {
 	@Column(name = "FEC_INICIO", nullable = false)
 	private Timestamp fecInicio;
 	@Basic
-	@Column(name = "FEC_FIN", nullable = false)
-	private Timestamp fecFin;
-	@Basic
 	@Column(name = "DURACION", nullable = false)
 	private Timestamp duracion;
 	@ManyToOne
