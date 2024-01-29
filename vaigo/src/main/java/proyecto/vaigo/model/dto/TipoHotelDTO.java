@@ -12,7 +12,7 @@ public class TipoHotelDTO implements Serializable{
     private String tipo;
 
 
-    public static TipoHotelDTO convertoToDTO(TipohotelEntity tipoHotel){
+    public static TipoHotelDTO convertToDTO(TipohotelEntity tipoHotel){
         TipoHotelDTO tipoHotelDTO = new TipoHotelDTO();
         tipoHotelDTO.setId(tipoHotel.getId());
         tipoHotelDTO.setTipo(tipoHotel.getTipo());

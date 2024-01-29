@@ -1,6 +1,8 @@
 package proyecto.vaigo.model.dto;
 
 import lombok.Data;
+import proyecto.vaigo.model.entity.ViajesEntity;
+
 import java.io.Serializable;
 import java.util.Date;
 
@@ -16,9 +18,10 @@ public class ViajesDTO implements Serializable{
     private Long idItinerario;
     private String Descripcion;
     private Long idHotel;
-/*
 
-    public static ViajesDTO convertToDTO(Viajes viajes){
+
+    public static ViajesDTO convertToDTO(ViajesEntity viajesEntity){
+        /*
         ViajesDTO viajesDTO = new ViajesDTO();
         viajesDTO.setId(viajes.getId());
         //viajesDTO.setPais(viajes.getPais());
@@ -32,9 +35,13 @@ public class ViajesDTO implements Serializable{
         viajesDTO.setDescripcion(viajes.getDescripcion());
 
         return viajesDTO;
+
+         */
+        return null;
     }
 
-    public static Viajes convertoToEntity(ViajesDTO viajesDTO){
+    public static ViajesEntity convertoToEntity(ViajesDTO viajesDTO){
+        /*
         Viajes viajes = new Viajes();
         viajes.setId(viajesDTO.getId());
         //viajes.setPais(viajesDTO.getPais());
@@ -48,7 +55,10 @@ public class ViajesDTO implements Serializable{
         viajes.setIdHotel(viajesDTO.getIdHotel());
 
         return viajes;
+
+         */
+        return null;
     }
 
- */
+
 }
