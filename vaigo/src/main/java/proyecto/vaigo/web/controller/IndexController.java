@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
-import proyecto.vaigo.Service.CiudadesServiceImpl;
+import proyecto.vaigo.Service.CiudadesService;
 import proyecto.vaigo.model.dto.CiudadesDTO;
 
 import java.util.List;
@@ -26,14 +26,14 @@ public class IndexController {
         return modelAndView;
     }
     @Autowired
-    private CiudadesServiceImpl ciudadesServiceImpl;
+    private CiudadesService ciudadesService;
 
     @RequestMapping(method = RequestMethod.GET)
     public List<CiudadesDTO> findAll() {
 
         log.info("ClienteRestController - findAll: Mostramos todos los clientes");
 
-        List<CiudadesDTO> listaCiudadesDTO = ciudadesServiceImpl.findAll();
+        List<CiudadesDTO> listaCiudadesDTO = ciudadesService.findAll();
         return listaCiudadesDTO;
     }
 
