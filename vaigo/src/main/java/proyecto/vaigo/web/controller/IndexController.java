@@ -28,7 +28,7 @@ public class IndexController {
     @Autowired
     private CiudadesService ciudadesService;
 
-    @RequestMapping(method = RequestMethod.GET)
+   @GetMapping("/listadopais")
     public List<CiudadesDTO> findAll() {
 
         log.info("ClienteRestController - findAll: Mostramos todos los clientes");
