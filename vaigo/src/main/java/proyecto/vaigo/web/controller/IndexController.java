@@ -22,7 +22,7 @@ public class IndexController {
     @GetMapping("/index")
     public ModelAndView inicio(){
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("index.html");
+        modelAndView.setViewName(" index.html");
         return modelAndView;
     }
     @Autowired

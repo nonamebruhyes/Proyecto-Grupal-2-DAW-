@@ -1,18 +1,14 @@
 package proyecto.vaigo.model.dto;
 
 import lombok.Data;
-import proyecto.vaigo.model.entity.Ciudades;
-import proyecto.vaigo.model.entity.Pais;
-import proyecto.vaigo.model.entity.Viajes;
-
 import java.io.Serializable;
 import java.util.Date;
 
 @Data
 public class ViajesDTO implements Serializable{
-    private Long id;
-    //private Pais pais;
-    //private Ciudades ciudades;
+    private int id;
+    private int pais;
+    private int  ciudades;
     private int numeroPersonas;
     private Date fechaIda;
     private Date fechaVuelta;

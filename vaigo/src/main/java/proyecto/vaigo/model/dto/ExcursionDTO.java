@@ -1,13 +1,11 @@
 package proyecto.vaigo.model.dto;
 
 import lombok.Data;
-import proyecto.vaigo.model.entity.Excursion;
+import proyecto.vaigo.model.entity.ExcursionEntity;
 
 
 import java.io.Serializable;
 import java.sql.Timestamp;
-import java.util.Date;
-
 @Data
 public class ExcursionDTO implements Serializable {
     private int id;
@@ -19,7 +17,7 @@ public class ExcursionDTO implements Serializable {
     private Timestamp fechaInicio;
     private Timestamp duracion;
 
-    public static ExcursionDTO convertToDTO(Excursion excursion) {
+    public static ExcursionDTO convertToDTO(ExcursionEntity excursion) {
 
         ExcursionDTO excursionDTO = new ExcursionDTO();
         excursionDTO.setId(excursion.getId());
@@ -30,9 +28,9 @@ public class ExcursionDTO implements Serializable {
         excursionDTO.setDuracion(excursion.getDuracion());
         return excursionDTO;
     }
-    public static Excursion convertToEntity(ExcursionDTO excursionDTO) {
+    public static ExcursionEntity convertToEntity(ExcursionDTO excursionDTO) {
         // Creamos la entidad cliente y le asignamos los valores
-        Excursion excursion = new Excursion();
+        ExcursionEntity excursion = new ExcursionEntity();
         excursion.setId(excursionDTO.getId());
         excursion.setDuracion(excursionDTO.getDuracion());
         excursion.setIdPais(excursionDTO.getIdPais());

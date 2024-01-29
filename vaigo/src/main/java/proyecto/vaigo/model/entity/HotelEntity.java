@@ -1,10 +1,11 @@
 package proyecto.vaigo.model.entity;
 
 import jakarta.persistence.*;
+import lombok.Data;
 
 import java.util.Collection;
 import java.util.Objects;
-
+@Data
 @Entity
 @Table(name = "HOTEL", schema = "vaigo", catalog = "")
 public class HotelEntity {
@@ -40,105 +41,4 @@ public class HotelEntity {
 	private TipohotelEntity tipohotelByIdTipohotel;
 	@OneToMany(mappedBy = "hotelByIdHotel")
 	private Collection<ViajesEntity> viajesById;
-
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
-	public String getNombre() {
-		return nombre;
-	}
-
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
-
-	public int getIdPais() {
-		return idPais;
-	}
-
-	public void setIdPais(int idPais) {
-		this.idPais = idPais;
-	}
-
-	public int getIdCiudad() {
-		return idCiudad;
-	}
-
-	public void setIdCiudad(int idCiudad) {
-		this.idCiudad = idCiudad;
-	}
-
-	public int getIdTipohotel() {
-		return idTipohotel;
-	}
-
-	public void setIdTipohotel(int idTipohotel) {
-		this.idTipohotel = idTipohotel;
-	}
-
-	public Double getPrecio() {
-		return precio;
-	}
-
-	public void setPrecio(Double precio) {
-		this.precio = precio;
-	}
-
-	@Override
-	public boolean equals(Object o) {
-		if (this == o) return true;
-		if (o == null || getClass() != o.getClass()) return false;
-		HotelEntity that = (HotelEntity) o;
-		return id == that.id && idPais == that.idPais && idCiudad == that.idCiudad && idTipohotel == that.idTipohotel && Objects.equals(nombre, that.nombre) && Objects.equals(precio, that.precio);
-	}
-
-	@Override
-	public int hashCode() {
-		return Objects.hash(id, nombre, idPais, idCiudad, idTipohotel, precio);
-	}
-
-	public Collection<HabitacionEntity> getHabitacionsById() {
-		return habitacionsById;
-	}
-
-	public void setHabitacionsById(Collection<HabitacionEntity> habitacionsById) {
-		this.habitacionsById = habitacionsById;
-	}
-
-	public PaisEntity getPaisByIdPais() {
-		return paisByIdPais;
-	}
-
-	public void setPaisByIdPais(PaisEntity paisByIdPais) {
-		this.paisByIdPais = paisByIdPais;
-	}
-
-	public CiudadesEntity getCiudadesByIdCiudad() {
-		return ciudadesByIdCiudad;
-	}
-
-	public void setCiudadesByIdCiudad(CiudadesEntity ciudadesByIdCiudad) {
-		this.ciudadesByIdCiudad = ciudadesByIdCiudad;
-	}
-
-	public TipohotelEntity getTipohotelByIdTipohotel() {
-		return tipohotelByIdTipohotel;
-	}
-
-	public void setTipohotelByIdTipohotel(TipohotelEntity tipohotelByIdTipohotel) {
-		this.tipohotelByIdTipohotel = tipohotelByIdTipohotel;
-	}
-
-	public Collection<ViajesEntity> getViajesById() {
-		return viajesById;
-	}
-
-	public void setViajesById(Collection<ViajesEntity> viajesById) {
-		this.viajesById = viajesById;
-	}
 }

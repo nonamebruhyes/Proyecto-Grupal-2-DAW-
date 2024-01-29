@@ -1,18 +1,18 @@
 package proyecto.vaigo.model.dto;
 
 import lombok.Data;
-import proyecto.vaigo.model.entity.TipoHotel;
+import proyecto.vaigo.model.entity.TipohotelEntity;
 
 import java.io.Serializable;
 
 
 @Data
 public class TipoHotelDTO implements Serializable{
-    private long id;
+    private int id;
     private String tipo;
 
 
-    public static TipoHotelDTO convertoToDTO(TipoHotel tipoHotel){
+    public static TipoHotelDTO convertoToDTO(TipohotelEntity tipoHotel){
         TipoHotelDTO tipoHotelDTO = new TipoHotelDTO();
         tipoHotelDTO.setId(tipoHotel.getId());
         tipoHotelDTO.setTipo(tipoHotel.getTipo());
@@ -20,8 +20,8 @@ public class TipoHotelDTO implements Serializable{
         return tipoHotelDTO;
     }
 
-    public static TipoHotel convertToEntity(TipoHotelDTO tipoHotelDTO){
-        TipoHotel tipoHotel = new TipoHotel();
+    public static TipohotelEntity convertToEntity(TipoHotelDTO tipoHotelDTO){
+        TipohotelEntity tipoHotel = new TipohotelEntity();
         tipoHotel.setId(tipoHotelDTO.getId());
         tipoHotel.setTipo(tipoHotelDTO.getTipo());
 

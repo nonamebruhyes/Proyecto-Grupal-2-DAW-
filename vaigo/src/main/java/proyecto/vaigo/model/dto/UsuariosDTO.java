@@ -1,25 +1,25 @@
 package proyecto.vaigo.model.dto;
 
 import lombok.Data;
-import proyecto.vaigo.model.entity.Usuarios;
+import proyecto.vaigo.model.entity.UsuariosEntity;
 
 
 import java.io.Serializable;
+import java.sql.Timestamp;
 import java.util.Date;
 
 
 @Data
 public class UsuariosDTO implements Serializable{
-    private static final long serialVersionUID = 1L;
-    private Long id;
+    private int id;
     private String username;
-    private String correo;
     private String password;
     private String imgperfil;
+    private String correo;
     private String rol;
-    private Date fechaDeRegistro;
+    private Timestamp fregistro;
 
-    public static UsuariosDTO convertToDTO(Usuarios usuarios){
+    public static UsuariosDTO convertToDTO(UsuariosEntity usuarios){
         UsuariosDTO usuariosDTO = new UsuariosDTO();
         usuariosDTO.setId(usuarios.getId());
         usuariosDTO.setUsername(usuarios.getUsername());
@@ -27,19 +27,19 @@ public class UsuariosDTO implements Serializable{
         usuariosDTO.setPassword(usuarios.getPassword());
         usuariosDTO.setImgperfil(usuarios.getImgperfil());
         usuariosDTO.setRol(usuarios.getRol());
-        usuariosDTO.setFechaDeRegistro(usuarios.getFechaDeRegistro());
+        usuariosDTO.setFregistro(usuarios.getFregistro());
         
         return usuariosDTO;
     }
-    public static Usuarios convertToEntity(UsuariosDTO usuariosDTO){
-        Usuarios usuarios =  new Usuarios();
+    public static UsuariosEntity convertToEntity(UsuariosDTO usuariosDTO){
+        UsuariosEntity usuarios =  new UsuariosEntity();
         usuarios.setId(usuariosDTO.getId());
         usuarios.setUsername(usuariosDTO.getUsername());
         usuarios.setCorreo(usuariosDTO.getCorreo());
         usuarios.setPassword(usuariosDTO.getPassword());
         usuarios.setImgperfil(usuariosDTO.getImgperfil());
         usuarios.setRol(usuariosDTO.getRol());
-        usuarios.setFechaDeRegistro(usuariosDTO.getFechaDeRegistro());
+        usuarios.setFregistro(usuariosDTO.getFregistro());
 
         return usuarios;
     }
