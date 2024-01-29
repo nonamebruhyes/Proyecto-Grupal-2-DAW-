@@ -4,61 +4,53 @@ import lombok.Data;
 import proyecto.vaigo.model.entity.ViajesEntity;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.sql.Date;
 
 @Data
 public class ViajesDTO implements Serializable{
     private int id;
-    private int pais;
-    private int  ciudades;
-    private int numeroPersonas;
-    private Date fechaIda;
-    private Date fechaVuelta;
-    private Long idTerreno;
-    private Long idItinerario;
+ 	private int idPais;
+	private int idCiudad;
+    private int idHotel;
+    private int idTerreno;
+    private int idViajesimagenes;
+    private int idTransporte;
+    private Date ida;
+    private Date vuelta;
+    private Double puntuacion;
     private String Descripcion;
-    private Long idHotel;
 
 
-    public static ViajesDTO convertToDTO(ViajesEntity viajesEntity){
-        /*
+    public static ViajesDTO convertToDTO(ViajesEntity viajes){
         ViajesDTO viajesDTO = new ViajesDTO();
         viajesDTO.setId(viajes.getId());
-        //viajesDTO.setPais(viajes.getPais());
-        //viajesDTO.setCiudades(viajes.getCiudades());
-        viajesDTO.setNumeroPersonas(viajes.getNumeroPersonas());
-        viajesDTO.setFechaIda(viajes.getFechaIda());
-        viajesDTO.setFechaVuelta(viajes.getFechaVuelta());
-        viajesDTO.setIdItinerario(viajes.getIdItinerario());
-        viajesDTO.setIdTerreno(viajes.getIdTerreno());
+        viajesDTO.setIdPais(viajes.getIdPais());
+        viajesDTO.setIdCiudad(viajes.getIdCiudad());
         viajesDTO.setIdHotel(viajes.getIdHotel());
+        viajesDTO.setIdTerreno(viajes.getIdTerreno());
+        viajesDTO.setIdViajesimagenes(viajes.getIdViajesimagenes());
+        viajesDTO.setIda(viajes.getIda());
+        viajesDTO.setVuelta(viajes.getVuelta());
         viajesDTO.setDescripcion(viajes.getDescripcion());
-
+        viajesDTO.setIdTransporte(viajes.getIdTransporte());
+        viajesDTO.setPuntuacion(viajes.getPuntuacion());
         return viajesDTO;
-
-         */
-        return null;
     }
 
     public static ViajesEntity convertoToEntity(ViajesDTO viajesDTO){
-        /*
-        Viajes viajes = new Viajes();
-        viajes.setId(viajesDTO.getId());
-        //viajes.setPais(viajesDTO.getPais());
-        //viajes.setCiudades(viajesDTO.getCiudades());
-        viajes.setNumeroPersonas(viajesDTO.getNumeroPersonas());
-        viajes.setFechaIda(viajesDTO.getFechaIda());
-        viajes.setFechaVuelta(viajesDTO.getFechaVuelta());
-        viajes.setIdTerreno(viajesDTO.getIdTerreno());
-        viajes.setIdItinerario(viajesDTO.getIdItinerario());
-        viajes.setDescripcion(viajesDTO.getDescripcion());
-        viajes.setIdHotel(viajesDTO.getIdHotel());
+        ViajesEntity viajes = new ViajesEntity();
+        viajes.setId( viajesDTO.getId());
+        viajes.setIdPais( viajesDTO.getIdPais());
+        viajes.setIdCiudad( viajesDTO.getIdCiudad());
+        viajes.setIdHotel( viajesDTO.getIdHotel());
+        viajes.setIdTerreno( viajesDTO.getIdTerreno());
+        viajes.setIdViajesimagenes( viajesDTO.getIdViajesimagenes());
+        viajes.setIda( viajesDTO.getIda());
+        viajes.setVuelta( viajesDTO.getVuelta());
+        viajes.setDescripcion( viajesDTO.getDescripcion());
+        viajes.setIdTransporte(viajesDTO.getIdTransporte());
+        viajes.setPuntuacion( viajesDTO.getPuntuacion());
 
         return viajes;
-
-         */
-        return null;
     }
-
-
 }

@@ -28,6 +28,7 @@ public class HotelEntity {
 	@Basic
 	@Column(name = "PRECIO")
 	private Double precio;
+
 	@OneToMany(mappedBy = "hotelByIdHotel")
 	private Collection<HabitacionEntity> habitacionsById;
 	@ManyToOne

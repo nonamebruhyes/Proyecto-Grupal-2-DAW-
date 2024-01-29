@@ -41,6 +41,9 @@ public class ViajesEntity {
 	@Basic
 	@Column(name = "PUNTUACION")
 	private Double puntuacion;
+	@Basic
+	@Column(name = "descripcion")
+	private String descripcion;
 	@OneToMany(mappedBy = "viajesByIdViaje")
 	private Collection<HistorialviajesEntity> historialviajesById;
 	@ManyToOne
