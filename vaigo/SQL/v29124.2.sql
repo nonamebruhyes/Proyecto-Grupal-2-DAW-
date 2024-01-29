@@ -2,8 +2,8 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Servidor: 127.0.0.1
--- Tiempo de generación: 29-01-2024 a las 13:50:21
+-- Servidor: localhost
+-- Tiempo de generación: 29-01-2024 a las 21:43:40
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -165,20 +165,6 @@ INSERT INTO `excursion` (`ID`, `ID_PAIS`, `ID_CIUDAD`, `TIPO`, `PRECIO`, `NOMBRE
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `habitacion`
---
-
-CREATE TABLE `habitacion` (
-  `ID` int(11) NOT NULL,
-  `ESTADO` char(1) DEFAULT NULL CHECK (`ESTADO` in ('D','O')),
-  `INICIO` date DEFAULT NULL,
-  `ID_HOTEL` int(11) NOT NULL,
-  `FIN` date DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
 -- Estructura de tabla para la tabla `historialviajes`
 --
 
@@ -186,10 +172,8 @@ CREATE TABLE `historialviajes` (
   `ID` int(11) NOT NULL,
   `ID_USUARIO` int(11) NOT NULL,
   `ID_VIAJE` int(11) NOT NULL,
-  `COMENTARIO` varchar(200) DEFAULT NULL,
   `NUMPERSONAS` int(11) DEFAULT NULL,
-  `Precio_total` double DEFAULT NULL,
-  `Id_itinerario` int(11) NOT NULL
+  `Precio_total` double DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -215,7 +199,9 @@ CREATE TABLE `hotel` (
 
 CREATE TABLE `itinerario` (
   `ID` int(11) NOT NULL,
-  `ID_EXCURSION` int(11) NOT NULL
+  `ID_EXCURSION` int(11) NOT NULL,
+  `ID_HISTORIALVIAJES` int(11) NOT NULL,
+  `COMENTARIO` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -354,20 +340,12 @@ ALTER TABLE `excursion`
   ADD KEY `ID_CIUDAD` (`ID_CIUDAD`);
 
 --
--- Indices de la tabla `habitacion`
---
-ALTER TABLE `habitacion`
-  ADD PRIMARY KEY (`ID`),
-  ADD KEY `HABITACION_HABITACION__fk` (`ID_HOTEL`);
-
---
 -- Indices de la tabla `historialviajes`
 --
 ALTER TABLE `historialviajes`
   ADD PRIMARY KEY (`ID`),
   ADD KEY `HISTORIALVIAJES_ibfk_1` (`ID_USUARIO`),
-  ADD KEY `HISTORIALVIAJES_ibfk_2` (`ID_VIAJE`),
-  ADD KEY `HISTORIALVIAJES_ibfk_3` (`Id_itinerario`);
+  ADD KEY `HISTORIALVIAJES_ibfk_2` (`ID_VIAJE`);
 
 --
 -- Indices de la tabla `hotel`
@@ -383,7 +361,8 @@ ALTER TABLE `hotel`
 --
 ALTER TABLE `itinerario`
   ADD PRIMARY KEY (`ID`),
-  ADD KEY `ID_EXCURSION` (`ID_EXCURSION`);
+  ADD KEY `ID_EXCURSION` (`ID_EXCURSION`),
+  ADD KEY `ITINERARIO_ibfk_2` (`ID_HISTORIALVIAJES`);
 
 --
 -- Indices de la tabla `pais`
@@ -448,12 +427,6 @@ ALTER TABLE `ciudades`
 --
 ALTER TABLE `excursion`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=70;
-
---
--- AUTO_INCREMENT de la tabla `habitacion`
---
-ALTER TABLE `habitacion`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `historialviajes`
@@ -533,18 +506,11 @@ ALTER TABLE `excursion`
   ADD CONSTRAINT `EXCURSION_ibfk_2` FOREIGN KEY (`ID_CIUDAD`) REFERENCES `ciudades` (`ID`);
 
 --
--- Filtros para la tabla `habitacion`
---
-ALTER TABLE `habitacion`
-  ADD CONSTRAINT `HABITACION_HABITACION__fk` FOREIGN KEY (`ID_HOTEL`) REFERENCES `hotel` (`ID`);
-
---
 -- Filtros para la tabla `historialviajes`
 --
 ALTER TABLE `historialviajes`
   ADD CONSTRAINT `HISTORIALVIAJES_ibfk_1` FOREIGN KEY (`ID_USUARIO`) REFERENCES `usuarios` (`ID`) ON UPDATE CASCADE,
-  ADD CONSTRAINT `HISTORIALVIAJES_ibfk_2` FOREIGN KEY (`ID_VIAJE`) REFERENCES `viajes` (`ID`) ON UPDATE CASCADE,
-  ADD CONSTRAINT `HISTORIALVIAJES_ibfk_3` FOREIGN KEY (`Id_itinerario`) REFERENCES `itinerario` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `HISTORIALVIAJES_ibfk_2` FOREIGN KEY (`ID_VIAJE`) REFERENCES `viajes` (`ID`) ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `hotel`
@@ -558,7 +524,8 @@ ALTER TABLE `hotel`
 -- Filtros para la tabla `itinerario`
 --
 ALTER TABLE `itinerario`
-  ADD CONSTRAINT `ITINERARIO_ibfk_1` FOREIGN KEY (`ID_EXCURSION`) REFERENCES `excursion` (`ID`) ON DELETE CASCADE;
+  ADD CONSTRAINT `ITINERARIO_ibfk_1` FOREIGN KEY (`ID_EXCURSION`) REFERENCES `excursion` (`ID`) ON DELETE NO ACTION,
+  ADD CONSTRAINT `ITINERARIO_ibfk_2` FOREIGN KEY (`ID_HISTORIALVIAJES`) REFERENCES `historialviajes` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Filtros para la tabla `viajes`

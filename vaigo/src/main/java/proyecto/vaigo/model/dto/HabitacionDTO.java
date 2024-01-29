@@ -1,7 +1,6 @@
 package proyecto.vaigo.model.dto;
 
 import lombok.Data;
-import proyecto.vaigo.model.entity.HabitacionEntity;
 
 import java.io.Serializable;
 import java.sql.Date;
