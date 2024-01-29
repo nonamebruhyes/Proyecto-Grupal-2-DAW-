@@ -14,10 +14,10 @@ public class HistorialviajesEntity {
 	@Column(name = "ID")
 	private int id;
 	@Basic
-	@Column(name = "ID_USUARIO")
+	@Column(name = "ID_USUARIO",insertable=false, updatable=false)
 	private int idUsuario;
 	@Basic
-	@Column(name = "ID_VIAJE")
+	@Column(name = "ID_VIAJE",insertable=false, updatable=false)
 	private int idViaje;
 	@Basic
 	@Column(name = "COMENTARIO")
@@ -29,7 +29,7 @@ public class HistorialviajesEntity {
 	@Column(name = "Precio_total")
 	private Double precioTotal;
 	@Basic
-	@Column(name = "Id_itinerario")
+	@Column(name = "Id_itinerario",insertable=false, updatable=false)
 	private int idItinerario;
 	@ManyToOne
 	@JoinColumn(name = "ID_USUARIO", referencedColumnName = "ID", nullable = false)

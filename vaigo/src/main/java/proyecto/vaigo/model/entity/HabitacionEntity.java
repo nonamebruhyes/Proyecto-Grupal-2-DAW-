@@ -20,7 +20,7 @@ public class HabitacionEntity {
 	@Column(name = "INICIO")
 	private Date inicio;
 	@Basic
-	@Column(name = "ID_HOTEL")
+	@Column(name = "ID_HOTEL",insertable=false, updatable=false)
 	private int idHotel;
 	@Basic
 	@Column(name = "FIN")

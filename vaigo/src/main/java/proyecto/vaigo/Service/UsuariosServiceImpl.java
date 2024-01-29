@@ -3,5 +3,5 @@ package proyecto.vaigo.Service;
 import org.springframework.stereotype.Service;
 
 @Service
-public class UsuariosServiceImpl implements UsuariosService {
+public class UsuariosServiceImpl  {
 }

@@ -13,7 +13,7 @@ public class CiudadesEntity {
 	@Column(name = "ID")
 	private int id;
 	@Basic
-	@Column(name = "ID_PAIS")
+	@Column(name = "ID_PAIS",insertable=false, updatable=false)
 	private int idPais;
 	@Basic
 	@Column(name = "CIUDAD")

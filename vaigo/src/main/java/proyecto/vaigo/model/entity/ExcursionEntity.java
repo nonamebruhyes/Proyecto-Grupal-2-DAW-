@@ -15,10 +15,10 @@ public class ExcursionEntity {
 	@Column(name = "ID")
 	private int id;
 	@Basic
-	@Column(name = "ID_PAIS")
+	@Column(name = "ID_PAIS",insertable=false, updatable=false)
 	private int idPais;
 	@Basic
-	@Column(name = "ID_CIUDAD")
+	@Column(name = "ID_CIUDAD",insertable=false, updatable=false)
 	private int idCiudad;
 	@Basic
 	@Column(name = "TIPO")

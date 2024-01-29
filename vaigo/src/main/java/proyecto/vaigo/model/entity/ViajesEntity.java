@@ -15,10 +15,10 @@ public class ViajesEntity {
 	@Column(name = "ID")
 	private int id;
 	@Basic
-	@Column(name = "ID_PAIS")
+	@Column(name = "ID_PAIS",insertable=false, updatable=false)
 	private int idPais;
 	@Basic
-	@Column(name = "ID_CIUDAD")
+	@Column(name = "ID_CIUDAD",insertable=false, updatable=false)
 	private int idCiudad;
 	@Basic
 	@Column(name = "IDA")
@@ -27,16 +27,16 @@ public class ViajesEntity {
 	@Column(name = "VUELTA")
 	private Date vuelta;
 	@Basic
-	@Column(name = "ID_TERRENO")
+	@Column(name = "ID_TERRENO",insertable=false, updatable=false)
 	private int idTerreno;
 	@Basic
-	@Column(name = "ID_HOTEL")
+	@Column(name = "ID_HOTEL",insertable=false, updatable=false)
 	private int idHotel;
 	@Basic
-	@Column(name = "ID_TRANSPORTE")
+	@Column(name = "ID_TRANSPORTE",insertable=false, updatable=false)
 	private int idTransporte;
 	@Basic
-	@Column(name = "ID_VIAJESIMAGENES")
+	@Column(name = "ID_VIAJESIMAGENES",insertable=false, updatable=false)
 	private int idViajesimagenes;
 	@Basic
 	@Column(name = "PUNTUACION")

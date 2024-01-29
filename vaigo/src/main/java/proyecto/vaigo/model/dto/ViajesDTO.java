@@ -16,7 +16,7 @@ public class ViajesDTO implements Serializable{
     private Long idItinerario;
     private String Descripcion;
     private Long idHotel;
-
+/*
 
     public static ViajesDTO convertToDTO(Viajes viajes){
         ViajesDTO viajesDTO = new ViajesDTO();
@@ -49,4 +49,6 @@ public class ViajesDTO implements Serializable{
 
         return viajes;
     }
+
+ */
 }

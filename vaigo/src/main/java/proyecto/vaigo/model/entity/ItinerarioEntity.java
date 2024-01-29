@@ -14,7 +14,7 @@ public class ItinerarioEntity {
 	@Column(name = "ID")
 	private int id;
 	@Basic
-	@Column(name = "ID_EXCURSION")
+	@Column(name = "ID_EXCURSION",insertable=false, updatable=false)
 	private int idExcursion;
 	@OneToMany(mappedBy = "itinerarioByIdItinerario")
 	private Collection<HistorialviajesEntity> historialviajesById;
