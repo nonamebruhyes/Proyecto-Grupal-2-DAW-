@@ -3,11 +3,14 @@ package proyecto.vaigo.Service;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Service;
 import proyecto.vaigo.model.dto.CiudadesDTO;
+import proyecto.vaigo.model.entity.CiudadesEntity;
 import proyecto.vaigo.repository.CiudadesRepository;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -26,6 +29,19 @@ public class CiudadesServiceImpl implements CiudadesService{
                 .collect(Collectors.toList());
 
         return listaCiudadesDTO;
+    }
+    @Override
+    public CiudadesDTO findById(CiudadesDTO ciudadesDTO) {
+        log.info("ClienteServiceImpl - findById: Buscar cliente por id: " +
+                ciudadesDTO.getId());
+
+        Optional<CiudadesEntity> ciudadesEntity = ciudadesRepository.findById(ciudadesDTO.getId());
+        if(ciudadesEntity.isPresent()) {
+            ciudadesDTO = CiudadesDTO.convertToDTO(ciudadesEntity.get());
+            return ciudadesDTO;
+        }else {
+            return null;
+        }
     }
 
 }

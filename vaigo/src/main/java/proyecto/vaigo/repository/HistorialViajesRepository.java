@@ -8,5 +8,5 @@ import proyecto.vaigo.model.entity.HistorialviajesEntity;
 
 @Repository
 @Transactional
-public interface HistorialViajesRepository extends JpaRepository<HistorialviajesEntity, Long> {
+public interface HistorialViajesRepository extends JpaRepository<HistorialviajesEntity, Integer> {
 }

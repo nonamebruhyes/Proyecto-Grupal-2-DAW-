@@ -29,8 +29,7 @@ public class HotelEntity {
 	@Column(name = "PRECIO")
 	private Double precio;
 
-	@OneToMany(mappedBy = "hotelByIdHotel")
-	private Collection<HabitacionEntity> habitacionsById;
+
 	@ManyToOne
 	@JoinColumn(name = "ID_PAIS", referencedColumnName = "ID", nullable = false)
 	private PaisEntity paisByIdPais;

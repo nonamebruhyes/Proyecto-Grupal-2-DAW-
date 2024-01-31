@@ -4,10 +4,14 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import proyecto.vaigo.model.dto.CiudadesDTO;
 import proyecto.vaigo.model.dto.ExcursionDTO;
+import proyecto.vaigo.model.entity.CiudadesEntity;
+import proyecto.vaigo.model.entity.ExcursionEntity;
 import proyecto.vaigo.repository.ExcursionRepository;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -26,5 +30,18 @@ public class ExcursionServiceImpl implements ExcursionService {
                 .collect(Collectors.toList());
 
         return listaExcursionDTO;
+    }
+    @Override
+    public ExcursionDTO findById(ExcursionDTO excursionDTO) {
+        log.info("ClienteServiceImpl - findById: Buscar cliente por id: " +
+                excursionDTO.getId());
+
+        Optional<ExcursionEntity> excursionEntity = excursionRepository.findById(excursionDTO.getId());
+        if(excursionEntity.isPresent()) {
+            excursionDTO = ExcursionDTO.convertToDTO(excursionEntity.get());
+            return excursionDTO;
+        }else {
+            return null;
+        }
     }
 }

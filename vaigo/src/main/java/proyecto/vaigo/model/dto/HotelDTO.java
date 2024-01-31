@@ -19,15 +19,17 @@ public class HotelDTO {
 		hotelDTO.setIdCiudad(hotelDTO.getIdCiudad());
 		hotelDTO.setIdTipohotel(hotel.getIdTipohotel());
 		hotelDTO.setPrecio(hotel.getPrecio());
-	}
+        return hotelDTO;
+    }
 
-	public static Hotel convertoToEntity(HotelDTO hotelDTO){
-		Hotel hotel = new Hotel();
-		hotel.setId(hotel.getId());
-		hotel.setNombre(hotel.getNombre());
-		hotel.setIdPais(hotel.getIdPais());
+	public static HotelEntity convertoToEntity(HotelDTO hotelDTO){
+		HotelEntity hotel = new HotelEntity();
+		hotel.setId(hotelDTO.getId());
+		hotel.setNombre(hotelDTO.getNombre());
+		hotel.setIdPais(hotelDTO.getIdPais());
 		hotel.setIdCiudad(hotelDTO.getIdCiudad());
-		hotel.setIdTipohotel(hotel.getIdTipohotel());
-		hotel.setPrecio(hotel.getPrecio());
-	}
+		hotel.setIdTipohotel(hotelDTO.getIdTipohotel());
+		hotel.setPrecio(hotelDTO.getPrecio());
+        return hotel;
+    }
 }

@@ -7,4 +7,5 @@ import java.util.List;
 
 public interface ExcursionService {
     List<ExcursionDTO> findAll();
+    ExcursionDTO findById(ExcursionDTO excursionDTO);
 }

@@ -8,5 +8,5 @@ import proyecto.vaigo.model.entity.PaisEntity;
 
 @Repository
 @Transactional
-public interface PaisRepository extends JpaRepository<PaisEntity, Long> {
+public interface PaisRepository extends JpaRepository<PaisEntity, Integer> {
 }

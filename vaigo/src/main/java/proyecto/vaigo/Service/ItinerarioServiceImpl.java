@@ -5,11 +5,15 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import proyecto.vaigo.model.dto.HistorialViajesDTO;
 import proyecto.vaigo.model.dto.ItinerarioDTO;
 
+import proyecto.vaigo.model.entity.HistorialviajesEntity;
+import proyecto.vaigo.model.entity.ItinerarioEntity;
 import proyecto.vaigo.repository.ItinerarioRepository;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -28,5 +32,18 @@ public class ItinerarioServiceImpl implements ItinerarioService {
                 .collect(Collectors.toList());
 
         return listaItinerarioDTO;
+    }
+    @Override
+    public ItinerarioDTO findById(ItinerarioDTO itinerarioDTO) {
+        log.info("ClienteServiceImpl - findById: Buscar cliente por id: " +
+                itinerarioDTO.getId());
+
+        Optional<ItinerarioEntity> itinerarioEntity = itinerarioRepository.findById(itinerarioDTO.getId());
+        if(itinerarioEntity.isPresent()) {
+            itinerarioDTO = HistorialViajesDTO.convertToDTO(itinerarioEntity.get());
+            return historialViajesDTO;
+        }else {
+            return null;
+        }
     }
 }

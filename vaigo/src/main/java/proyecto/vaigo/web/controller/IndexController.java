@@ -36,5 +36,13 @@ public class IndexController {
         List<CiudadesDTO> listaCiudadesDTO = ciudadesService.findAll();
         return listaCiudadesDTO;
     }
+    @GetMapping("/listaporpais")
+    public List<CiudadesDTO> findAllid() {
+
+        log.info("ClienteRestController - findAll: Mostramos todos los clientes");
+
+        List<CiudadesDTO> listaCiudadesDTO = ciudadesService.findAllID();
+        return listaCiudadesDTO;
+    }
 
 }

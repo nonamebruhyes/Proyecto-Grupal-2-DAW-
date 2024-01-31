@@ -9,5 +9,5 @@ import proyecto.vaigo.model.entity.ExcursionEntity;
 
 @Repository
 @Transactional
-public interface ExcursionRepository extends JpaRepository<ExcursionEntity, Long> {
+public interface ExcursionRepository extends JpaRepository<ExcursionEntity, Integer> {
 }

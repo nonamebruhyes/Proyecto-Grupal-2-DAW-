@@ -9,5 +9,5 @@ import proyecto.vaigo.model.entity.TipohotelEntity;
 @Repository
 @Transactional
 
-public interface TipoHotelRepository extends JpaRepository<TipohotelEntity, Long> {
+public interface TipoHotelRepository extends JpaRepository<TipohotelEntity, Integer> {
 }

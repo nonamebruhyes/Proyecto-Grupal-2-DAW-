@@ -8,5 +8,5 @@ import proyecto.vaigo.model.entity.UsuariosEntity;
 
 @Repository
 @Transactional
-public interface UsuariosRepository extends JpaRepository<UsuariosEntity, Long> {
+public interface UsuariosRepository extends JpaRepository<UsuariosEntity, Integer> {
 }

@@ -8,5 +8,5 @@ import proyecto.vaigo.model.entity.TransporteEntity;
 
 @Repository
 @Transactional
-public interface TransporteRepository extends JpaRepository<TransporteEntity, Long> {
+public interface TransporteRepository extends JpaRepository<TransporteEntity, Integer> {
 }

@@ -7,4 +7,5 @@ import java.util.List;
 
 public interface HistorialViajesService {
     List<HistorialViajesDTO> findAll();
+    HistorialViajesDTO findById(HistorialViajesDTO historialViajesDTO);
 }

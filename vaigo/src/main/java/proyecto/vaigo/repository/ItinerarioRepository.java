@@ -8,5 +8,5 @@ import proyecto.vaigo.model.entity.ItinerarioEntity;
 
 @Repository
 @Transactional
-public interface ItinerarioRepository extends JpaRepository<ItinerarioEntity, Long> {
+public interface ItinerarioRepository extends JpaRepository<ItinerarioEntity, Integer> {
 }
