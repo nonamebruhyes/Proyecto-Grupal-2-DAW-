@@ -7,4 +7,5 @@ import java.util.List;
 
 public interface ItinerarioService {
     List<ItinerarioDTO> findAll();
+    ItinerarioDTO findById(ItinerarioDTO itinerarioDTO);
 }

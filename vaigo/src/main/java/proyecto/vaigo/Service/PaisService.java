@@ -7,4 +7,5 @@ import java.util.List;
 
 public interface PaisService {
     List<PaisDTO> findAll();
+    PaisDTO findById(PaisDTO paisDTO);
 }

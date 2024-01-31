@@ -7,4 +7,5 @@ import java.util.List;
 
 public interface UsuariosService {
     List<UsuariosDTO> findAll();
+    UsuariosDTO findById(UsuariosDTO usuariosDTO);
 }

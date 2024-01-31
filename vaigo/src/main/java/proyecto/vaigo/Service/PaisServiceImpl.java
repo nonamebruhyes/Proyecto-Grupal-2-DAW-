@@ -4,11 +4,15 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import proyecto.vaigo.model.dto.ItinerarioDTO;
 import proyecto.vaigo.model.dto.PaisDTO;
+import proyecto.vaigo.model.entity.ItinerarioEntity;
+import proyecto.vaigo.model.entity.PaisEntity;
 import proyecto.vaigo.repository.PaisRepository;
 
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -27,5 +31,18 @@ public class PaisServiceImpl implements PaisService{
                 .collect(Collectors.toList());
 
         return listaPaisDTO;
+    }
+    @Override
+    public PaisDTO findById(PaisDTO paisDTO) {
+        log.info("ClienteServiceImpl - findById: Buscar cliente por id: " +
+                paisDTO.getId());
+
+        Optional<PaisEntity> paisEntity = paisRepository.findById(paisDTO.getId());
+        if(paisEntity.isPresent()) {
+            paisDTO = PaisDTO.convertToDTO(paisEntity.get());
+            return paisDTO;
+        }else {
+            return null;
+        }
     }
 }

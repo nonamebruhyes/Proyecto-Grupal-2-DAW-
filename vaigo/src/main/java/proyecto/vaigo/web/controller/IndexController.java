@@ -40,9 +40,11 @@ public class IndexController {
     public List<CiudadesDTO> findAllid() {
 
         log.info("ClienteRestController - findAll: Mostramos todos los clientes");
-
+/*
         List<CiudadesDTO> listaCiudadesDTO = ciudadesService.findAllID();
-        return listaCiudadesDTO;
+
+ */
+        return null;
     }
 
 }

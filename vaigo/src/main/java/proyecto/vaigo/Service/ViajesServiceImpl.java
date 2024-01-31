@@ -4,11 +4,15 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import proyecto.vaigo.model.dto.UsuariosDTO;
 import proyecto.vaigo.model.dto.ViajesDTO;
+import proyecto.vaigo.model.entity.UsuariosEntity;
+import proyecto.vaigo.model.entity.ViajesEntity;
 import proyecto.vaigo.repository.ViajesRepository;
 
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -27,5 +31,18 @@ public class ViajesServiceImpl implements ViajesService {
                 .collect(Collectors.toList());
 
         return listaViajesDTO;
+    }
+    @Override
+    public ViajesDTO findById(ViajesDTO viajesDTO) {
+        log.info("ClienteServiceImpl - findById: Buscar cliente por id: " +
+                viajesDTO.getId());
+
+        Optional<ViajesEntity> viajesEntity = viajesRepository.findById(viajesDTO.getId());
+        if(viajesEntity.isPresent()) {
+            viajesDTO = ViajesDTO.convertToDTO(viajesEntity.get());
+            return viajesDTO;
+        }else {
+            return null;
+        }
     }
 }

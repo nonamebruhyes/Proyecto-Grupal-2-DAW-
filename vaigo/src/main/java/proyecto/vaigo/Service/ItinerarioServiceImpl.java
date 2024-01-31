@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 import proyecto.vaigo.model.dto.HistorialViajesDTO;
 import proyecto.vaigo.model.dto.ItinerarioDTO;
 
-import proyecto.vaigo.model.entity.HistorialviajesEntity;
 import proyecto.vaigo.model.entity.ItinerarioEntity;
 import proyecto.vaigo.repository.ItinerarioRepository;
 
@@ -40,8 +39,8 @@ public class ItinerarioServiceImpl implements ItinerarioService {
 
         Optional<ItinerarioEntity> itinerarioEntity = itinerarioRepository.findById(itinerarioDTO.getId());
         if(itinerarioEntity.isPresent()) {
-            itinerarioDTO = HistorialViajesDTO.convertToDTO(itinerarioEntity.get());
-            return historialViajesDTO;
+            itinerarioDTO = ItinerarioDTO.convertToDTO(itinerarioEntity.get());
+            return itinerarioDTO;
         }else {
             return null;
         }
