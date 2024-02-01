@@ -1,5 +1,6 @@
 package proyecto.vaigo.model.entity;
 
+import jakarta.annotation.Nullable;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -30,14 +31,16 @@ public class ViajesEntity {
 	@Column(name = "ID_TERRENO",insertable=false, updatable=false)
 	private int idTerreno;
 	@Basic
+	@Nullable
 	@Column(name = "ID_HOTEL",insertable=false, updatable=false)
-	private int idHotel;
+	private Integer idHotel;
 	@Basic
 	@Column(name = "ID_TRANSPORTE",insertable=false, updatable=false)
 	private int idTransporte;
 	@Basic
+	@Nullable
 	@Column(name = "ID_VIAJESIMAGENES",insertable=false, updatable=false)
-	private int idViajesimagenes;
+	private Integer idViajesimagenes;
 	@Basic
 	@Column(name = "PUNTUACION")
 	private Double puntuacion;

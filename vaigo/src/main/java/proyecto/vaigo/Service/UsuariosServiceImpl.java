@@ -45,4 +45,23 @@ public class UsuariosServiceImpl implements UsuariosService {
             return null;
         }
     }
+    @Override
+    public void save(UsuariosDTO usuariosDTO) {
+        log.info("ClienteServiceImpl - save: Salvamos el cliente: " +
+                usuariosDTO.toString());
+
+        UsuariosEntity usuariosEntity = UsuariosDTO.convertToEntity(usuariosDTO);
+        usuariosRepository.save(usuariosEntity);
+    }
+    @Override
+    public List<UsuariosDTO> findUsuario(UsuariosDTO usuariosDTO) {
+
+        log.info("ClienteServiceImpl - findAll: Lista de todos los cliente");
+        List<UsuariosDTO> listaUsuariosDTO = usuariosRepository.findUsuario(usuariosDTO.getUsername(),usuariosDTO.getPassword())
+                .stream()
+                .map(p -> UsuariosDTO.convertToDTO(p))
+                .collect(Collectors.toList());
+
+        return listaUsuariosDTO;
+    }
 }

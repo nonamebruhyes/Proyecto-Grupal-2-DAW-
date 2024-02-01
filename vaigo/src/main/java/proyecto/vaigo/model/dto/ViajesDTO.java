@@ -11,9 +11,9 @@ public class ViajesDTO implements Serializable{
     private int id;
  	private int idPais;
 	private int idCiudad;
-    private int idHotel;
+    private Integer idHotel;
     private int idTerreno;
-    private int idViajesimagenes;
+    private Integer idViajesimagenes;
     private int idTransporte;
     private Date ida;
     private Date vuelta;

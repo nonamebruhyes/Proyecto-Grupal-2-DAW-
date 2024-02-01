@@ -8,4 +8,6 @@ import java.util.List;
 public interface UsuariosService {
     List<UsuariosDTO> findAll();
     UsuariosDTO findById(UsuariosDTO usuariosDTO);
+    void save(UsuariosDTO usuariosDTO);
+    List<UsuariosDTO> findUsuario(UsuariosDTO usuariosDTO);
 }

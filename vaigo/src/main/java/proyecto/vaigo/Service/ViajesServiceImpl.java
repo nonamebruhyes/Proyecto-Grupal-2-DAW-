@@ -45,4 +45,15 @@ public class ViajesServiceImpl implements ViajesService {
             return null;
         }
     }
+    @Override
+    public List<ViajesDTO> findFiltro() {
+        /*falta hacer que recoja datos y lo busque esta metido los datos a pelo*/
+        log.info("ClienteServiceImpl - findAll: Lista de todos los cliente");
+        List<ViajesDTO> listaViajesDTO = viajesRepository.findFilto(2,9,1,1)
+                .stream()
+                .map(p -> ViajesDTO.convertToDTO(p))
+                .collect(Collectors.toList());
+
+        return listaViajesDTO;
+    }
 }
