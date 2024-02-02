@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import proyecto.vaigo.model.dto.ItinerarioDTO;
 
+import proyecto.vaigo.model.entity.ItinerarioEntity;
 import proyecto.vaigo.repository.ItinerarioRepository;
 
 import java.util.List;
