@@ -24,7 +24,6 @@ public class ViajesDTO implements Serializable{
     public static ViajesDTO convertToDTO(ViajesEntity viajes){
         ViajesDTO viajesDTO = new ViajesDTO();
         viajesDTO.setId(viajes.getId());
-        viajesDTO.setIdPais(viajes.getIdPais());
         viajesDTO.setIdCiudad(viajes.getIdCiudad());
         viajesDTO.setIdHotel(viajes.getIdHotel());
         viajesDTO.setIdTerreno(viajes.getIdTerreno());
@@ -40,7 +39,6 @@ public class ViajesDTO implements Serializable{
     public static ViajesEntity convertoToEntity(ViajesDTO viajesDTO){
         ViajesEntity viajes = new ViajesEntity();
         viajes.setId( viajesDTO.getId());
-        viajes.setIdPais( viajesDTO.getIdPais());
         viajes.setIdCiudad( viajesDTO.getIdCiudad());
         viajes.setIdHotel( viajesDTO.getIdHotel());
         viajes.setIdTerreno( viajesDTO.getIdTerreno());

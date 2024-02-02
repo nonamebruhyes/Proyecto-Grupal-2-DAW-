@@ -4,10 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import proyecto.vaigo.model.dto.CiudadesDTO;
 import proyecto.vaigo.model.dto.ExcursionDTO;
-import proyecto.vaigo.model.entity.CiudadesEntity;
-import proyecto.vaigo.model.entity.ExcursionEntity;
 import proyecto.vaigo.repository.ExcursionRepository;
 
 import java.util.List;

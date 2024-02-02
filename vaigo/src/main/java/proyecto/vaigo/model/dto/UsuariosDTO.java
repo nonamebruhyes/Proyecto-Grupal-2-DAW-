@@ -6,7 +6,6 @@ import proyecto.vaigo.model.entity.UsuariosEntity;
 
 import java.io.Serializable;
 import java.sql.Timestamp;
-import java.util.Date;
 
 
 @Data

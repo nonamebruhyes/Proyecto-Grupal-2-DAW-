@@ -22,8 +22,10 @@ public class ExcursionDTO implements Serializable {
         ExcursionDTO excursionDTO = new ExcursionDTO();
         excursionDTO.setId(excursion.getId());
         excursionDTO.setDuracion(excursion.getDuracion());
-        excursionDTO.setIdPais(excursion.getIdPais());
         excursionDTO.setIdCiudad(excursion.getIdCiudad());
+        excursionDTO.setNombre(excursion.getNombre());
+        excursionDTO.setPrecio(excursion.getPrecio());
+        excursionDTO.setTipo(excursion.getTipo());
         excursionDTO.setFechaInicio(excursion.getFecInicio());
         excursionDTO.setDuracion(excursion.getDuracion());
         return excursionDTO;
@@ -33,8 +35,10 @@ public class ExcursionDTO implements Serializable {
         ExcursionEntity excursion = new ExcursionEntity();
         excursion.setId(excursionDTO.getId());
         excursion.setDuracion(excursionDTO.getDuracion());
-        excursion.setIdPais(excursionDTO.getIdPais());
         excursion.setIdCiudad(excursionDTO.getIdCiudad());
+        excursion.setNombre(excursionDTO.getNombre());
+        excursion.setPrecio(excursionDTO.getPrecio());
+        excursion.setTipo(excursionDTO.getTipo());
         excursion.setFecInicio(excursionDTO.getFechaInicio());
         excursion.setDuracion(excursionDTO.getDuracion());
         // Retorna la entidad

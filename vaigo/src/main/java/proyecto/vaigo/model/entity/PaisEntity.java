@@ -5,9 +5,10 @@ import lombok.Data;
 
 import java.util.Collection;
 import java.util.Objects;
+
 @Data
 @Entity
-@Table(name = "PAIS", schema = "vaigo", catalog = "")
+@Table(name = "pais", schema = "vaigo", catalog = "")
 public class PaisEntity {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Id
@@ -16,12 +17,17 @@ public class PaisEntity {
 	@Basic
 	@Column(name = "PAIS")
 	private String pais;
-	@OneToMany(mappedBy = "paisByIdPais")
-	private Collection<CiudadesEntity> ciudadesById;
-	@OneToMany(mappedBy = "paisByIdPais")
-	private Collection<ExcursionEntity> excursionsById;
-	@OneToMany(mappedBy = "paisByIdPais")
-	private Collection<HotelEntity> hotelsById;
-	@OneToMany(mappedBy = "paisByIdPais")
-	private Collection<ViajesEntity> viajesById;
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
+		PaisEntity that = (PaisEntity) o;
+		return id == that.id && Objects.equals(pais, that.pais);
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(id, pais);
+	}
 }

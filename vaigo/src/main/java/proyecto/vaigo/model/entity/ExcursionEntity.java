@@ -8,17 +8,14 @@ import java.util.Collection;
 import java.util.Objects;
 @Data
 @Entity
-@Table(name = "EXCURSION", schema = "vaigo", catalog = "")
+@Table(name = "excursion", schema = "vaigo", catalog = "")
 public class ExcursionEntity {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Id
 	@Column(name = "ID")
 	private int id;
 	@Basic
-	@Column(name = "ID_PAIS",insertable=false, updatable=false)
-	private int idPais;
-	@Basic
-	@Column(name = "ID_CIUDAD",insertable=false, updatable=false)
+	@Column(name = "ID_CIUDAD")
 	private int idCiudad;
 	@Basic
 	@Column(name = "TIPO")
@@ -35,13 +32,17 @@ public class ExcursionEntity {
 	@Basic
 	@Column(name = "DURACION")
 	private Timestamp duracion;
-	@ManyToOne
-	@JoinColumn(name = "ID_PAIS", referencedColumnName = "ID", nullable = false)
-	private PaisEntity paisByIdPais;
-	@ManyToOne
-	@JoinColumn(name = "ID_CIUDAD", referencedColumnName = "ID", nullable = false)
-	private CiudadesEntity ciudadesByIdCiudad;
-	@OneToMany(mappedBy = "excursionByIdExcursion")
-	private Collection<ItinerarioEntity> itinerariosById;
 
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
+		ExcursionEntity that = (ExcursionEntity) o;
+		return id == that.id && idCiudad == that.idCiudad && Objects.equals(tipo, that.tipo) && Objects.equals(precio, that.precio) && Objects.equals(nombre, that.nombre) && Objects.equals(fecInicio, that.fecInicio) && Objects.equals(duracion, that.duracion);
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(id, idCiudad, tipo, precio, nombre, fecInicio, duracion);
+	}
 }

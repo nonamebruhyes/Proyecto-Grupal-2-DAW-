@@ -7,7 +7,7 @@ import java.util.Collection;
 import java.util.Objects;
 @Data
 @Entity
-@Table(name = "TERRENO", schema = "vaigo", catalog = "")
+@Table(name = "terreno", schema = "vaigo", catalog = "")
 public class TerrenoEntity {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Id
@@ -16,6 +16,18 @@ public class TerrenoEntity {
 	@Basic
 	@Column(name = "TIPO")
 	private String tipo;
-	@OneToMany(mappedBy = "terrenoByIdTerreno")
-	private Collection<ViajesEntity> viajesById;
+
+	@Override
+	public boolean equals(Object o) {
+
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
+		TerrenoEntity that = (TerrenoEntity) o;
+		return id == that.id && Objects.equals(tipo, that.tipo);
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(id, tipo);
+	}
 }

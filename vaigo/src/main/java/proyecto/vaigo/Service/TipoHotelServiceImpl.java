@@ -4,10 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import proyecto.vaigo.model.dto.PaisDTO;
 import proyecto.vaigo.model.dto.TipoHotelDTO;
-import proyecto.vaigo.model.entity.PaisEntity;
-import proyecto.vaigo.model.entity.TipohotelEntity;
 import proyecto.vaigo.repository.TipoHotelRepository;
 
 
