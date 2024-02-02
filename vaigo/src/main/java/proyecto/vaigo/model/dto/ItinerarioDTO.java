@@ -10,6 +10,10 @@ import java.io.Serializable;
 public class ItinerarioDTO implements Serializable{
     private int  id;
     private int idExcursion;
+    private int id_historialViajes;
+    private String nombre;
+    private String comentatio;
+
 
     public static ItinerarioDTO convertToDTO(ItinerarioEntity itinerario){
         ItinerarioDTO itinerarioDTO = new ItinerarioDTO();
