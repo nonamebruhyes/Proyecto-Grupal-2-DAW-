@@ -1,46 +1,44 @@
 package proyecto.vaigo.model.dto;
 
+import jakarta.persistence.*;
 import lombok.Data;
 import proyecto.vaigo.model.entity.UsuariosEntity;
 
-
-import java.io.Serializable;
 import java.sql.Timestamp;
+import java.util.Objects;
 
 
 @Data
-public class UsuariosDTO implements Serializable{
+public class UsuariosDTO {
     private int id;
     private String username;
-    private String password;
-    private String imgperfil;
     private String correo;
+    private String imgperfil;
+    private String password;
     private String rol;
     private Timestamp fregistro;
 
-    public static UsuariosDTO convertToDTO(UsuariosEntity usuarios){
-        UsuariosDTO usuariosDTO = new UsuariosDTO();
-        usuariosDTO.setId(usuarios.getId());
-        usuariosDTO.setUsername(usuarios.getUsername());
-        usuariosDTO.setCorreo(usuarios.getCorreo());
-        usuariosDTO.setPassword(usuarios.getPassword());
-        usuariosDTO.setImgperfil(usuarios.getImgperfil());
-        usuariosDTO.setRol(usuarios.getRol());
-        usuariosDTO.setFregistro(usuarios.getFregistro());
-        
-        return usuariosDTO;
+    public static UsuariosEntity ConvertToEntity(UsuariosDTO dto){
+        UsuariosEntity entity = new UsuariosEntity();
+        entity.setId(dto.getId());
+        entity.setUsername(dto.getUsername());
+        entity.setCorreo(dto.getCorreo());
+        entity.setImgperfil(dto.getImgperfil());
+        entity.setPassword(dto.getPassword());
+        entity.setRol(dto.getRol());
+        entity.setFregistro(dto.getFregistro());
+        return entity;
     }
-    public static UsuariosEntity convertToEntity(UsuariosDTO usuariosDTO){
-        UsuariosEntity usuarios =  new UsuariosEntity();
-        usuarios.setId(usuariosDTO.getId());
-        usuarios.setUsername(usuariosDTO.getUsername());
-        usuarios.setCorreo(usuariosDTO.getCorreo());
-        usuarios.setPassword(usuariosDTO.getPassword());
-        usuarios.setImgperfil(usuariosDTO.getImgperfil());
-        usuarios.setRol(usuariosDTO.getRol());
-        usuarios.setFregistro(usuariosDTO.getFregistro());
-
-        return usuarios;
+    public static UsuariosDTO ConvertToDTO(UsuariosEntity entity){
+        UsuariosDTO dto = new UsuariosDTO();
+        dto.setId(entity.getId());
+        dto.setUsername(entity.getUsername());
+        dto.setCorreo(entity.getCorreo());
+        dto.setImgperfil(entity.getImgperfil());
+        dto.setPassword(entity.getPassword());
+        dto.setRol(entity.getRol());
+        dto.setFregistro(entity.getFregistro());
+        return dto;
     }
 
 }

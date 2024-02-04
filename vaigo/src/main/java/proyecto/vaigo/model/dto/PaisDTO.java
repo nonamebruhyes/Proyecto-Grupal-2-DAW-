@@ -1,27 +1,26 @@
 package proyecto.vaigo.model.dto;
 
+import jakarta.persistence.*;
 import lombok.Data;
 import proyecto.vaigo.model.entity.PaisEntity;
 
-import java.io.Serializable;
-
+import java.util.Objects;
 
 @Data
-public class PaisDTO implements Serializable{
+public class PaisDTO {
     private int id;
     private String pais;
 
-    public static PaisDTO convertToDTO(PaisEntity pais){
-        PaisDTO paisDTO = new PaisDTO();
-        paisDTO.setId(pais.getId());
-        paisDTO.setPais(pais.getPais());
-       // paisDTO.setClima(pais.getClima());
-        return paisDTO;
+    public static PaisEntity ConvertToEntity(PaisDTO dto) {
+        PaisEntity entity = new PaisEntity();
+        entity.setId(dto.getId());
+        entity.setPais(dto.getPais());
+        return entity;
     }
-    public static PaisEntity convertoToEntity(PaisDTO paisDTO){
-        PaisEntity pais = new PaisEntity();
-        pais.setId(paisDTO.getId());
-        pais.setPais(paisDTO.getPais());
-        return pais;
+    public static PaisDTO ConvertToDTO(PaisEntity entity) {
+        PaisDTO dto = new PaisDTO();
+        dto.setId(entity.getId());
+        dto.setPais(entity.getPais());
+        return dto;
     }
 }

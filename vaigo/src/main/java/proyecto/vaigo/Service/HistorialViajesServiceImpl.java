@@ -4,7 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import proyecto.vaigo.model.dto.HistorialViajesDTO;
+import proyecto.vaigo.model.dto.HistorialviajesDTO;
 import proyecto.vaigo.model.entity.HistorialviajesEntity;
 import proyecto.vaigo.repository.HistorialViajesRepository;
 
@@ -20,23 +20,23 @@ public class HistorialViajesServiceImpl implements HistorialViajesService{
     private HistorialViajesRepository historialViajesRepository;
 
     @Override
-    public List<HistorialViajesDTO> findAll() {
+    public List<HistorialviajesDTO> findAll() {
         log.info("ClienteServiceImpl - findAll: Lista de todos los cliente");
-        List<HistorialViajesDTO> listaHistorialDTO = historialViajesRepository.findAll()
+        List<HistorialviajesDTO> listaHistorialDTO = historialViajesRepository.findAll()
                 .stream()
-                .map(p -> HistorialViajesDTO.convertToDTO(p))
+                .map(p -> HistorialviajesDTO.ConvertToDTO(p))
                 .collect(Collectors.toList());
 
         return listaHistorialDTO;
     }
     @Override
-    public HistorialViajesDTO findById(HistorialViajesDTO historialViajesDTO) {
+    public HistorialviajesDTO findById(HistorialviajesDTO historialViajesDTO) {
         log.info("ClienteServiceImpl - findById: Buscar cliente por id: " +
                 historialViajesDTO.getId());
 
         Optional<HistorialviajesEntity> historialviajesEntity = historialViajesRepository.findById(historialViajesDTO.getId());
         if(historialviajesEntity.isPresent()) {
-            historialViajesDTO = HistorialViajesDTO.convertToDTO(historialviajesEntity.get());
+            historialViajesDTO = HistorialviajesDTO.ConvertToDTO(historialviajesEntity.get());
             return historialViajesDTO;
         }else {
             return null;

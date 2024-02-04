@@ -1,33 +1,36 @@
 package proyecto.vaigo.model.dto;
 
+import jakarta.persistence.*;
 import lombok.Data;
 import proyecto.vaigo.model.entity.HotelEntity;
 
+import java.util.Objects;
+
 @Data
 public class HotelDTO {
-	private int id;
-	private String nombre;
-	private int idCiudad;
-	private int idTipohotel;
-	private Double precio;
+    private int id;
+    private String nombre;
+    private int idCiudad;
+    private int idTipohotel;
+    private Double precio;
 
-	public static HotelDTO convertoToDTO(HotelEntity hotel){
-		HotelDTO hotelDTO = new HotelDTO();
-		hotelDTO.setId(hotel.getId());
-		hotelDTO.setNombre(hotel.getNombre());
-		hotelDTO.setIdCiudad(hotelDTO.getIdCiudad());
-		hotelDTO.setIdTipohotel(hotel.getIdTipohotel());
-		hotelDTO.setPrecio(hotel.getPrecio());
+    public static HotelEntity ConvertToEntity(HotelDTO hotelDTO){
+        HotelEntity hotelEntity = new HotelEntity();
+        hotelEntity.setId(hotelDTO.getId());
+        hotelEntity.setNombre(hotelDTO.getNombre());
+        hotelEntity.setIdCiudad(hotelDTO.getIdCiudad());
+        hotelEntity.setIdTipohotel(hotelDTO.getIdTipohotel());
+        hotelEntity.setPrecio(hotelDTO.getPrecio());
+        return hotelEntity;
+    }
+    public static HotelDTO ConvertToDTO(HotelEntity hotelEntity){
+        HotelDTO hotelDTO = new HotelDTO();
+        hotelDTO.setId(hotelEntity.getId());
+        hotelDTO.setNombre(hotelEntity.getNombre());
+        hotelDTO.setIdCiudad(hotelEntity.getIdCiudad());
+        hotelDTO.setIdTipohotel(hotelEntity.getIdTipohotel());
+        hotelDTO.setPrecio(hotelEntity.getPrecio());
         return hotelDTO;
     }
 
-	public static HotelEntity convertoToEntity(HotelDTO hotelDTO){
-		HotelEntity hotel = new HotelEntity();
-		hotel.setId(hotelDTO.getId());
-		hotel.setNombre(hotelDTO.getNombre());
-		hotel.setIdCiudad(hotelDTO.getIdCiudad());
-		hotel.setIdTipohotel(hotelDTO.getIdTipohotel());
-		hotel.setPrecio(hotelDTO.getPrecio());
-        return hotel;
-    }
 }

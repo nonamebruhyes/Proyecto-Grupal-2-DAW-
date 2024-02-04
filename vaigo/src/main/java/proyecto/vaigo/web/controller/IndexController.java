@@ -24,6 +24,7 @@ public class IndexController {
     public ModelAndView inicio() {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName(" index.html");
+
         return modelAndView;
     }
 
@@ -34,7 +35,7 @@ public class IndexController {
     @Autowired
     private UsuariosService usuariosService;
 
-    @GetMapping("/listadociudades")
+    @RequestMapping("/listadociudades")
     public List<CiudadesDTO> findAll() {
 
         log.info("ClienteRestController - findAll: Mostramos todos los clientes");
@@ -83,6 +84,6 @@ public class IndexController {
 
 
         // invocamos la operacion save a la capa de servicio de cuenta
-        usuariosService.findUsuario(usuariosDTO);
+     //   usuariosService.findUsuario(usuariosDTO);
     }
 }

@@ -26,7 +26,7 @@ public class ViajesServiceImpl implements ViajesService {
         log.info("ClienteServiceImpl - findAll: Lista de todos los cliente");
         List<ViajesDTO> listaViajesDTO = new ArrayList<>();
         for (ViajesEntity element :  viajesRepository.findAll() ) {
-            listaViajesDTO.add(ViajesDTO.convertToDTO(element));
+            listaViajesDTO.add(ViajesDTO.ConvertToDTO(element));
         }
 
         return listaViajesDTO;
@@ -38,7 +38,7 @@ public class ViajesServiceImpl implements ViajesService {
                 viajesDTO.getId());
         Optional<ViajesEntity> viajesEntity = viajesRepository.findById(viajesDTO.getId());
         if(viajesEntity.isPresent()) {
-            viajesDTO = ViajesDTO.convertToDTO(viajesEntity.get());
+            viajesDTO = ViajesDTO.ConvertToDTO(viajesEntity.get());
             return viajesDTO;
         }else {
             return null;
@@ -50,7 +50,7 @@ public class ViajesServiceImpl implements ViajesService {
         log.info("ClienteServiceImpl - findAll: Lista de todos los cliente");
         List<ViajesDTO> listaViajesDTO = viajesRepository.findFilto(9,1,1)
                 .stream()
-                .map(p -> ViajesDTO.convertToDTO(p))
+                .map(p -> ViajesDTO.ConvertToDTO(p))
                 .collect(Collectors.toList());
 
         return listaViajesDTO;

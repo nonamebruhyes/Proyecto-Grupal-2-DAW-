@@ -24,7 +24,7 @@ public class CiudadesServiceImpl implements CiudadesService{
         log.info("ClienteServiceImpl - findAll: Lista de todos los cliente");
         List<CiudadesDTO> listaCiudadesDTO = ciudadesRepository.findAll()
                 .stream()
-                .map(p -> CiudadesDTO.convertToDTO(p))
+                .map(p -> CiudadesDTO.ConvertToDTO(p))
                 .collect(Collectors.toList());
 
         return listaCiudadesDTO;
@@ -36,7 +36,7 @@ public class CiudadesServiceImpl implements CiudadesService{
 
         Optional<CiudadesEntity> ciudadesEntity = ciudadesRepository.findById(ciudadesDTO.getId());
         if(ciudadesEntity.isPresent()) {
-            ciudadesDTO = CiudadesDTO.convertToDTO(ciudadesEntity.get());
+            ciudadesDTO = CiudadesDTO.ConvertToDTO(ciudadesEntity.get());
             return ciudadesDTO;
         }else {
             return null;

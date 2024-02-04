@@ -1,54 +1,55 @@
 package proyecto.vaigo.model.dto;
 
+import jakarta.persistence.*;
 import lombok.Data;
 import proyecto.vaigo.model.entity.ViajesEntity;
 
-import java.io.Serializable;
 import java.sql.Date;
+import java.util.Objects;
 
 @Data
-public class ViajesDTO implements Serializable{
+
+public class ViajesDTO {
     private int id;
- 	private int idPais;
-	private int idCiudad;
-    private Integer idHotel;
-    private int idTerreno;
-    private Integer idViajesimagenes;
-    private int idTransporte;
+    private int idCiudad;
     private Date ida;
     private Date vuelta;
+    private int idTerreno;
+    private int idHotel;
+    private int idTransporte;
+    private int idViajesimagenes;
     private Double puntuacion;
-    private String Descripcion;
+    private String descripcion;
+    private String planes;
 
-
-    public static ViajesDTO convertToDTO(ViajesEntity viajes){
-        ViajesDTO viajesDTO = new ViajesDTO();
-        viajesDTO.setId(viajes.getId());
-        viajesDTO.setIdCiudad(viajes.getIdCiudad());
-        viajesDTO.setIdHotel(viajes.getIdHotel());
-        viajesDTO.setIdTerreno(viajes.getIdTerreno());
-        viajesDTO.setIdViajesimagenes(viajes.getIdViajesimagenes());
-        viajesDTO.setIda(viajes.getIda());
-        viajesDTO.setVuelta(viajes.getVuelta());
-        viajesDTO.setDescripcion(viajes.getDescripcion());
-        viajesDTO.setIdTransporte(viajes.getIdTransporte());
-        viajesDTO.setPuntuacion(viajes.getPuntuacion());
-        return viajesDTO;
+    public static ViajesEntity ConvertToEntity(ViajesDTO dto){
+        ViajesEntity entity = new ViajesEntity();
+        entity.setId(dto.getId());
+        entity.setIdCiudad(dto.getIdCiudad());
+        entity.setIda(dto.getIda());
+        entity.setVuelta(dto.getVuelta());
+        entity.setIdTerreno(dto.getIdTerreno());
+        entity.setIdHotel(dto.getIdHotel());
+        entity.setIdTransporte(dto.getIdTransporte());
+        entity.setIdViajesimagenes(dto.getIdViajesimagenes());
+        entity.setPuntuacion(dto.getPuntuacion());
+        entity.setDescripcion(dto.getDescripcion());
+        entity.setPlanes(dto.getPlanes());
+        return entity;
     }
-
-    public static ViajesEntity convertoToEntity(ViajesDTO viajesDTO){
-        ViajesEntity viajes = new ViajesEntity();
-        viajes.setId( viajesDTO.getId());
-        viajes.setIdCiudad( viajesDTO.getIdCiudad());
-        viajes.setIdHotel( viajesDTO.getIdHotel());
-        viajes.setIdTerreno( viajesDTO.getIdTerreno());
-        viajes.setIdViajesimagenes( viajesDTO.getIdViajesimagenes());
-        viajes.setIda( viajesDTO.getIda());
-        viajes.setVuelta( viajesDTO.getVuelta());
-        viajes.setDescripcion( viajesDTO.getDescripcion());
-        viajes.setIdTransporte(viajesDTO.getIdTransporte());
-        viajes.setPuntuacion( viajesDTO.getPuntuacion());
-
-        return viajes;
+    public static ViajesDTO ConvertToDTO(ViajesEntity entity){
+        ViajesDTO dto = new ViajesDTO();
+        dto.setId(entity.getId());
+        dto.setIdCiudad(entity.getIdCiudad());
+        dto.setIda(entity.getIda());
+        dto.setVuelta(entity.getVuelta());
+        dto.setIdTerreno(entity.getIdTerreno());
+        dto.setIdHotel(entity.getIdHotel());
+        dto.setIdTransporte(entity.getIdTransporte());
+        dto.setIdViajesimagenes(entity.getIdViajesimagenes());
+        dto.setPuntuacion(entity.getPuntuacion());
+        dto.setDescripcion(entity.getDescripcion());
+        dto.setPlanes(entity.getPlanes());
+        return dto;
     }
 }

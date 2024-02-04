@@ -4,9 +4,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import proyecto.vaigo.model.dto.TipoHotelDTO;
+import proyecto.vaigo.model.dto.TipohotelDTO;
 import proyecto.vaigo.model.entity.TipohotelEntity;
 import proyecto.vaigo.repository.TipoHotelRepository;
+
 
 
 import java.util.List;
@@ -14,31 +15,31 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
-public class TipoHotelServiceImpl implements TipoHotelService {
+public class TipoHotelServiceImpl implements TipoHotelDTOproyecto.vaigo.Service.TipoHotelService {
     private static final Logger log = LoggerFactory.getLogger(ItinerarioServiceImpl.class);
 
     @Autowired
-    private TipoHotelRepository tipoHotelRepository;
+    private TipoHotelRepository TipohotelRepository;
 
     @Override
-    public List<TipoHotelDTO> findAll() {
+    public List<TipohotelDTO> findAll() {
         log.info("ClienteServiceImpl - findAll: Lista de todos los cliente");
-        List<TipoHotelDTO> listaTipoHotelDTO = tipoHotelRepository.findAll()
+        List<TipohotelDTO> listaTipohotelDTO = TipohotelRepository.findAll()
                 .stream()
-                .map(p -> TipoHotelDTO.convertToDTO(p))
+                .map(p -> TipohotelDTO.ConvertToDTO(p))
                 .collect(Collectors.toList());
 
-        return listaTipoHotelDTO;
+        return listaTipohotelDTO;
     }
     @Override
-    public TipoHotelDTO findById(TipoHotelDTO tipoHotelDTO) {
+    public TipohotelDTO findById(TipohotelDTO TipohotelDTO) {
         log.info("ClienteServiceImpl - findById: Buscar cliente por id: " +
-                tipoHotelDTO.getId());
+                TipohotelDTO.getId());
 
-        Optional<TipohotelEntity> tipohotelEntity = tipoHotelRepository.findById(tipoHotelDTO.getId());
-        if(tipohotelEntity.isPresent()) {
-            tipoHotelDTO = TipoHotelDTO.convertToDTO(tipohotelEntity.get());
-            return tipoHotelDTO;
+        Optional<TipohotelEntity> TipohotelEntity = TipohotelRepository.findById(TipohotelDTO.getId());
+        if(TipohotelEntity.isPresent()) {
+            TipohotelDTO = TipohotelDTO.ConvertToDTO(TipohotelEntity.get());
+            return TipohotelDTO;
         }else {
             return null;
         }

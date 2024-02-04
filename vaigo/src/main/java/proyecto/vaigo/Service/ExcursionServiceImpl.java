@@ -24,7 +24,7 @@ public class ExcursionServiceImpl implements ExcursionService {
         log.info("ClienteServiceImpl - findAll: Lista de todos los cliente");
         List<ExcursionDTO> listaExcursionDTO = excursionRepository.findAll()
                 .stream()
-                .map(p -> ExcursionDTO.convertToDTO(p))
+                .map(p -> ExcursionDTO.ConvertToDTO(p))
                 .collect(Collectors.toList());
 
         return listaExcursionDTO;
@@ -36,7 +36,7 @@ public class ExcursionServiceImpl implements ExcursionService {
 
         Optional<ExcursionEntity> excursionEntity = excursionRepository.findById(excursionDTO.getId());
         if(excursionEntity.isPresent()) {
-            excursionDTO = ExcursionDTO.convertToDTO(excursionEntity.get());
+            excursionDTO = ExcursionDTO.ConvertToDTO(excursionEntity.get());
             return excursionDTO;
         }else {
             return null;

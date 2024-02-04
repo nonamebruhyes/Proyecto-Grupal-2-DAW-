@@ -1,6 +1,5 @@
 package proyecto.vaigo.Service;
 
-import proyecto.vaigo.model.dto.ExcursionDTO;
 import proyecto.vaigo.model.dto.ViajesDTO;
 
 import java.util.List;

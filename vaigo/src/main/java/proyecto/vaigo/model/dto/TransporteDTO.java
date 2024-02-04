@@ -1,30 +1,31 @@
 package proyecto.vaigo.model.dto;
 
+import jakarta.persistence.*;
 import lombok.Data;
 import proyecto.vaigo.model.entity.TransporteEntity;
 
-
-import java.io.Serializable;
-
+import java.util.Objects;
 
 @Data
-public class TransporteDTO implements Serializable{
+public class TransporteDTO {
     private int id;
     private String tipo;
+    private Double precio;
 
-
-    public static TransporteDTO convertToDTO(TransporteEntity transporte){
-        TransporteDTO transporteDTO = new TransporteDTO();
-        transporteDTO.setId(transporte.getId());
-        transporteDTO.setTipo(transporte.getTipo());
-
-        return transporteDTO;
+    public static TransporteEntity ConvertToEntity(TransporteDTO dto){
+        TransporteEntity entity = new TransporteEntity();
+        entity.setId(dto.getId());
+        entity.setTipo(dto.getTipo());
+        entity.setPrecio(dto.getPrecio());
+        return entity;
     }
 
-    public static TransporteEntity convertoToEntity(TransporteDTO transporteDTO){
-        TransporteEntity transporte = new TransporteEntity();
-        transporte.setId(transporteDTO.getId());
-        transporte.setTipo(transporteDTO.getTipo());
-        return transporte;
+    public static TransporteDTO ConvertToDTO(TransporteEntity entity){
+        TransporteDTO dto = new TransporteDTO();
+        dto.setId(entity.getId());
+        dto.setTipo(entity.getTipo());
+        dto.setPrecio(entity.getPrecio());
+        return dto;
     }
+
 }

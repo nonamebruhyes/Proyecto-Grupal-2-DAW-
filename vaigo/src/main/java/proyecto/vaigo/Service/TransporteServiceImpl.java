@@ -25,7 +25,7 @@ public class TransporteServiceImpl implements TransporteService{
         log.info("ClienteServiceImpl - findAll: Lista de todos los cliente");
         List<TransporteDTO> listaTransporteDTO = transporteRepository.findAll()
                 .stream()
-                .map(p -> TransporteDTO.convertToDTO(p))
+                .map(p -> TransporteDTO.ConvertToDTO(p))
                 .collect(Collectors.toList());
 
         return listaTransporteDTO;
@@ -37,7 +37,7 @@ public class TransporteServiceImpl implements TransporteService{
 
         Optional<TransporteEntity> transporteEntity = transporteRepository.findById(transporteDTO.getId());
         if(transporteEntity.isPresent()) {
-            transporteDTO = TransporteDTO.convertToDTO(transporteEntity.get());
+            transporteDTO = TransporteDTO.ConvertToDTO(transporteEntity.get());
             return transporteDTO;
         }else {
             return null;

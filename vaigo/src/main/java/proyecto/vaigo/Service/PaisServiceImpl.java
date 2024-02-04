@@ -25,7 +25,7 @@ public class PaisServiceImpl implements PaisService{
         log.info("ClienteServiceImpl - findAll: Lista de todos los cliente");
         List<PaisDTO> listaPaisDTO = paisRepository.findAll()
                 .stream()
-                .map(p -> PaisDTO.convertToDTO(p))
+                .map(p -> PaisDTO.ConvertToDTO(p))
                 .collect(Collectors.toList());
 
         return listaPaisDTO;
@@ -37,7 +37,7 @@ public class PaisServiceImpl implements PaisService{
 
         Optional<PaisEntity> paisEntity = paisRepository.findById(paisDTO.getId());
         if(paisEntity.isPresent()) {
-            paisDTO = PaisDTO.convertToDTO(paisEntity.get());
+            paisDTO = PaisDTO.ConvertToDTO(paisEntity.get());
             return paisDTO;
         }else {
             return null;

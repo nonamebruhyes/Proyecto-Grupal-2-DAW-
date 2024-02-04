@@ -25,7 +25,7 @@ public class UsuariosServiceImpl implements UsuariosService {
         log.info("ClienteServiceImpl - findAll: Lista de todos los cliente");
         List<UsuariosDTO> listaUsuariosDTO = usuariosRepository.findAll()
                 .stream()
-                .map(p -> UsuariosDTO.convertToDTO(p))
+                .map(p -> UsuariosDTO.ConvertToDTO(p))
                 .collect(Collectors.toList());
 
         return listaUsuariosDTO;
@@ -37,7 +37,7 @@ public class UsuariosServiceImpl implements UsuariosService {
 
         Optional<UsuariosEntity> usuariosEntity = usuariosRepository.findById(usuariosDTO.getId());
         if(usuariosEntity.isPresent()) {
-            usuariosDTO = UsuariosDTO.convertToDTO(usuariosEntity.get());
+            usuariosDTO = UsuariosDTO.ConvertToDTO(usuariosEntity.get());
             return usuariosDTO;
         }else {
             return null;
@@ -48,18 +48,15 @@ public class UsuariosServiceImpl implements UsuariosService {
         log.info("ClienteServiceImpl - save: Salvamos el cliente: " +
                 usuariosDTO.toString());
 
-        UsuariosEntity usuariosEntity = UsuariosDTO.convertToEntity(usuariosDTO);
+        UsuariosEntity usuariosEntity = UsuariosDTO.ConvertToEntity(usuariosDTO);
         usuariosRepository.save(usuariosEntity);
     }
     @Override
-    public List<UsuariosDTO> findUsuario(UsuariosDTO usuariosDTO) {
+    public UsuariosDTO findUsuario(String username,  String password) {
 
         log.info("ClienteServiceImpl - findAll: Lista de todos los cliente");
-        List<UsuariosDTO> listaUsuariosDTO = usuariosRepository.findUsuario(usuariosDTO.getUsername(),usuariosDTO.getPassword())
-                .stream()
-                .map(p -> UsuariosDTO.convertToDTO(p))
-                .collect(Collectors.toList());
-
-        return listaUsuariosDTO;
+       UsuariosEntity usuariosEntity = usuariosRepository.findUsuario(username, password);
+        UsuariosDTO usuariosDTO = UsuariosDTO.ConvertToDTO(usuariosEntity);
+        return usuariosDTO;
     }
 }

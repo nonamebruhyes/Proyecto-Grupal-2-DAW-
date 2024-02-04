@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import proyecto.vaigo.model.dto.ItinerarioDTO;
-
 import proyecto.vaigo.model.entity.ItinerarioEntity;
 import proyecto.vaigo.repository.ItinerarioRepository;
 
@@ -26,7 +25,7 @@ public class ItinerarioServiceImpl implements ItinerarioService {
         log.info("ClienteServiceImpl - findAll: Lista de todos los cliente");
         List<ItinerarioDTO> listaItinerarioDTO = itinerarioRepository.findAll()
                 .stream()
-                .map(p -> ItinerarioDTO.convertToDTO(p))
+                .map(p -> ItinerarioDTO.ConvertToDTO(p))
                 .collect(Collectors.toList());
 
         return listaItinerarioDTO;
@@ -38,7 +37,7 @@ public class ItinerarioServiceImpl implements ItinerarioService {
 
         Optional<ItinerarioEntity> itinerarioEntity = itinerarioRepository.findById(itinerarioDTO.getId());
         if(itinerarioEntity.isPresent()) {
-            itinerarioDTO = ItinerarioDTO.convertToDTO(itinerarioEntity.get());
+            itinerarioDTO = ItinerarioDTO.ConvertToDTO(itinerarioEntity.get());
             return itinerarioDTO;
         }else {
             return null;
