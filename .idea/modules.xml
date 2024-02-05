@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/vaigo/vaigo.iml" filepath="$PROJECT_DIR$/vaigo/vaigo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/Proyecto-Grupal-2-DAW-.iml" filepath="$PROJECT_DIR$/.idea/Proyecto-Grupal-2-DAW-.iml" />
     </modules>
   </component>
 </project>
