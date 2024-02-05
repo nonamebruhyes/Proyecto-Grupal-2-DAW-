@@ -8,5 +8,5 @@ public interface UsuariosService {
     List<UsuariosDTO> findAll();
     UsuariosDTO findById(UsuariosDTO usuariosDTO);
     void save(UsuariosDTO usuariosDTO);
-    UsuariosDTO findUsuario(String username,  String password);
+    boolean findUsuario(String username,  String password);
 }

@@ -1,6 +1,7 @@
 package proyecto.vaigo.web.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import proyecto.vaigo.Service.UsuariosService;
@@ -19,9 +20,8 @@ public class LoginController{
     }
 
     @PostMapping("/login/obtenerUsuario")
-    public boolean obtenerUsuario(@RequestParam(value = "username") String username , @RequestParam(value = "password") String password){
-
-        if(usuariosService.findUsuario(username, password) == null){
+    public boolean obtenerUsuario (@RequestBody UsuariosDTO usuariosDTO){
+        if(usuariosService.findUsuario(usuariosDTO.getUsername(), usuariosDTO.getPassword()) == false ){
             return false;
         }
         return true;
