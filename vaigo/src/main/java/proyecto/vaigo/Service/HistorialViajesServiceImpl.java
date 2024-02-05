@@ -5,10 +5,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import proyecto.vaigo.model.dto.HistorialViajesDTO;
-
 import proyecto.vaigo.model.entity.HistorialviajesEntity;
 import proyecto.vaigo.repository.HistorialViajesRepository;
-
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
