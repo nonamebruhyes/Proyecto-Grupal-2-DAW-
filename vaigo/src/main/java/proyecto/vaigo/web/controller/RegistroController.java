@@ -21,12 +21,9 @@ public class RegistroController {
         return mav;
     }
     @PostMapping("/salvarUsuario")
-    public void save(@RequestParam(value = "username") String username,@RequestParam(value = "correo") String correo ,@RequestParam(value = "pass") String pass  ) {
+    public void save(@RequestBody UsuariosDTO usuariosDTO ) {
 
-        UsuariosDTO usuariosDTO=new UsuariosDTO();
-        usuariosDTO.setUsername(username);
-        usuariosDTO.setCorreo(correo);
-        usuariosDTO.setPassword(pass);
+
         log.info("CuentaController - save: Salvando la cuenta del cliente: " +
                 usuariosDTO.getId());
 

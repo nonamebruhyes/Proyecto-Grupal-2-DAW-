@@ -4,7 +4,7 @@ document.getElementById("login").addEventListener("click", function(){
     alert("Nombre: " + name + " Password: " + password);
 
     const data = { username: name, password: password };
-    const url = "/login/obtenerUsuario";
+    const url = "http://localhost:8888/login/obtenerUsuario";
 
     fetch(url, {
         method: "POST",
