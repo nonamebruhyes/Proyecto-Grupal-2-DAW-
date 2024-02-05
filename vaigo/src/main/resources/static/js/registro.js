@@ -44,7 +44,7 @@ console.log("8")
                     bool = false;
                 }
                 if (!validEmail.test(mail)) {
-console.log("9")
+console.log("91")
                     bool = false;
                 }
 
