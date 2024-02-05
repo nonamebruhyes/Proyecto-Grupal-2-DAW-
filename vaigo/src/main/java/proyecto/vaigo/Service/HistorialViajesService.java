@@ -1,11 +1,12 @@
 package proyecto.vaigo.Service;
 
 
-import proyecto.vaigo.model.dto.HistorialviajesDTO;
+import proyecto.vaigo.model.dto.HistorialViajesDTO;
+
 
 import java.util.List;
 
 public interface HistorialViajesService {
-    List<HistorialviajesDTO> findAll();
-    HistorialviajesDTO findById(HistorialviajesDTO historialViajesDTO);
+    List<HistorialViajesDTO> findAll();
+    HistorialViajesDTO findById(HistorialViajesDTO historialViajesDTO);
 }

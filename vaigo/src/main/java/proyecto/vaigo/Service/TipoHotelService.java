@@ -1,10 +1,11 @@
-package TipoHotelDTOproyecto.vaigo.Service;
+package proyecto.vaigo.Service;
 
-import proyecto.vaigo.model.dto.TipohotelDTO;
+import proyecto.vaigo.model.dto.TipoHotelDTO;
+
 
 import java.util.List;
 
 public interface TipoHotelService {
-    List<TipohotelDTO> findAll();
-    TipohotelDTO findById(TipohotelDTO tipoHotelDTO);
+    List<TipoHotelDTO> findAll();
+    TipoHotelDTO findById(TipoHotelDTO tipoHotelDTO);
 }
