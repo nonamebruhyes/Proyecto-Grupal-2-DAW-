@@ -20,6 +20,7 @@ public class LoginController{
 
     @PostMapping("/login/obtenerUsuario")
     public boolean obtenerUsuario(@RequestParam(value = "username") String username , @RequestParam(value = "password") String password){
+
         if(usuariosService.findUsuario(username, password) == null){
             return false;
         }

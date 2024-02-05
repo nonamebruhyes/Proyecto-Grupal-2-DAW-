@@ -66,16 +66,7 @@ public class IndexController {
         return viajesDTOList;
     }
 
-    @PostMapping("/salvarUsuario")
-    public void save(@ModelAttribute("usuarioDTO") UsuariosDTO usuariosDTO) {
 
-        log.info("CuentaController - save: Salvando la cuenta del cliente: " +
-                usuariosDTO.getId());
-
-
-        // invocamos la operacion save a la capa de servicio de cuenta
-        usuariosService.save(usuariosDTO);
-    }
     @GetMapping("/buscarUsuario")
     public void BuscUsu(@ModelAttribute("usuarioDTO") UsuariosDTO usuariosDTO) {
 
