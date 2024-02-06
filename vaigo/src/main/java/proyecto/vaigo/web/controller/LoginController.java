@@ -7,6 +7,8 @@ import org.springframework.web.servlet.ModelAndView;
 import proyecto.vaigo.Service.UsuariosService;
 import proyecto.vaigo.model.dto.UsuariosDTO;
 
+import java.util.List;
+
 @RestController
 public class LoginController{
 
@@ -19,11 +21,22 @@ public class LoginController{
        return mav;
     }
 
-    @PostMapping("/login/obtenerUsuario")
-    public boolean obtenerUsuario (@RequestBody UsuariosDTO usuariosDTO){
-        if(usuariosService.findUsuario(usuariosDTO.getUsername(), usuariosDTO.getPassword()) == false ){
+    @PostMapping("/api/iniciosesion")
+    public boolean comprobarUsuario (@RequestBody UsuariosDTO usuariosDTO){
+      if (!usuariosDTO.getCorreo().matches("^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,6}$")){
+          return false;
+      }
+      if (!usuariosDTO.getPassword().matches("^?![0-9]*$(?!^[a-zA-Z]*$)^([a-zA-Z0-9]{5,10}$)")){
+          return false;
+      }
+      if(usuariosService.findUsuario(usuariosDTO.getUsername(), usuariosDTO.getPassword()) == null ){
             return false;
-        }
+      }
         return true;
+    }
+
+    @PostMapping("/api/obtenerusuario")
+    public UsuariosDTO obtenerusuario (@RequestBody UsuariosDTO usuariosDTO){
+        return usuariosService.findUsuario(usuariosDTO.getUsername(), usuariosDTO.getPassword());
     }
 }

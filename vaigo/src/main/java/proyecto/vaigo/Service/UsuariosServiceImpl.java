@@ -52,13 +52,13 @@ public class UsuariosServiceImpl implements UsuariosService {
         usuariosRepository.save(usuariosEntity);
     }
     @Override
-    public boolean findUsuario(String username,  String password) {
+    public UsuariosDTO findUsuario(String username,  String password) {
 
         log.info("ClienteServiceImpl - findAll: Lista de todos los cliente");
        UsuariosEntity usuariosEntity = usuariosRepository.findUsuario(username, password);
         if (usuariosEntity == null )
-            return false;
-
-        return true;
+            return null;
+        UsuariosDTO usuariosDTO = UsuariosDTO.ConvertToDTO(usuariosEntity);
+        return usuariosDTO;
     }
 }
