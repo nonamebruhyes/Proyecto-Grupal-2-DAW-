@@ -26,10 +26,10 @@ public class LoginController{
       if (!usuariosDTO.getCorreo().matches("^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,6}$")){
           return false;
       }
-      if (!usuariosDTO.getPassword().matches("^?![0-9]*$(?!^[a-zA-Z]*$)^([a-zA-Z0-9]{5,10}$)")){
+      if (!usuariosDTO.getPassword().matches( "^(?!^[0-9]*$)(?!^[a-zA-Z]*$)^([a-zA-Z0-9]{5,10})$")){
           return false;
       }
-      if(usuariosService.findUsuario(usuariosDTO.getUsername(), usuariosDTO.getPassword()) == null ){
+      if(usuariosService.findUsuario(usuariosDTO.getCorreo(), usuariosDTO.getPassword()) == null ){
             return false;
       }
         return true;
