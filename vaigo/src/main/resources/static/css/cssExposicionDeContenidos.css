@@ -203,7 +203,7 @@ main>div>div>div img {
 }
 
 
-main>div>div>div p {
+.contenido>div>div>div p {
   text-align: justify;
   block-size: fit-content;
   text-overflow: ellipsis;
