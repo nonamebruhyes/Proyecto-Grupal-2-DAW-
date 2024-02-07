@@ -39,6 +39,7 @@ main button{
     border-style: groove;
 }
 
+
 main hr{
     width: 2px;
     height: 80%;
@@ -85,6 +86,10 @@ main section:nth-child(3) button{
     width: 200px;
     align-self: end;
     background-color: #ffffff;
+}
+
+main section:nth-child(3) button:hover, button:hover{
+    background-color: #d3d3d3;
 }
 
 @media(max-width:750px){
