@@ -103,6 +103,7 @@ main section:nth-child(3) button{
     main section:nth-child(1){
         padding: 100px;
         padding-top: 20px;
+        padding-bottom: 20px;
     }
 
     main section:nth-child(3) button{
