@@ -3,68 +3,80 @@ document.getElementsByClassName("registrarb")[0].addEventListener("click", funct
     let mail = document.getElementsByClassName("mail1")[0].value;
     let password = document.getElementsByClassName("contrasenya1")[0].value;
     let contra2=document.getElementsByClassName("contrasenya2")[0].value;
-    alert("Nombre: " + name + " Password: " + password);
 
+    respons();
+});
+
+function respons() {
+        let name = document.getElementsByClassName("nombre1")[0].value;
+        let mail = document.getElementsByClassName("mail1")[0].value;
+        let password = document.getElementsByClassName("contrasenya1")[0].value;
+        let contra2=document.getElementsByClassName("contrasenya2")[0].value;
     let validEmail = /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,10})+$/;
          let bool = true;
             if (name == '') {
-            console.log("1")
+            document.getElementById("error").textContent = "El campo nombre no puede estar vacío";
                 bool = false;
             }
              if(!(/^[a-zA-ZáéíóúüÜÁÉÍÓÚñÑ\s-]{3,30}$/).test(name)){
-console.log("2")
+document.getElementById("error").textContent = "El campo nombre debe tener un minimo de 3-30 caracteres";
                     bool = false;
                 }
 
                 if (mail == '') {
-console.log("3")
+document.getElementById("error").textContent = "El campo correo no puede estar vacío";
                     bool = false;
                 }
                 if (password == '') {
-console.log("4")
+document.getElementById("error").textContent = "El campo contraseña no puede estar vacío";
                     bool = false;
                 }
                 if(!(/(?!^[0-9]*$)(?!^[a-zA-Z]*$)^([a-zA-Z0-9]{5,10}$)/).test(password)){
-console.log("5")
+document.getElementById("error").textContent = "La contraseña debe tener entre 5 y 10 caracteres, y debe contener un numero y una letraº";
                     bool = false;
                 }
 
                 if (contra2 == '') {
-console.log("6")
+document.getElementById("error").textContent = "El campo recontraseña no puede estar vacío";
                     bool = false;
                 }
                 if(!(/(?!^[0-9]*$)(?!^[a-zA-Z]*$)^([a-zA-Z0-9]{5,10}$)/).test(contra2)){
-console.log("7")
+document.getElementById("error").textContent = "La recontraseña debe tener entre 5 y 10 caracteres, y debe contener un numero y una letraº";
                     bool = false;
 
                 }
 
                 if (password != contra2) {
-console.log("8")
+document.getElementById("error").textContent = "La contraseña y recontraseña debe ser iguales";
                     bool = false;
                 }
                 if (!validEmail.test(mail)) {
-console.log("91")
+ document.getElementById("error").textContent = "El campo correo esta mal formulado";
                     bool = false;
                 }
 
                 if(bool==true){
+const data1 = { "username": name, "correo":mail,"password": password };
 
-  const data = { username: name, correo:mail,password: password };
-  console.log(data);
+    let url = "http://localhost:8888/api/registro";
 
-    const url = "http://localhost:8888/salvarUsuario";
+        fetch(url, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body:  JSON.stringify(data1)
+        })
+            .then(response => response.json() )
+            .then(data => res(JSON.stringify(data)))
+            .catch(error => console.error("Error:", error));
 
-    fetch(url, {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify(data)
-    })
-        .then(response => response.json())
-        .then(data => console.log(JSON.stringify(data)))
 }else{
 console.log("Error");
 }
-});
+
+}
+function res(dato){
+
+ if(dato=='false'){ console.log('Usuario ya existe')}
+}

@@ -232,6 +232,33 @@ main {
     display: flex;
     justify-content: center;
 }
+#viewitinerario div {
+    overflow-y: auto;
+    overflow-x: hidden;
+    margin-top:10px;
+}
+#viewitinerario>div section {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 5px;
+    height: 30px;
+    border-radius: 5px;
+    background-color: #bfbbbb;
+    text-align: center;
+}
+#viewitinerario>div section h3 {
+    width: 120px;
+    background-color: #000000a8;
+    border-radius: 5px 0 0 5px;
+    color: #ebebeb;
+    padding: 5px;
+    margin: 0;
+}
+#viewitinerario>div section p {
+    padding: 5px;
+    margin: 0;
+}
 
 /*Aqui he puesto 600 por que queda bastante feo */
 @media(min-width: 856px) {

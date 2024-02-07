@@ -20,15 +20,22 @@ public class RegistroController {
         mav.setViewName("./paginashtml/registro.html");
         return mav;
     }
-    @PostMapping("/salvarUsuario")
-    public void save(@RequestBody UsuariosDTO usuariosDTO ) {
-
-
-        log.info("CuentaController - save: Salvando la cuenta del cliente: " +
-                usuariosDTO.getId());
-
-
-        // invocamos la operacion save a la capa de servicio de cuenta
+    @PostMapping("/api/registro")
+    public boolean comprobarUsuario (@RequestBody UsuariosDTO usuariosDTO){
+        if (!usuariosDTO.getCorreo().matches("^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,6}$")){
+            return false;
+        }
+        if (!usuariosDTO.getPassword().matches("^(?!^[0-9]*$)(?!^[a-zA-Z]*$)^([a-zA-Z0-9]{5,10}$)")){
+            return false;
+        }
+        if (usuariosDTO.getUsername().matches("")){
+            return false;
+        }
+        if(!(usuariosService.findUsuario(usuariosDTO.getCorreo(), usuariosDTO.getPassword()) == null)){
+            return false;
+        }
         usuariosService.save(usuariosDTO);
+        return true;
     }
+
 }
