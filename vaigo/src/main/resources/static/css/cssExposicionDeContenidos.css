@@ -64,6 +64,10 @@ main>div:nth-child(3)>div>h3 {
   color: white;
 }
 
+.boton-filtro {
+  display: none;
+}
+
 main>div:nth-child(3)>h3 {
   margin-top: 10px;
   margin-bottom: 10px;
@@ -209,9 +213,6 @@ main>div>div>div img {
   text-overflow: ellipsis;
 }
 
-
-
-
 @media(max-width:1500px) {
   .contenido div h4 {
     display: none;
@@ -302,6 +303,20 @@ select option {
 }
 
 #filtromovil {
+  display: block;
+  background-color: rgb(0,0,0,0.4);
+  z-index: 0;
+  margin: 20px 0px 20px 10px;
+  border-radius: 10px;
+}
+
+#filtromovil h2{
+  text-align: center;
+  margin: 20px;
+  color: #ebebeb;
+}
+
+#dropdown-content>div>div{
   display: none;
 }
 
@@ -368,9 +383,8 @@ select option {
     width: 90%;
   }
 
-  #filtro {
-    width: 405px;
-    min-width: 30%;
+  #filtromovil {
+    width: 1100px
   }
 
   main>div>div>div img {

@@ -113,72 +113,6 @@
 
     </header>
     <main>
-
-      <div id="filtro">
-        <h3>Filtro de busqueda</h3>
-        <aside class="contenedor">
-          <p>Planes:</p>
-          <select id="planes">
-            <option value="-1" selected>Todos</option>
-          </select>
-        </aside>
-
-        <aside class="contenedor">
-          <p>Pais:</p>
-          <select id="paises">
-            <option value="-1" selected>Todos</option>
-            
-            
-          </select>
-        </aside>
-
-        <aside class="contenedor">
-          <p>Ciudad:</p>
-          <select id="ciudades">
-            <option value="-1" selected>Todos</option>
-            
-            
-          </select>
-        </aside>  
-
-        <aside class="contenedor">
-          <p>Terreno:</p>
-          <select id="terrenos">
-            <option value="-1">Todos</option>
-            
-            
-          </select>
-        </aside>
-
-        <aside class="contenedor">
-          <p>Transporte:</p>
-          <select id="transportes">
-            <option value="-1" >Todos</option>
-            
-            
-          </select>
-        </aside>
-
-        <aside class="contenedor">
-          <p>Estancia:</p>
-          <select id="estancias">
-            <option value="-1">Todos</option>
-            
-            
-          </select>
-        </aside>   
-
-      </div>
-      <div id="exponer-contenido">
-        <div id="resultados" class="resultados">
-          <h1>
-            RESULTADOS
-          </h1>
-          <h3>
-            GRECIA|PLAYA|MEDITERRANIO
-          </h3>
-
-        </div>
         <article id="filtromovil">
           <div id="dropdown-content">
             <div>
@@ -194,8 +128,8 @@
                 <p>Planes:</p>
                 <select name="select">
                   <option value="" selected>Todos</option>
-
-
+                  
+                  
                 </select>
               </aside>
 
@@ -203,8 +137,8 @@
                 <p>Pais:</p>
                 <select name="select">
                   <option value="" selected>Todos</option>
-
-
+                  
+                  
                 </select>
               </aside>
 
@@ -212,17 +146,17 @@
                 <p>Ciudad:</p>
                 <select name="select">
                   <option value="" selected>Todos</option>
-
-
+                  
+                  
                 </select>
-              </aside>
+              </aside>  
 
               <aside class="contenedor">
                 <p>Terreno:</p>
                 <select name="select">
                   <option value="" selected="true" >Todos</option>
-
-
+                  
+                  
                 </select>
               </aside>
 
@@ -230,8 +164,8 @@
                 <p>Transporte:</p>
                 <select name="select">
                   <option value="" selected="true" >Todos</option>
-
-
+                  
+                  
                 </select>
               </aside>
 
@@ -239,19 +173,33 @@
                 <p>Estancia:</p>
                 <select name="select">
                   <option value="" selected="true" >Todos</option>
-
-
+                  
+                  
                 </select>
-              </aside>
+              </aside>   
 
             </div>
             <button class="boton-filtro boton-aplicar" onclick="FiltroFunction()">Aplicar Filtros<img src="../img/icons/Feather-core-filter.svg.png" alt=""></button>
 
           </div>
-          <button class="boton-filtro" onclick="FiltroFunction()">Filtro <img src="../img/icons/Feather-core-filter.svg.png" alt=""></button>
-  
+            
   
         </article>
+
+      <div id="exponer-contenido">
+        <div id="resultados" class="resultados">
+          <h1>
+            RESULTADOS
+          </h1>
+          <h3>
+            GRECIA|PLAYA|MEDITERRANIO
+          </h3>
+
+        </div>
+
+        <button class="boton-filtro" onclick="FiltroFunction()">Filtro <img src="../img/icons/Feather-core-filter.svg.png" alt=""></button>
+
+
         <div class="contenido">
 
           <div>
@@ -287,7 +235,9 @@
             </div>
 
 
+
           </div>
+       
           <div>
 
             <img src="../img/wallpaper/wallpaper.jpg" alt="" />
@@ -310,6 +260,38 @@
                   <span>4,9</span>
                 </div>
 
+                <div>
+                  <p>Mediterraneo</p>
+                  <p>Playa</p>
+                  <p>Valencia</p>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+          <div>
+
+            <img src="../img/wallpaper/wallpaper.jpg" alt="" />
+
+            <div>
+              <div>
+                <h2>Playa de creta</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi in magna eleifend, rhoncus tellus sit
+                  amet,
+                  efficitur lorem. Donec at nisl non purus scelerisque gravida. Orci varius natoque penatibus et magnis
+                  dis
+                  parturient montes, nascetur ridiculus mus. Suspendisse potenti. Integer sit amet gravida eros.
+                  Praesent
+                  dapibus sed velit at blandit. Vestibulum dictum quam scelerisque nisi consectetur, nec auctor augue
+                  consequat.</p>
+              </div>
+              <hr class="vertical">
+              <div>
+                <div>
+                  <h4>Puntuacion: </h4>
+                  <span>4,9</span>
+                </div>
 
                 <div>
                   <p>Mediterraneo</p>
@@ -320,13 +302,9 @@
               </div>
             </div>
 
-
-          </div>
-       
-
-
           </div>
 
+        </div>
 
       </div>
       <aside class="container">
