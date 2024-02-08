@@ -15,9 +15,7 @@ public class ViajesDTO {
     private Date ida;
     private Date vuelta;
     private int idTerreno;
-    private int idHotel;
     private int idTransporte;
-    private int idViajesimagenes;
     private Double puntuacion;
     private String descripcion;
     private String planes;
@@ -29,9 +27,7 @@ public class ViajesDTO {
         entity.setIda(dto.getIda());
         entity.setVuelta(dto.getVuelta());
         entity.setIdTerreno(dto.getIdTerreno());
-        entity.setIdHotel(dto.getIdHotel());
         entity.setIdTransporte(dto.getIdTransporte());
-        entity.setIdViajesimagenes(dto.getIdViajesimagenes());
         entity.setPuntuacion(dto.getPuntuacion());
         entity.setDescripcion(dto.getDescripcion());
         entity.setPlanes(dto.getPlanes());
@@ -44,9 +40,7 @@ public class ViajesDTO {
         dto.setIda(entity.getIda());
         dto.setVuelta(entity.getVuelta());
         dto.setIdTerreno(entity.getIdTerreno());
-        dto.setIdHotel(entity.getIdHotel());
         dto.setIdTransporte(entity.getIdTransporte());
-        dto.setIdViajesimagenes(entity.getIdViajesimagenes());
         dto.setPuntuacion(entity.getPuntuacion());
         dto.setDescripcion(entity.getDescripcion());
         dto.setPlanes(entity.getPlanes());

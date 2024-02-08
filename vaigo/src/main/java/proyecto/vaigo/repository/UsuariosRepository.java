@@ -13,8 +13,8 @@ import java.util.List;
 @Repository
 @Transactional
 public interface UsuariosRepository extends JpaRepository<UsuariosEntity, Integer> {
-    @Query(value = "SELECT * FROM usuarios WHERE CORREO = :idc and password = :idc1",
+    @Query(value = "SELECT * FROM usuarios WHERE CORREO = :idc AND PASSWORD = :idco;",
             nativeQuery = true)
-    public UsuariosEntity findUsuario(@Param("idc") String username, @Param("idc1") String pass);
+    public UsuariosEntity findUsuario(@Param("idc") String correo, @Param("idco") String pass);
 
 }

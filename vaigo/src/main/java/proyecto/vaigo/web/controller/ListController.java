@@ -42,8 +42,8 @@ public class ListController {
 	public List<TransporteDTO> getTransportes(){
 		return transporteService.findAll();
 	}
-	@GetMapping("/api/tiposHotel")
-	public List<TipoHotelDTO> getTiposHotel(){
+	@GetMapping("/api/estancias")
+	public List<TipohotelDTO> getTiposHotel(){
 		return tipoHotelService.findAll();
 	}
 

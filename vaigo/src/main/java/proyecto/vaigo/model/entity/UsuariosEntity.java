@@ -10,39 +10,27 @@ import java.util.Objects;
 @Entity
 @Table(name = "usuarios", schema = "vaigo", catalog = "")
 public class UsuariosEntity {
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Id
-	@Column(name = "ID")
-	private int id;
-	@Basic
-	@Column(name = "username")
-	private String username;
-	@Basic
-	@Column(name = "CORREO")
-	private String correo;
-	@Basic
-	@Column(name = "IMGPERFIL")
-	private String imgperfil;
-	@Basic
-	@Column(name = "PASSWORD")
-	private String password;
-	@Basic
-	@Column(name = "ROL")
-	private String rol;
-	@Basic
-	@Column(name = "FREGISTRO")
-	private Timestamp fregistro;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @Column(name = "ID", nullable = false)
+    private int id;
+    @Basic
+    @Column(name = "username", nullable = false, length = 30)
+    private String username;
+    @Basic
+    @Column(name = "CORREO", nullable = false, length = 30)
+    private String correo;
+    @Basic
+    @Column(name = "IMGPERFIL", nullable = true, length = 200)
+    private String imgperfil;
+    @Basic
+    @Column(name = "PASSWORD", nullable = false, length = 10)
+    private String password;
+    @Basic
+    @Column(name = "ROL", nullable = true, length = 1)
+    private String rol;
+    @Basic
+    @Column(name = "FREGISTRO", nullable = false)
+    private Timestamp fregistro;
 
-	@Override
-	public boolean equals(Object o) {
-		if (this == o) return true;
-		if (o == null || getClass() != o.getClass()) return false;
-		UsuariosEntity that = (UsuariosEntity) o;
-		return id == that.id && Objects.equals(username, that.username) && Objects.equals(correo, that.correo) && Objects.equals(imgperfil, that.imgperfil) && Objects.equals(password, that.password) && Objects.equals(rol, that.rol) && Objects.equals(fregistro, that.fregistro);
-	}
-
-	@Override
-	public int hashCode() {
-		return Objects.hash(id, username, correo, imgperfil, password, rol, fregistro);
-	}
 }
