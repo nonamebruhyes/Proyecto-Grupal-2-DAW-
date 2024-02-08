@@ -105,5 +105,3 @@ function crearElementoTexto(texto = "Ejemplo", tipo = "div", padre = contenido, 
     return elemento;
 }
 
-
-
