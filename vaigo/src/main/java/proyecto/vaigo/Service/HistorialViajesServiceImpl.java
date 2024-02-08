@@ -23,7 +23,7 @@ public class HistorialViajesServiceImpl implements HistorialViajesService{
         log.info("ClienteServiceImpl - findAll: Lista de todos los cliente");
         List<HistorialviajesDTO> listaHistorialDTO = historialViajesRepository.findAll()
                 .stream()
-                .map(p -> HistorialviajesDTO.ConvertToDTO(p))
+                .map(p -> HistorialviajesDTO.convertToDTO(p))
                 .collect(Collectors.toList());
 
         return listaHistorialDTO;
@@ -35,7 +35,7 @@ public class HistorialViajesServiceImpl implements HistorialViajesService{
 
         Optional<HistorialviajesEntity> historialviajesEntity = historialViajesRepository.findById(historialViajesDTO.getId());
         if(historialviajesEntity.isPresent()) {
-            historialViajesDTO = HistorialviajesDTO.ConvertToDTO(historialviajesEntity.get());
+            historialViajesDTO = HistorialviajesDTO.convertToDTO(historialviajesEntity.get());
             return historialViajesDTO;
         }else {
             return null;

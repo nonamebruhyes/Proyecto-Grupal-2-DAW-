@@ -26,7 +26,7 @@ public class TipoHotelServiceImpl implements  TipoHotelService {
         log.info("ClienteServiceImpl - findAll: Lista de todos los cliente");
         List<TipohotelDTO> listaTipohotelDTO = TipohotelRepository.findAll()
                 .stream()
-                .map(p -> TipohotelDTO.ConvertToDTO(p))
+                .map(p -> TipohotelDTO.convertToDTO(p))
                 .collect(Collectors.toList());
 
         return listaTipohotelDTO;
@@ -37,7 +37,7 @@ public class TipoHotelServiceImpl implements  TipoHotelService {
 
         Optional<TipohotelEntity> TipohotelEntity = TipohotelRepository.findById(TipohotelDTO.getId());
         if(TipohotelEntity.isPresent()) {
-            TipohotelDTO tipoHotelDTO = TipohotelDTO.ConvertToDTO(TipohotelEntity.get());
+            TipohotelDTO tipoHotelDTO = TipohotelDTO.convertToDTO(TipohotelEntity.get());
             return tipoHotelDTO;
         }else {
             return null;
