@@ -21,6 +21,10 @@ public class ExplorarController {
 		return mav;
 	}
 
-
+@GetMapping("/explorar?")
+	public String mostrarCiudades(){
+		ModelAndView mav = new ModelAndView("./paginashtml/paginaCiudades.html");
+		return "jojojo";
+	}
 
 }

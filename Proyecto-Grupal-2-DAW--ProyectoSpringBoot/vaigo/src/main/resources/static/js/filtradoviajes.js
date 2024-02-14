@@ -6,7 +6,7 @@ let selecttransportes = document.getElementById("transporte");
 let selectestancias = document.getElementById("estancia");
 
 window.addEventListener('load', function () {
-    selectpanes.innerHTML += "<option value='T'>Planes propios</option>";
+
     cargarfiltros("ciudades");
     cargarfiltros("paises");
     cargarfiltros("terrenos");
