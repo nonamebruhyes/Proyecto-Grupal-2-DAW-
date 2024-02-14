@@ -34,9 +34,10 @@ public class SeleccionItinerarioController {
         log.info(dato);
         ViajesDTO viajesDTO=new ViajesDTO();
         viajesDTO.setId(Integer.parseInt(dato));
+        log.info(String.valueOf(viajesDTO));
         return viajesService.findById(viajesDTO);
     }
-    @PostMapping("/ItiEx")
+    @GetMapping("/ItiEx")
     public List<ItinerarioExcursionesDTO> BuscEx(@RequestParam String dato) {
 
         log.info("CuentaController - save: Salvando la cuenta del cliente: ");

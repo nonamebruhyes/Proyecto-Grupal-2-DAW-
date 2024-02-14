@@ -16,10 +16,26 @@ window.addEventListener("load", function (event)  {
 });
 
 function VerIti(data){
+
+
+ let url2 = "http://localhost:8888/ItiEx?dato="+data.idCiudad+"";
+                        fetch(url2, {
+                            method: "GET",
+                            headers: {
+                                "Content-Type": "application/json"
+                            }
+                        })
+                            .then(response => response.json() )
+                            .then(data => {
+                            VerIti2(data)
+                            })
+
+
+}
+
+function VerIti2(data){
 let ida=0;
 let cont2=1;
-cons
-
 for (let i = 0; i < data.length; i++) {
                     if(!(ida==data[i].idItinerario)){
                     crearElementoTexto(data[i].idItinerario,cont2, 'option', selector);
@@ -56,7 +72,6 @@ for (let i = 0; i < data.length; i++) {
                             }
 
                 });
-
 }
 
 function MostrarExcursiones(texto = "Ejemplo",cont){
