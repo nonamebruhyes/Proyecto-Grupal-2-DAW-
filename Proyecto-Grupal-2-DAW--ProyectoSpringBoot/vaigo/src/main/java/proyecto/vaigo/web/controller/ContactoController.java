@@ -12,12 +12,11 @@ import proyecto.vaigo.model.dto.PaisDTO;
 import java.util.List;
 
 @RestController
-public class ExplorarController {
+public class ContactoController {
 
-
-	@GetMapping("/explorar")
+	@GetMapping("/contacto")
 	public ModelAndView mostrarExplorar(){
-		ModelAndView mav = new ModelAndView("./paginashtml/paginaExposicionDeContenidos.html");
+		ModelAndView mav = new ModelAndView("./paginashtml/contactos.html");
 		return mav;
 	}
 
