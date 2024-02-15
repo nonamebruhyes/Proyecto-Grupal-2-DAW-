@@ -1,6 +1,6 @@
 window.addEventListener("load", function (event)  {
- let data1 = "1";
- let url = "http://localhost:8888/api/buscarUsu?dato="+data1+"";
+ let url = window.location.toString();
+  url = url.replace("?", "/");
 
  // Concatena el dato como parámetro en la URL
 

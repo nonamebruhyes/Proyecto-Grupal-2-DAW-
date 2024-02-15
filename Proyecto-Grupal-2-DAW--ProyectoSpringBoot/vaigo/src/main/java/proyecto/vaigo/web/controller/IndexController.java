@@ -5,14 +5,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
-import proyecto.vaigo.Service.CiudadesService;
-import proyecto.vaigo.Service.ExcursionService;
-import proyecto.vaigo.Service.UsuariosService;
-import proyecto.vaigo.Service.ViajesService;
-import proyecto.vaigo.model.dto.CiudadesDTO;
-import proyecto.vaigo.model.dto.ExcursionDTO;
-import proyecto.vaigo.model.dto.UsuariosDTO;
-import proyecto.vaigo.model.dto.ViajesDTO;
+import proyecto.vaigo.Service.*;
+import proyecto.vaigo.model.dto.*;
 
 import java.util.List;
 
@@ -38,6 +32,8 @@ public class IndexController {
     private UsuariosService usuariosService;
     @Autowired
     private ExcursionService excursionService;
+    @Autowired
+    private ItinerarioService itinerarioService;
 
     @RequestMapping("/listadociudades")
     public List<CiudadesDTO> findAll() {
@@ -88,5 +84,16 @@ public class IndexController {
                 excursionDTO.getId());
         // invocamos la operacion save a la capa de servicio de cuenta
         return excursionService.findById(excursionDTO);
+    }
+    @GetMapping("/api/Itinerario")
+    public ItinerarioDTO mostrarunIti (@RequestParam String dato){
+        log.info(dato);
+        ItinerarioDTO itinerarioDTO=new ItinerarioDTO();
+        itinerarioDTO.setId(Integer.parseInt(dato));
+
+        log.info("CuentaController - save: Salvando la cuenta del cliente: " +
+                itinerarioDTO);
+        // invocamos la operacion save a la capa de servicio de cuenta
+        return itinerarioService.findById(itinerarioDTO);
     }
 }

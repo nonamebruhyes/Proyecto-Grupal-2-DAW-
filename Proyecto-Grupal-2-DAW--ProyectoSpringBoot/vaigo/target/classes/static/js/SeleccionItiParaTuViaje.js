@@ -16,9 +16,29 @@ window.addEventListener("load", function (event)  {
 });
 
 function VerIti(data){
+
+
+
+ let url2 = "http://localhost:8888/ItiEx?dato="+data.idCiudad+"";
+                        fetch(url2, {
+                            method: "GET",
+                            headers: {
+                                "Content-Type": "application/json"
+                            }
+                        })
+                            .then(response => response.json() )
+                            .then(data => {
+                            VerIti2(data)
+                            })
+
+
+}
+
+function VerIti2(data){
+
+
 let ida=0;
 let cont2=1;
-console.log(data);
 for (let i = 0; i < data.length; i++) {
                     if(!(ida==data[i].idItinerario)){
                     crearElementoTexto(data[i].idItinerario,cont2, 'option', selector);
@@ -32,10 +52,21 @@ for (let i = 0; i < data.length; i++) {
                 let padre=document.getElementById('exMostrar');
                 padre.innerHTML='';
                 let datosJson=data;
+                let url3 = "http://localhost:8888/api/Itinerario?dato="+value+"";
+                 fetch(url3, {
+                                             method: "GET",
+                                             headers: {
+                                                 "Content-Type": "application/json"
+                                             }
+                                         })
+                                             .then(response => response.json() )
+                                             .then(data => {
+                                             CrearComentario(data)
+                                             })
                 let cont=1;
                     for(let i = 0; i < datosJson.length; i++){
                     const data1 = { "id": datosJson[i].idExcursion};
-                    console.log(data1);
+
 
                     let url = "http://localhost:8888/buscarExcursion";
                         fetch(url, {
@@ -55,7 +86,6 @@ for (let i = 0; i < data.length; i++) {
                             }
 
                 });
-
 }
 
 function MostrarExcursiones(texto = "Ejemplo",cont){
@@ -83,4 +113,22 @@ function crearElementoTexto(value = "Ejemplo",texto = "Ejemplo", tipo = "div", p
     elemento.setAttribute("value", value);
     padre.appendChild(elemento);
     return elemento;
+}
+function CrearComentario(data){
+let padre=document.getElementById('comentarios-request');
+let section = document.createElement('section');
+let span = document.createElement('span');
+let b = document.createElement('b');
+let div = document.createElement('div');
+let p = document.createElement('p');
+section.setAttribute("id","view-comentarios");
+console.log(data)
+console.log(data.cometario)
+p.textContent = data.cometario;
+span.appendChild(b);
+div.appendChild(p);
+section.appendChild(span);
+section.appendChild(div);
+padre.appendChild(section);
+
 }

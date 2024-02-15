@@ -9,6 +9,7 @@ import org.springframework.web.servlet.ModelAndView;
 import proyecto.vaigo.Service.UsuariosService;
 import proyecto.vaigo.model.dto.ExcursionDTO;
 import proyecto.vaigo.model.dto.UsuariosDTO;
+import proyecto.vaigo.model.dto.ViajesDTO;
 
 @RestController
 public class PerfilUsuarioController {
@@ -23,15 +24,17 @@ public class PerfilUsuarioController {
 
         return modelAndView;
     }
-    @GetMapping("/api/buscarUsu")
-    public UsuariosDTO BuscEx(@RequestParam int dato) {
 
+    @GetMapping("/perfilUsuario/{dato}")
+    public UsuariosDTO mostrarItiDeUnViaje (@PathVariable("dato") String dato){
+        log.info(dato);
         UsuariosDTO usuariosDTO=new UsuariosDTO();
-        usuariosDTO.setId(dato);
+        usuariosDTO.setId(Integer.parseInt(dato));
 
         log.info("CuentaController - save: Salvando la cuenta del cliente: " +
                 usuariosDTO);
         // invocamos la operacion save a la capa de servicio de cuenta
         return usuariosService.findById(usuariosDTO);
     }
+
 }
