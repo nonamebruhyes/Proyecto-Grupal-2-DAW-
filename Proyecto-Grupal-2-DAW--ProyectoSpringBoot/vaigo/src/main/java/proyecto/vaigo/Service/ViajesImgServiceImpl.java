@@ -46,4 +46,16 @@ public class ViajesImgServiceImpl implements ViajesImgService{
             return null;
         }
     }
+    @Override
+    public ViajesimagenesDTO findByIdVia(ViajesimagenesDTO viajesimagenesDTO) {
+        log.info("ClienteServiceImpl - findById: Buscar cliente por id: " +
+                viajesimagenesDTO.getId());
+        Optional<ViajesimagenesEntity> viajesEntity = viajesImagenesRepository.findImagenViaje(viajesimagenesDTO.getId());
+        if(viajesEntity.isPresent()) {
+            viajesimagenesDTO = ViajesimagenesDTO.ConvertToDTO(viajesEntity.get());
+            return viajesimagenesDTO;
+        }else {
+            return null;
+        }
+    }
 }

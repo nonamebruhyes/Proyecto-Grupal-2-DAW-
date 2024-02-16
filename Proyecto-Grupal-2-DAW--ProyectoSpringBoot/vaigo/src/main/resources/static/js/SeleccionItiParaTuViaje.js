@@ -20,6 +20,18 @@ function VerIti(data){
 let descrip=document.getElementById("textResume");
 descrip.textContent=data.descripcion;
 
+ let url4 = "http://localhost:8888/api/ViajeImg?dato="+data.id+"";
+                        fetch(url4, {
+                            method: "GET",
+                            headers: {
+                                "Content-Type": "application/json"
+                            }
+                        })
+                            .then(response => response.json() )
+                            .then(data => {
+                            Img(data)
+                            })
+
  let url2 = "http://localhost:8888/ItiEx?dato="+data.idCiudad+"";
                         fetch(url2, {
                             method: "GET",
@@ -35,12 +47,21 @@ descrip.textContent=data.descripcion;
 
 }
 
+function Img(data){
+
+
+let imgdata="../"+data.url;
+let img=document.getElementById('imgviaje');
+img.setAttribute('src',imgdata);
+
+}
+
 function VerIti2(data){
 
 
 let ida=0;
 let cont2=1;
-console.log(data);
+
 for (let i = 0; i < data.length; i++) {
                     if(!(ida==data[i].idItinerario)){
                     crearElementoTexto(data[i].idItinerario,cont2, 'option', selector);
@@ -117,7 +138,7 @@ function crearElementoTexto(value = "Ejemplo",texto = "Ejemplo", tipo = "div", p
     return elemento;
 }
 function CrearComentario(data){
-console.log(data);
+
 let padre=document.getElementById('comentarios-request');
 let section = document.createElement('section');
 let span = document.createElement('span');

@@ -17,7 +17,20 @@ window.addEventListener("load", function (event)  {
 
 function VerIti(data){
 
+let descrip=document.getElementById("textResume");
+descrip.textContent=data.descripcion;
 
+ let url4 = "http://localhost:8888/api/ViajeImg?dato="+data.id+"";
+                        fetch(url4, {
+                            method: "GET",
+                            headers: {
+                                "Content-Type": "application/json"
+                            }
+                        })
+                            .then(response => response.json() )
+                            .then(data => {
+                            Img(data)
+                            })
 
  let url2 = "http://localhost:8888/ItiEx?dato="+data.idCiudad+"";
                         fetch(url2, {
@@ -34,11 +47,21 @@ function VerIti(data){
 
 }
 
+function Img(data){
+
+
+let imgdata="../"+data.url;
+let img=document.getElementById('imgviaje');
+img.setAttribute('src',imgdata);
+
+}
+
 function VerIti2(data){
 
 
 let ida=0;
 let cont2=1;
+
 for (let i = 0; i < data.length; i++) {
                     if(!(ida==data[i].idItinerario)){
                     crearElementoTexto(data[i].idItinerario,cont2, 'option', selector);
@@ -115,6 +138,7 @@ function crearElementoTexto(value = "Ejemplo",texto = "Ejemplo", tipo = "div", p
     return elemento;
 }
 function CrearComentario(data){
+
 let padre=document.getElementById('comentarios-request');
 let section = document.createElement('section');
 let span = document.createElement('span');
@@ -122,9 +146,22 @@ let b = document.createElement('b');
 let div = document.createElement('div');
 let p = document.createElement('p');
 section.setAttribute("id","view-comentarios");
-console.log(data)
-console.log(data.cometario)
-p.textContent = data.cometario;
+var resultado = data.cometario.match(/^(\w+):\s*(.*)/);
+
+// Verificando si se encontró un nombre
+if (resultado && resultado[1]) {
+    // Eliminando los espacios sobrantes al principio y final del nombre
+    var nombre = resultado[1].trim()+ ":";
+
+    // Guardando el texto restante en otra variable
+    var textoRestante = resultado[2].trim();
+
+
+} else {
+    console.log("No se encontró un nombre en el texto.");
+}
+p.textContent = textoRestante;
+b.textContent = nombre;
 span.appendChild(b);
 div.appendChild(p);
 section.appendChild(span);

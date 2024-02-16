@@ -32,13 +32,3 @@ document.addEventListener('click',function(){
     }
 });
 
-document.querySelector('iframe').addEventListener('click',function(){
-    if(abierto){icono.classList.toggle("girar2");
-        abierto = false
-        selection.style = "border-radius: 10px"
-        window.setTimeout(function(){
-            icono.classList.toggle("girar2");
-            icono.classList.toggle("girar");
-        },300)
-    }
-});
