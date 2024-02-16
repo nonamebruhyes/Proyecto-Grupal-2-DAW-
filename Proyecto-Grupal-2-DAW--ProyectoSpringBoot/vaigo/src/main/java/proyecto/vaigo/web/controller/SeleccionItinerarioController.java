@@ -13,8 +13,7 @@ import java.util.List;
 @RestController
 public class SeleccionItinerarioController {
 
-    private static final Logger log =
-            LoggerFactory.getLogger(SeleccionItinerarioController.class);
+    private static final Logger log = LoggerFactory.getLogger(SeleccionItinerarioController.class);
     @Autowired
     private ItinerarioExcursionService itinerarioExcursionService;
     @GetMapping("/seleccionItinerario")
