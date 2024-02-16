@@ -4,10 +4,11 @@ import jakarta.persistence.*;
 import lombok.Data;
 import proyecto.vaigo.model.entity.ItinerarioEntity;
 
+import java.io.Serializable;
 import java.util.Objects;
 
 @Data
-public class ItinerarioDTO {
+public class ItinerarioDTO implements Serializable {
     private int id;
 
     private String nombre;

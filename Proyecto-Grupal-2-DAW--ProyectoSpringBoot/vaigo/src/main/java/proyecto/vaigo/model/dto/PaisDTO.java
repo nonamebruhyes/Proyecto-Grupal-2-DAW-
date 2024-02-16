@@ -4,10 +4,11 @@ import jakarta.persistence.*;
 import lombok.Data;
 import proyecto.vaigo.model.entity.PaisEntity;
 
+import java.io.Serializable;
 import java.util.Objects;
 
 @Data
-public class PaisDTO {
+public class PaisDTO implements Serializable {
     private int id;
     private String pais;
 

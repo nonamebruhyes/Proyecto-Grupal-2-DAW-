@@ -4,10 +4,11 @@ import jakarta.persistence.*;
 import lombok.Data;
 import proyecto.vaigo.model.entity.TransporteEntity;
 
+import java.io.Serializable;
 import java.util.Objects;
 
 @Data
-public class TransporteDTO {
+public class TransporteDTO implements Serializable {
     private int id;
     private String tipo;
     private Double precio;

@@ -17,7 +17,8 @@ window.addEventListener("load", function (event)  {
 
 function VerIti(data){
 
-
+let descrip=document.getElementById("textResume");
+descrip.textContent=data.descripcion;
 
  let url2 = "http://localhost:8888/ItiEx?dato="+data.idCiudad+"";
                         fetch(url2, {
@@ -39,6 +40,7 @@ function VerIti2(data){
 
 let ida=0;
 let cont2=1;
+console.log(data);
 for (let i = 0; i < data.length; i++) {
                     if(!(ida==data[i].idItinerario)){
                     crearElementoTexto(data[i].idItinerario,cont2, 'option', selector);
@@ -115,6 +117,7 @@ function crearElementoTexto(value = "Ejemplo",texto = "Ejemplo", tipo = "div", p
     return elemento;
 }
 function CrearComentario(data){
+console.log(data);
 let padre=document.getElementById('comentarios-request');
 let section = document.createElement('section');
 let span = document.createElement('span');
@@ -122,7 +125,22 @@ let b = document.createElement('b');
 let div = document.createElement('div');
 let p = document.createElement('p');
 section.setAttribute("id","view-comentarios");
-p.textContent = data.cometario;
+var resultado = data.cometario.match(/^(\w+):\s*(.*)/);
+
+// Verificando si se encontró un nombre
+if (resultado && resultado[1]) {
+    // Eliminando los espacios sobrantes al principio y final del nombre
+    var nombre = resultado[1].trim()+ ":";
+
+    // Guardando el texto restante en otra variable
+    var textoRestante = resultado[2].trim();
+
+
+} else {
+    console.log("No se encontró un nombre en el texto.");
+}
+p.textContent = textoRestante;
+b.textContent = nombre;
 span.appendChild(b);
 div.appendChild(p);
 section.appendChild(span);

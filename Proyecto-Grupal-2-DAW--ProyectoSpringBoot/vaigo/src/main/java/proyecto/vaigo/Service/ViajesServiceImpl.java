@@ -16,7 +16,7 @@ import java.util.stream.Collectors;
 
 @Service
 public class ViajesServiceImpl implements ViajesService {
-    private static final Logger log = LoggerFactory.getLogger(ItinerarioServiceImpl.class);
+    private static final Logger log = LoggerFactory.getLogger(ViajesServiceImpl.class);
 
     @Autowired
     private ViajesRepository viajesRepository;

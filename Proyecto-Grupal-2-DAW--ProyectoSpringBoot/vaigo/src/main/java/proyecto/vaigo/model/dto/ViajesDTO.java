@@ -4,12 +4,13 @@ import jakarta.persistence.*;
 import lombok.Data;
 import proyecto.vaigo.model.entity.ViajesEntity;
 
+import java.io.Serializable;
 import java.sql.Date;
 import java.util.Objects;
 
 @Data
 
-public class ViajesDTO {
+public class ViajesDTO implements Serializable {
     private int id;
     private int idCiudad;
     private Date ida;

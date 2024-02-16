@@ -4,10 +4,11 @@ import jakarta.persistence.*;
 import lombok.Data;
 import proyecto.vaigo.model.entity.HotelEntity;
 
+import java.io.Serializable;
 import java.util.Objects;
 
 @Data
-public class HotelDTO {
+public class HotelDTO implements Serializable {
     private int id;
     private String nombre;
     private int idCiudad;
