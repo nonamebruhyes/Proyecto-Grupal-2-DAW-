@@ -20,6 +20,8 @@ function VerIti(data){
 let descrip=document.getElementById("textResume");
 descrip.textContent=data.descripcion;
 
+let viaje=data;
+
  let url4 = "http://localhost:8888/api/ViajeImg?dato="+data.id+"";
                         fetch(url4, {
                             method: "GET",
@@ -41,7 +43,7 @@ descrip.textContent=data.descripcion;
                         })
                             .then(response => response.json() )
                             .then(data => {
-                            VerIti2(data)
+                            VerIti2(data,viaje)
                             })
 
 
@@ -56,7 +58,7 @@ img.setAttribute('src',imgdata);
 
 }
 
-function VerIti2(data){
+function VerIti2(data,viaje){
 
 
 let ida=0;
@@ -75,6 +77,13 @@ for (let i = 0; i < data.length; i++) {
                 let padre=document.getElementById('exMostrar');
                 padre.innerHTML='';
                 let datosJson=data;
+                let datospasa = {
+                                "viaje_idCiudad": viaje.idCiudad,
+                                "itinerario_id": selector.value,
+
+                            }
+                            localStorage.setItem("datospasa", JSON.stringify(datospasa));
+
                 let url3 = "http://localhost:8888/api/Itinerario?dato="+value+"";
                  fetch(url3, {
                                              method: "GET",
@@ -107,7 +116,10 @@ for (let i = 0; i < data.length; i++) {
 
 
                             }
-
+document.getElementById("confirm").addEventListener("click", function () {
+   let link = "http://localhost:8888/pasarelaPago";
+    window.location.href = link;
+});
                 });
 }
 

@@ -101,7 +101,7 @@ public class IndexController {
     }
     @GetMapping("/api/ViajeImg")
     public ViajesimagenesDTO mostrarunImg (@RequestParam String dato){
-        log.info(dato);
+        log.info(String.valueOf(Integer.parseInt(dato)));
         ViajesimagenesDTO viajesimagenesDTO=new ViajesimagenesDTO();
         viajesimagenesDTO.setId(Integer.parseInt(dato));
 
