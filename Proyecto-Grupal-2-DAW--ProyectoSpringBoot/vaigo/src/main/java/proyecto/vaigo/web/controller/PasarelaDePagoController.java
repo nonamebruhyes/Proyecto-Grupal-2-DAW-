@@ -5,11 +5,17 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
+import proyecto.vaigo.Service.HotelService;
 import proyecto.vaigo.Service.ItinerarioExcursionService;
 import proyecto.vaigo.Service.ViajesService;
+import proyecto.vaigo.model.dto.HotelDTO;
+import proyecto.vaigo.model.dto.ItinerarioExcursionesDTO;
 import proyecto.vaigo.model.dto.ViajesDTO;
+
+import java.util.List;
 
 @RestController
 public class PasarelaDePagoController {
@@ -20,6 +26,8 @@ public class PasarelaDePagoController {
     private ItinerarioExcursionService itinerarioExcursionService;
     @Autowired
     private ViajesService viajesService;
+    @Autowired
+    private HotelService hotelService;
 
     @GetMapping("/pasarelaPago")
     public ModelAndView inicio() {
@@ -28,5 +36,25 @@ public class PasarelaDePagoController {
         return modelAndView;
     }
 
+    @GetMapping("/ItiID")
+    public List<ItinerarioExcursionesDTO> BuscID(@RequestParam String dato) {
+
+        log.info("CuentaController - save: Salvando la cuenta del cliente: ");
+        // invocamos la operacion save a la capa de servicio de cuenta
+        return itinerarioExcursionService.todosItiid(dato);
+    }
+    @GetMapping("/ViaCiu")
+    public List<ViajesDTO> BuscViCIU(@RequestParam String dato) {
+
+        log.info("CuentaController - save: Salvando la cuenta del cliente: ");
+        // invocamos la operacion save a la capa de servicio de cuenta
+        return viajesService.todosItiid(dato);
+    }
+    @GetMapping("/HotelCiu")
+    public List<HotelDTO> BuscHoCIU(@RequestParam String dato) {
+        log.info("CuentaController - save: Salvando la cuenta del cliente: ");
+        // invocamos la operacion save a la capa de servicio de cuenta
+        return hotelService.todosItiid(dato);
+    }
 
 }

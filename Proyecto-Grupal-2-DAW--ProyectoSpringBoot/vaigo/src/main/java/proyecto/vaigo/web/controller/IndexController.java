@@ -110,4 +110,5 @@ public class IndexController {
         // invocamos la operacion save a la capa de servicio de cuenta
         return viajesImgService.findByIdVia(viajesimagenesDTO);
     }
+
 }

@@ -18,4 +18,6 @@ public interface ItinerarioExcursionRepository extends JpaRepository<    Itinera
             "WHERE e.id_ciudad = :idc",
             nativeQuery = true)
     public List<ItinerarioExcursionesEntity> todosItiEx(@Param("idc") String ciudad);
+    @Query(value = "SELECT *\n" + "FROM itinerario_excursiones\n" + "WHERE Id_itinerario = :idc2", nativeQuery = true)
+    public List<ItinerarioExcursionesEntity> TodosItiId(@Param("idc2") String ciudad);
 }

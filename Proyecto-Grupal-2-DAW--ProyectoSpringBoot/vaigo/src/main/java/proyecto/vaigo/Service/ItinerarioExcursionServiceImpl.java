@@ -16,7 +16,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 @Service
 public class ItinerarioExcursionServiceImpl implements ItinerarioExcursionService {
-    private static final Logger log = LoggerFactory.getLogger(HistorialViajesServiceImpl.class);
+    private static final Logger log = LoggerFactory.getLogger(ItinerarioServiceImpl.class);
 
     @Autowired
     private ItinerarioExcursionRepository itinerarioExcursionRepository;
@@ -39,6 +39,16 @@ public class ItinerarioExcursionServiceImpl implements ItinerarioExcursionServic
                 .map(p -> ItinerarioExcursionesDTO.ConvertToDTO(p))
                 .collect(Collectors.toList());
 
+        return listaitiExDTO;
+    }
+    @Override
+    public List<ItinerarioExcursionesDTO> todosItiid(String dato) {
+        log.info(dato);
+        List<ItinerarioExcursionesDTO> listaitiExDTO = itinerarioExcursionRepository.TodosItiId(dato)
+                .stream()
+                .map(p -> ItinerarioExcursionesDTO.ConvertToDTO(p))
+                .collect(Collectors.toList());
+        log.info(String.valueOf(listaitiExDTO));
         return listaitiExDTO;
     }
 
