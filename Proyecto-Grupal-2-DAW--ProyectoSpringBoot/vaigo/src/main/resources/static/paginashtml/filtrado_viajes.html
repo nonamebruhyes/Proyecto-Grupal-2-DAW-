@@ -121,15 +121,17 @@
             <section>
                 <h1>PERSONALIZA TU EXPERCIENCIA</h1>
                 <p>Seleccione las opciones que se acomoden mas a tu preferencia.</p>
-                <button type="submit">VER PREDISEÑADOS</button>
+                <button>VER PREDISEÑADOS</button>
             </section>
             <hr>
             <section>
                 <div>
                     <div>
                         <label for="planes">Planes:</label>
-                        <select name="planes" id="planes">
-                            <option value="" selected>Todos</option>
+                        <select id="planes">
+                            <option value="0">Todos</option>
+                            <option value='t'>Planes propios</option>
+                            <option value='f'>Otros planes</option>
                         </select>
                     </div>
 
@@ -171,7 +173,7 @@
                         </select>
                     </div>
 
-                    <button type="submit">FILTRAR BUSQUEDA</button>
+                    <button type="submit" id="filtrar">FILTRAR BUSQUEDA</button>
 
                 </div>
                 
@@ -214,6 +216,7 @@
         </footer>
     </div>
     <script src="../js/header.js"></script>
+<script src="../js/filtradoviajes.js"></script>
 </body>
 
 </html>
