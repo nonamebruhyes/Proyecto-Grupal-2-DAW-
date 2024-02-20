@@ -76,7 +76,6 @@ public class IndexController {
         log.info("CuentaController - save: Salvando la cuenta del cliente: " +
                 usuariosDTO.getId());
 
-
         // invocamos la operacion save a la capa de servicio de cuenta
      //   usuariosService.findUsuario(usuariosDTO);
     }
