@@ -4,6 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import proyecto.vaigo.model.dto.ItinerarioExcursionesDTO;
 import proyecto.vaigo.model.dto.ViajesDTO;
 import proyecto.vaigo.model.entity.ViajesEntity;
 import proyecto.vaigo.repository.ViajesRepository;
@@ -16,7 +17,7 @@ import java.util.stream.Collectors;
 
 @Service
 public class ViajesServiceImpl implements ViajesService {
-    private static final Logger log = LoggerFactory.getLogger(ItinerarioServiceImpl.class);
+    private static final Logger log = LoggerFactory.getLogger(ViajesServiceImpl.class);
 
     @Autowired
     private ViajesRepository viajesRepository;
@@ -54,5 +55,16 @@ public class ViajesServiceImpl implements ViajesService {
                 .collect(Collectors.toList());
 
         return listaViajesDTO;
+    }
+
+    @Override
+    public List<ViajesDTO> todosItiid(String dato) {
+        log.info(dato);
+        List<ViajesDTO> listaitiExDTO = viajesRepository.findIDCiu(dato)
+                .stream()
+                .map(p -> ViajesDTO.ConvertToDTO(p))
+                .collect(Collectors.toList());
+        log.info(String.valueOf(listaitiExDTO));
+        return listaitiExDTO;
     }
 }

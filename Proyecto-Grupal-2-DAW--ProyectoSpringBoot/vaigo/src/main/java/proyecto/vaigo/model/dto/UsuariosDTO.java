@@ -4,12 +4,13 @@ import jakarta.persistence.*;
 import lombok.Data;
 import proyecto.vaigo.model.entity.UsuariosEntity;
 
+import java.io.Serializable;
 import java.sql.Timestamp;
 import java.util.Objects;
 
 
 @Data
-public class UsuariosDTO {
+public class UsuariosDTO implements Serializable {
     private int id;
     private String username;
     private String correo;

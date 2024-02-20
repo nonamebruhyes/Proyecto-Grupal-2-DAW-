@@ -12,7 +12,7 @@ import java.util.Objects;
 public class UsuariosEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
-    @Column(name = "ID", nullable = false)
+    @Column(name = "ID", nullable = true)
     private int id;
     @Basic
     @Column(name = "username", nullable = false, length = 30)
@@ -30,7 +30,7 @@ public class UsuariosEntity {
     @Column(name = "ROL", nullable = true, length = 1)
     private String rol;
     @Basic
-    @Column(name = "FREGISTRO", nullable = false)
+    @Column(name = "FREGISTRO", nullable = true)
     private Timestamp fregistro;
 
 }

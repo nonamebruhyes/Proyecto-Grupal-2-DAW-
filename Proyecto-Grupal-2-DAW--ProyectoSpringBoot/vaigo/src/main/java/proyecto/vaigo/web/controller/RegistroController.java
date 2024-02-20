@@ -22,6 +22,7 @@ public class RegistroController {
     }
     @PostMapping("/api/registro")
     public boolean comprobarUsuario (@RequestBody UsuariosDTO usuariosDTO){
+        log.info(String.valueOf(usuariosDTO));
         if (!usuariosDTO.getCorreo().matches("^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,6}$")){
             return false;
         }

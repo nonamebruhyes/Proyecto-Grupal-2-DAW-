@@ -3,8 +3,10 @@ package proyecto.vaigo.model.dto;
 import lombok.Data;
 import proyecto.vaigo.model.entity.CiudadesEntity;
 
+import java.io.Serializable;
+
 @Data
-public class CiudadesDTO {
+public class CiudadesDTO implements Serializable {
     private int id;
     private int idPais;
     private String ciudad;

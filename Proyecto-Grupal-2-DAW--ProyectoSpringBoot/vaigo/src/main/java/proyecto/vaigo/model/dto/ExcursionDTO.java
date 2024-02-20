@@ -1,14 +1,15 @@
 package proyecto.vaigo.model.dto;
 
-import jakarta.persistence.*;
+
 import lombok.Data;
 import proyecto.vaigo.model.entity.ExcursionEntity;
 
+import java.io.Serializable;
 import java.sql.Timestamp;
-import java.util.Objects;
+
 
 @Data
-public class ExcursionDTO {
+public class ExcursionDTO implements Serializable {
     private int id;
     private int idCiudad;
     private String tipo;

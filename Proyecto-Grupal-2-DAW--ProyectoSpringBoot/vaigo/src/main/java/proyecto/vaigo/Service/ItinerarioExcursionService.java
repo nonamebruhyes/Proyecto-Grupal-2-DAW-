@@ -7,4 +7,5 @@ import java.util.List;
 public interface ItinerarioExcursionService {
     List<ItinerarioExcursionesDTO> findAll();
     List<ItinerarioExcursionesDTO> todosItiEx(String dato);
+    List<ItinerarioExcursionesDTO> todosItiid(String dato);
 }
