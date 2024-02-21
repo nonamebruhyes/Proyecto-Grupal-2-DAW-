@@ -22,7 +22,7 @@ descrip.textContent=data.descripcion;
 
 let viaje=data;
 
- let url4 = "http://localhost:8888/api/ViajeImg?dato="+data.id+"";
+ let url4 = "http://localhost:8888/api/TransporteId?dato="+data.id+"";
                         fetch(url4, {
                             method: "GET",
                             headers: {
@@ -78,8 +78,9 @@ for (let i = 0; i < data.length; i++) {
                 padre.innerHTML='';
                 let datosJson=data;
                 let datospasa = {
-                                "viaje_idCiudad": viaje.idCiudad,
+                                "viaje_id": viaje.id,
                                 "itinerario_id": selector.value,
+                                "hotel_id":1
 
                             }
                             localStorage.setItem("datospasa", JSON.stringify(datospasa));

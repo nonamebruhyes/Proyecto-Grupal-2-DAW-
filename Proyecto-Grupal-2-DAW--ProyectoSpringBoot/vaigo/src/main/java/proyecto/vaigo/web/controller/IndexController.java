@@ -79,14 +79,7 @@ public class IndexController {
         // invocamos la operacion save a la capa de servicio de cuenta
      //   usuariosService.findUsuario(usuariosDTO);
     }
-    @PostMapping("/buscarExcursion")
-            public ExcursionDTO BuscEx(@RequestBody ExcursionDTO excursionDTO) {
 
-        log.info("CuentaController - save: Salvando la cuenta del cliente: " +
-                excursionDTO.getId());
-        // invocamos la operacion save a la capa de servicio de cuenta
-        return excursionService.findById(excursionDTO);
-    }
     @GetMapping("/api/Itinerario")
     public ItinerarioDTO mostrarunIti (@RequestParam String dato){
         log.info(dato);

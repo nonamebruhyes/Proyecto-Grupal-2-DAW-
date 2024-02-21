@@ -1,7 +1,11 @@
 package proyecto.vaigo.web.controller;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import proyecto.vaigo.Service.*;
 import proyecto.vaigo.model.dto.*;
@@ -11,6 +15,11 @@ import java.util.List;
 @RestController
 public class ListController {
 
+
+	private static final Logger log =
+			LoggerFactory.getLogger(ListController.class);
+	@Autowired
+	private ViajesService viajesService;
 	@Autowired
 	private CiudadesService ciudadesService;
 	@Autowired
@@ -24,6 +33,10 @@ public class ListController {
 
 	@Autowired
 	private TipoHotelService tipoHotelService;
+	@Autowired
+	private HotelService hotelService;
+	@Autowired
+	private ExcursionService excursionService;
 
 
 	@GetMapping("/api/ciudades")
@@ -45,6 +58,42 @@ public class ListController {
 	@GetMapping("/api/estancias")
 	public List<TipohotelDTO> getTiposHotel(){
 		return tipoHotelService.findAll();
+	}
+
+	@GetMapping("/api/Hotelid")
+	public HotelDTO hotelid (@RequestParam String dato){
+		log.info(dato);
+		HotelDTO hotelDTO=new HotelDTO();
+		hotelDTO.setId(Integer.parseInt(dato));
+
+		log.info("CuentaController - save: Salvando la cuenta del cliente: " +
+				hotelDTO);
+		// invocamos la operacion save a la capa de servicio de cuenta
+		return hotelService.findById(hotelDTO);
+	}
+	@GetMapping("/api/ViajeId")
+	public ViajesDTO mostrarItiDeUnViaje (@RequestParam String dato){
+		log.info(dato);
+		ViajesDTO viajesDTO=new ViajesDTO();
+		viajesDTO.setId(Integer.parseInt(dato));
+		log.info(String.valueOf(viajesDTO));
+		return viajesService.findById(viajesDTO);
+	}
+	@GetMapping("/api/ExcursionId")
+	public ExcursionDTO byidEx (@RequestParam String dato){
+		log.info(dato);
+		ExcursionDTO excursionDTO=new ExcursionDTO();
+		excursionDTO.setId(Integer.parseInt(dato));
+		log.info(String.valueOf(excursionDTO));
+		return excursionService.findById(excursionDTO);
+	}
+	@GetMapping("/api/TransporteId")
+	public TransporteDTO ByidTrans (@RequestParam String dato){
+		log.info(dato);
+		TransporteDTO transporteDTO=new TransporteDTO();
+		transporteDTO.setId(Integer.parseInt(dato));
+		log.info(String.valueOf(transporteDTO));
+		return transporteService.findById(transporteDTO);
 	}
 
 }
