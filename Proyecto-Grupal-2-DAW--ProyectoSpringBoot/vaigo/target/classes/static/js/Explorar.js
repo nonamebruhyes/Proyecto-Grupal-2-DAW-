@@ -45,74 +45,72 @@ let selectterrenos = document.getElementById("terrenos");
 let selecttransportes = document.getElementById("transportes");
 let selectestancias = document.getElementById("estancias");
 window.addEventListener('load', function (e) {
-    let urls = ["ciudades", "paises", "terrenos", "transportes", "estancias"];
-    crearElementoTexto("Vaigo", "option", selectpanes, 0);
+    cargarfiltros("ciudades");
+    cargarfiltros("paises");
+    cargarfiltros("terrenos");
+    cargarfiltros("transportes");
+    cargarfiltros("estancias");
+    if (window.location.toString().includes("?")){
+        fetch(window.location.toString().replace("?", "/")).then(response => response.json()).then(data => {
 
+        }).catch(error => console.error(error));
+    }else{
+        fetch("http://localhost:8888/todo").then(response => response.json()).then(data => {
 
-    for (let i = 0; i < urls.length; i++) {
-        fetch("http://localhost:8888/api/" + urls[i]).then(response => response.json()).then(data => {
-            switch (urls[i]) {
-                case "ciudades":
-                    ciudades = data;
-                    ciudades.forEach(element => {
-                        crearElementoTexto(element.ciudad, "option", selectciudaes, element.id);
-                    });
-                    break;
-                case "paises":
-                    paises = data;
-                    paises.forEach(element => {
-                        crearElementoTexto(element.pais, "option", selectpaises, element.id);
-                    });
-                    break;
-                case "terrenos":
-                    terrenos = data;
-                    terrenos.forEach(element => {
-                        crearElementoTexto(element.tipo, "option", selectterrenos, element.id);
-                        crearElementoTexto(element.tipo, "option", selectestancias, element.id);
-                    });
-                    break;
-            
-        break;
-            case "transportes":
-        transportes = data;
-        transportes.forEach(element => {
-            crearElementoTexto(element.tipo, "option", selecttransportes, element.id);
-        });
-        break;
-            case "estancias":
-        estancias = data;
-        estancias.forEach(element => {
-            crearElementoTexto(element.tipo, "option", selectestancias, element.id);
-        });
-        break;
-
-                default:
-        break;
-
+        }).catch(error => console.error(error));
     }
-
-
-}).catch(error => console.error('Error:', error));
-    
-
-
-
-;
-
-
-
-
-function crearElemento(tipo = "br", padre = contenido) {
-    let elemento = document.createElement(tipo);
-    padre.appendChild(elemento);
-    return elemento;
-}
-
-function crearElementoTexto(texto = "Ejemplo", tipo = "div", padre = contenido, valor) {
+});
+function crearElementoTexto( texto ,tipo , padre , valor ) {
     let elemento = document.createElement(tipo);
     elemento.textContent = texto;
-    elemento.value = valor;
     padre.appendChild(elemento);
+    elemento.value = valor;
     return elemento;
 }
-    }})
+
+function cargarfiltros(url){
+    fetch("http://localhost:8888/api/"+url)
+        .then(response => response.json()).then(data => {
+        switch (url) {
+            case "ciudades":
+                selectciudaes.innerHTML = "<option value='0'>Todos</option>";
+                data.forEach(element => {
+                    crearElementoTexto(element.ciudad, "option", selectciudaes, element.id);
+                });
+                break;
+            case "paises":
+                let paises = data;
+                selectpaises.innerHTML = "<option value='0'>Todos</option>";
+                paises.forEach(element => {
+                    crearElementoTexto(element.pais, "option", selectpaises, element.id);
+                });
+                break;
+
+            case "terrenos":
+                selectterrenos.innerHTML = "<option value='0'>Todos</option>";
+                let terrenos = data;
+                terrenos.forEach(element => {
+                    crearElementoTexto(element.tipo, "option", selectterrenos, element.id);
+                });
+                break;
+
+            case "transportes":
+                selecttransportes.innerHTML = "<option value='0'>Todos</option>";
+                let transportes = data;
+                transportes.forEach(element => {
+                    crearElementoTexto(element.tipo, "option", selecttransportes, element.id);
+                });
+                break;
+
+            case "estancias":
+                selectestancias.innerHTML = "<option value='0'>Todos</option>";
+                let estancias = data;
+                estancias.forEach(element => {
+                    crearElementoTexto(element.tipo, "option", selectestancias, element.id);
+                });
+                break;
+            default:
+                break;
+
+        }
+    }).catch(error => console.error('Error:', error));}

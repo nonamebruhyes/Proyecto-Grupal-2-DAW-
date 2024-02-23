@@ -43,18 +43,7 @@ public class PasarelaDePagoController {
         // invocamos la operacion save a la capa de servicio de cuenta
         return itinerarioExcursionService.todosItiid(dato);
     }
-    @GetMapping("/ViaCiu")
-    public List<ViajesDTO> BuscViCIU(@RequestParam String dato) {
 
-        log.info("CuentaController - save: Salvando la cuenta del cliente: ");
-        // invocamos la operacion save a la capa de servicio de cuenta
-        return viajesService.todosItiid(dato);
-    }
-    @GetMapping("/HotelCiu")
-    public List<HotelDTO> BuscHoCIU(@RequestParam String dato) {
-        log.info("CuentaController - save: Salvando la cuenta del cliente: ");
-        // invocamos la operacion save a la capa de servicio de cuenta
-        return hotelService.todosItiid(dato);
-    }
+
 
 }

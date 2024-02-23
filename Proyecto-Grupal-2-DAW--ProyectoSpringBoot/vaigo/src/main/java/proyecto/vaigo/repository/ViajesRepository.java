@@ -22,4 +22,5 @@ public interface ViajesRepository extends JpaRepository<ViajesEntity, Integer> {
     public List<ViajesEntity> findIDCiu(@Param("idd1") String  idCiudad);
 
 
+
 }

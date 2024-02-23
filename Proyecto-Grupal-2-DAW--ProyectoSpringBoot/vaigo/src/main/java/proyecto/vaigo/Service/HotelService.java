@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface HotelService {
     List<HotelDTO> todosItiid(String dato);
+    HotelDTO findById(HotelDTO hotelDTO);
 }
