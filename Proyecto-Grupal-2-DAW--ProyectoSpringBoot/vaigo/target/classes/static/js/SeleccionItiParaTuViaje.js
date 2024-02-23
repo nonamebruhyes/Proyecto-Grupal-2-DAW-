@@ -50,7 +50,7 @@ let viaje=data;
 }
 
 function Img(data){
-
+console.log(data);
 
 let imgdata="../"+data.url;
 let img=document.getElementById('imgviaje');
@@ -78,8 +78,9 @@ for (let i = 0; i < data.length; i++) {
                 padre.innerHTML='';
                 let datosJson=data;
                 let datospasa = {
-                                "viaje_idCiudad": viaje.idCiudad,
+                                "viaje_id": viaje.id,
                                 "itinerario_id": selector.value,
+                                "hotel_id":1
 
                             }
                             localStorage.setItem("datospasa", JSON.stringify(datospasa));

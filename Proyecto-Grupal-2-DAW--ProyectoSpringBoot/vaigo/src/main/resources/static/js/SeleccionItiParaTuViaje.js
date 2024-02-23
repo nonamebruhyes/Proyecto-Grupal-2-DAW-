@@ -22,7 +22,7 @@ descrip.textContent=data.descripcion;
 
 let viaje=data;
 
- let url4 = "http://localhost:8888/api/TransporteId?dato="+data.id+"";
+ let url4 = "http://localhost:8888/api/ViajeImg?dato="+data.id+"";
                         fetch(url4, {
                             method: "GET",
                             headers: {
@@ -50,7 +50,7 @@ let viaje=data;
 }
 
 function Img(data){
-
+console.log(data);
 
 let imgdata="../"+data.url;
 let img=document.getElementById('imgviaje');

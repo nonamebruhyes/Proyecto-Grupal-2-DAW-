@@ -121,7 +121,7 @@
             <!--dejad aqui las cosas-->
             <div>
                 <div id="contenedor-galeria">
-                    <img src="../img/wallpaper/wallpaper.jpg" alt="">
+                    <img  id="img" src="../img/wallpaper/wallpaper.jpg" alt="">
                     <div>
                         <button id="boton-anterior">
                             <i class="fas fa-chevron-left"></i>
@@ -140,46 +140,34 @@
                 </div>
                 <div id="exposicion">
                     <h1>Seleccion de destino</h1>
-                    <h3>Pais: <span>Grecia</span></h3>
+                    <h3>Ciudad: <span id="ciu">Grecia</span></h3>
                     <div>
                         <section>
 
                             <div>
                                 <label for="pers">Nº personas: </label>
-                                <input type="number" name="pers" id="num-person">
+                                <input type="number" name="pers" id="numperson">
                             </div>
                             <div>
                                 <label for="fida">Fecha ida </label>
-                                <input type="date" name="fida" id="fida">
+                                <input type="date" name="fida" id="fida" readonly>
                             </div>
                             <div>
                                 <label for="fvol">Fecha vuelta: </label>
-                                <input type="date" name="fvol" id="fvol">
+                                <input type="date" name="fvol" id="fvol" readonly>
                             </div>
 
                         </section>
                         <section>
                             <div>
-                                <label for="destino">Ciudades: </label>
-                                <select name="destino" id="destino"></select>
-                                <div>
-                                    <p>Lista de ciudades</p>
-                                    <div id="list-of-ciudades">
-                                        <input type="checkbox" value="1" name="checkbox1" checked>
-                                        <label for="checkbox1">Atenas</label>
-                                    </div>
-                                </div>
+                                <label for="trans">Transporte: </label>
+                                <select name="destino" id="trans"></select>
+                                
                             </div>
                             <div>
                                 <label for="hoteles">Hoteles</label>
                                 <select name="hoteles" id="hoteles"></select>
-                                <div>
-                                    <p>Lista de hoteles</p>
-                                    <div id="list-of-hoteles">
-                                        <input type="checkbox" value="1" name="hotel1" checked>
-                                        <label for="hotel1">hotelillo</label>
-                                    </div>
-                                </div>
+                               
                             </div>
                         </section>
                         <input type="submit" value="Confirmar" id="confirm">
@@ -224,5 +212,6 @@
     </div>
 </body>
 <script src="../js/header.js"></script>
+<script src="../js/seleccionDestino.js"></script>
 
 </html>

@@ -39,6 +39,7 @@ public class ListController {
 	private ExcursionService excursionService;
 
 
+
 	@GetMapping("/api/ciudades")
 	public List<CiudadesDTO> getCiudades(){
 		return ciudadesService.findAll();
@@ -94,6 +95,27 @@ public class ListController {
 		transporteDTO.setId(Integer.parseInt(dato));
 		log.info(String.valueOf(transporteDTO));
 		return transporteService.findById(transporteDTO);
+	}
+	@GetMapping("/ViaCiu")
+	public List<ViajesDTO> BuscViCIU(@RequestParam String dato) {
+
+		log.info("CuentaController - save: Salvando la cuenta del cliente: ");
+		// invocamos la operacion save a la capa de servicio de cuenta
+		return viajesService.todosItiid(dato);
+	}
+	@GetMapping("/api/ciudad")
+	public CiudadesDTO ByidCiu (@RequestParam String dato){
+		log.info(dato);
+		CiudadesDTO ciudadesDTO=new CiudadesDTO();
+		ciudadesDTO.setId(Integer.parseInt(dato));
+		log.info(String.valueOf(ciudadesDTO));
+		return ciudadesService.findById(ciudadesDTO);
+	}
+	@GetMapping("/HotelCiu")
+	public List<HotelDTO> BuscHoCIU(@RequestParam String dato) {
+		log.info("CuentaController - save: Salvando la cuenta del cliente: ");
+		// invocamos la operacion save a la capa de servicio de cuenta
+		return hotelService.todosItiid(dato);
 	}
 
 }
