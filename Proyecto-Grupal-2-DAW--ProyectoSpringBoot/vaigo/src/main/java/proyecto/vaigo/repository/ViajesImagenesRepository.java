@@ -16,5 +16,5 @@ import java.util.Optional;
 public interface ViajesImagenesRepository extends JpaRepository<ViajesimagenesEntity, Integer>{
     @Query(value = "SELECT * FROM viajesimagenes WHERE id_viajes = :idc1",
             nativeQuery = true)
-    public Optional <ViajesimagenesEntity> findImagenViaje(@Param("idc1") Integer idCiudad);
+    public Optional <ViajesimagenesEntity> findImagenViaje(@Param("idc1") int idCiudad);
 }
