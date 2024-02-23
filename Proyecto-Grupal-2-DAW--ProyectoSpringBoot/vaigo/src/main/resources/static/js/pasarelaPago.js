@@ -1,10 +1,11 @@
 window.addEventListener("load", function (event)  {
 let datosRecoje=JSON.parse(localStorage.getItem("datospasa"));
-console.log(datosRecoje);
+let datosHotel=JSON.parse(localStorage.getItem("datoshotel"));
 
 
 
-let url1 = "http://localhost:8888/api/Hotelid?dato="+datosRecoje.hotel_id+"";
+
+let url1 = "http://localhost:8888/api/Hotelid?dato="+datosHotel.hotel_id+"";
                         fetch(url1, {
                             method: "GET",
                             headers: {
@@ -39,9 +40,7 @@ let url1 = "http://localhost:8888/api/Hotelid?dato="+datosRecoje.hotel_id+"";
 
                                                             let data3=da
 
-                                                            console.log(data1);
-                                                            console.log(data2);
-                                                            console.log(data3);
+
                                                             Cambios(data1,data2,data3);
                                                             })
 
@@ -71,7 +70,7 @@ let precio=0;
                         })
                             .then(response => response.json() )
                             .then(data4 => {
-                            console.log(data4)
+
 
                         let tra=document.getElementById('trans');
                         tra.textContent=data4.tipo;
@@ -79,6 +78,8 @@ let precio=0;
                          tran.textContent=data4.precio.toFixed(2)+'€';
                          let total=document.getElementById('total');
                             let todo=data1.precio+data4.precio;
+
+                            let cont=0;
                             for(let i = 0; i < data3.length; i++){
                             let url5 = "http://localhost:8888/api/ExcursionId?dato="+data3[i].idExcursion+"";
                                                     fetch(url5, {
@@ -89,6 +90,8 @@ let precio=0;
                                                     })
                                                         .then(response => response.json() )
                                                         .then(data5 => {
+
+                                                        cont+=1;
                                                        precio+=data5.precio;
 
                                                        let acti=document.getElementById('acti2');
@@ -98,9 +101,22 @@ let precio=0;
 
                                                                act.textContent=precio.toFixed(2)+'€';
                                                                todo+=data5.precio;
-                                                               total.textContent=todo.toFixed(2)+'€';
+
+
+                                                               if(cont==3){
+
+
+                                                               let totalbien=todo*datosHotel.persona;
+                                                                total.textContent=totalbien.toFixed(2)+'€';
+                                                               }
+
                                                         })
                                                         }
+                                                        let datosHotel=JSON.parse(localStorage.getItem("datoshotel"));
+                                                        let perso=document.getElementById('per');
+
+                                                        perso.textContent=datosHotel.persona;
+
                             })
 
 

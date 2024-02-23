@@ -3,10 +3,7 @@ package proyecto.vaigo.web.controller;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import proyecto.vaigo.Service.*;
 import proyecto.vaigo.model.dto.*;
 
@@ -116,6 +113,14 @@ public class ListController {
 		log.info("CuentaController - save: Salvando la cuenta del cliente: ");
 		// invocamos la operacion save a la capa de servicio de cuenta
 		return hotelService.todosItiid(dato);
+	}
+	@PostMapping("/buscarExcursion")
+	public ExcursionDTO BuscUsu(@RequestBody ExcursionDTO excursionDTO) {
+
+		log.info("CuentaController - save: Salvando la cuenta del cliente: " +
+				excursionDTO.getId());
+
+		return excursionService.findById(excursionDTO);
 	}
 
 }

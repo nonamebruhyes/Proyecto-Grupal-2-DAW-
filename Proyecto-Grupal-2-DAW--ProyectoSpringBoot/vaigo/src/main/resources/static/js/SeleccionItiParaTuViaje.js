@@ -79,8 +79,8 @@ for (let i = 0; i < data.length; i++) {
                 let datosJson=data;
                 let datospasa = {
                                 "viaje_id": viaje.id,
-                                "itinerario_id": selector.value,
-                                "hotel_id":1
+                                "itinerario_id": selector.value
+
 
                             }
                             localStorage.setItem("datospasa", JSON.stringify(datospasa));

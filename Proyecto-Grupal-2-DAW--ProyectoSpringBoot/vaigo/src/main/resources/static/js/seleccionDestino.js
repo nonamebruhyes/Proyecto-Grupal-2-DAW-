@@ -113,15 +113,31 @@ for (let i = 0; i < data.length; i++) {
                                                                 })
 
 document.getElementById("confirm").addEventListener("click", function () {
-let numperson=document.getElementById('numperson')
+let numperson=document.getElementById('numperson');
+let error=document.getElementById('error');
+let viaje;
 for (let i = 0; i < data.length; i++) {
 if(selector.value==data[i].idTransporte){
-let viaje=data[i];
+viaje=data[i];
 console.log(viaje);
 }
 }
-   if(numperson.value==''){
 
+   if(numperson.value==''){
+    error.textContent='Numero de persona no especificado';
+   }else if(numperson.value==0){
+   error.textContent='No pueden ir 0 personas al viaje';
+   }
+   else{
+   error.textContent='';
+   let datospasa = {
+                                   "hotel_id":selector2.value,
+                                   "persona":numperson.value
+
+                               }
+                               localStorage.setItem("datoshotel", JSON.stringify(datospasa));
+    let link = "http://localhost:8888/seleccionItinerario?"+viaje.id;
+       window.location.href = link;
    }
 
 
