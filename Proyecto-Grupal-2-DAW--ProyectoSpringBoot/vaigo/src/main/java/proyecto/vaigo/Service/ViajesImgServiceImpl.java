@@ -14,6 +14,7 @@ import proyecto.vaigo.repository.ViajesImagenesRepository;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class ViajesImgServiceImpl implements ViajesImgService{
@@ -60,14 +61,13 @@ public class ViajesImgServiceImpl implements ViajesImgService{
     }
 
     @Override
-    public ViajesimagenesDTO findByIdVia(int idViaje) {
-        Optional<ViajesimagenesEntity> viajesEntity = viajesImagenesRepository.findImagenViaje(idViaje);
-        if(viajesEntity.isPresent()) {
-           ViajesimagenesDTO viajesimagenesDTO = ViajesimagenesDTO.ConvertToDTO(viajesEntity.get());
-            return viajesimagenesDTO;
-        }else {
-            return null;
-        }
+    public List<ViajesimagenesDTO> buscarporidviajes(int idViaje) {
+        List<ViajesimagenesDTO> viajesimagenesDTOList = viajesImagenesRepository.findAllByIdViajes(idViaje)
+                .stream()
+                .map(p -> ViajesimagenesDTO.ConvertToDTO(p))
+                .collect(Collectors.toList());
+        return viajesimagenesDTOList;
     }
+
 
 }

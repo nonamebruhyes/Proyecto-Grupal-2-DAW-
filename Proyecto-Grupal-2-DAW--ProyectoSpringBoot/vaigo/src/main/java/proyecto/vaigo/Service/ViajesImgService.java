@@ -9,6 +9,6 @@ public interface ViajesImgService {
     List<ViajesimagenesDTO> findAll();
     ViajesimagenesDTO findById(ViajesimagenesDTO viajesimagenesDTO);
     ViajesimagenesDTO findByIdVia(ViajesimagenesDTO viajesimagenesDTO);
-    ViajesimagenesDTO findByIdVia(int idViaje);
+    List<ViajesimagenesDTO> buscarporidviajes(int idViaje);
 
 }

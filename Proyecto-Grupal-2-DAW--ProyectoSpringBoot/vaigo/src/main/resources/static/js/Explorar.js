@@ -43,7 +43,7 @@ let selectciudaes = document.getElementById("ciudades");
 let selectpaises = document.getElementById("paises");
 let selectterrenos = document.getElementById("terrenos");
 let selecttransportes = document.getElementById("transportes");
-let padreviajes = document.querySelector("div#viaje-request");
+let padreviajes = document.querySelector("div#viajes-request");
 window.addEventListener('load', function (e) {
 
 
@@ -131,7 +131,7 @@ function cargarfiltros(url,  valor){
 
 
 
-async function creacionViajes(data){
+ function creacionViajes(data){
     data.forEach(element => {
         let contenedorviaje = document.createElement("div");
         padreviajes.appendChild(contenedorviaje);
@@ -176,7 +176,7 @@ async function creacionViajes(data){
         p2.textContent = element.terreno;
         etiquetas2.appendChild(p2);
         contenedorviaje.addEventListener('click', function (e) {
-            window.location = "http://localhost:8888/selectorviaje?" + contenedorviaje.id;
+            window.location = "http://localhost:8888/seleccionDestino?"+element.id;
         });
     });
 }

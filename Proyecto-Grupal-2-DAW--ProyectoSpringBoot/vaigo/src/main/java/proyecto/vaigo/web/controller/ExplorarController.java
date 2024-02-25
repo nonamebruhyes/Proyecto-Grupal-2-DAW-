@@ -1,7 +1,6 @@
 package proyecto.vaigo.web.controller;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.JsonNode;
+
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.databind.node.ArrayNode;
@@ -15,7 +14,7 @@ import proyecto.vaigo.Service.*;
 import proyecto.vaigo.model.dto.*;
 
 import java.util.List;
-import java.util.Objects;
+
 
 @RestController
 public class ExplorarController {
@@ -72,8 +71,9 @@ public class ExplorarController {
 				objetoNode.put("puntuacion", viajesDTO.getPuntuacion());
 				objetoNode.put("descripcion", viajesDTO.getDescripcion());
 				objetoNode.put("planes", viajesDTO.getPlanes());
-
-				objetoNode.put("path", viajesImgService.findByIdVia(ciudadesDTO.getId()).getUrl());
+				for (ViajesimagenesDTO viajesImgDTO : viajesImgService.buscarporidviajes(ciudadesDTO.getIdPais())) {
+					objetoNode.put("path", viajesImgDTO.getUrl());
+				}
 
 				arrayNode.add(objetoNode);
 			}
@@ -112,8 +112,10 @@ public class ExplorarController {
 				objetoNode.put("puntuacion", viajesDTO.getPuntuacion());
 				objetoNode.put("descripcion", viajesDTO.getDescripcion());
 				objetoNode.put("planes", viajesDTO.getPlanes());
+				for (ViajesimagenesDTO viajesImgDTO : viajesImgService.buscarporidviajes(ciudadesDTO.getIdPais())) {
+					objetoNode.put("path", viajesImgDTO.getUrl());
+				}
 
-				objetoNode.put("path", viajesImgService.findByIdVia(ciudadesDTO.getId()).getUrl());
 
 				arrayNode.add(objetoNode);
 			}
@@ -128,6 +130,7 @@ public class ExplorarController {
 		}catch (Exception e){
 			e.printStackTrace();
 		}
+		log.info("filtro: "+filtro);
 		return json ;
 	}
 

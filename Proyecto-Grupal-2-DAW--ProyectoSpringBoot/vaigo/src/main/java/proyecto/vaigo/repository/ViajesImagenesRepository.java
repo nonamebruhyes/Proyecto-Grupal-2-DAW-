@@ -17,4 +17,6 @@ public interface ViajesImagenesRepository extends JpaRepository<ViajesimagenesEn
     @Query(value = "SELECT * FROM viajesimagenes WHERE id_viajes = :idc1",
             nativeQuery = true)
     public Optional <ViajesimagenesEntity> findImagenViaje(@Param("idc1") int idCiudad);
+
+    public List<ViajesimagenesEntity> findAllByIdViajes(int idViajes);
 }
