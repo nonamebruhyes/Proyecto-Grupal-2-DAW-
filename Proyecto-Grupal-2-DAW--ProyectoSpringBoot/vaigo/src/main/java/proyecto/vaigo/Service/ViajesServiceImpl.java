@@ -1,5 +1,7 @@
 package proyecto.vaigo.Service;
 
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -66,5 +68,30 @@ public class ViajesServiceImpl implements ViajesService {
                 .collect(Collectors.toList());
         log.info(String.valueOf(listaitiExDTO));
         return listaitiExDTO;
+    }
+
+    @Override
+    public List<ViajesDTO> filtrado(String respuesta) {
+        log.info("buscando por filtro" + respuesta);
+        try {
+            ObjectMapper mapper = new ObjectMapper();
+            JsonNode jsonNode = mapper.readTree(respuesta);
+            String planesNode = jsonNode.get("planes").asText();
+            int idCiudadNode = jsonNode.get("ciudad").asInt();
+            int idPaisNode = jsonNode.get("pais").asInt();
+            int  idTerrenoNode = jsonNode.get("terreno").asInt();
+            int idTransporteNode = jsonNode.get("transporte").asInt();
+
+            List<ViajesDTO> listaViajesDTO = viajesRepository.filtrado(planesNode.toString(), idCiudadNode, idPaisNode, idTerrenoNode, idTransporteNode)
+                    .stream()
+                    .map(p -> ViajesDTO.ConvertToDTO(p))
+                    .collect(Collectors.toList());
+            log.info(String.valueOf(listaViajesDTO));
+            log.info("size: " + listaViajesDTO.size());
+            return listaViajesDTO;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 }

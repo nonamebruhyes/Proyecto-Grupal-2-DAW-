@@ -20,5 +20,13 @@ private TerrenoRepository terrenoRepository;
 		List<TerrenoDTO> listaTerrenoDTO = terrenoRepository.findAll().stream().map(p -> TerrenoDTO.ConvertToDTO(p)).collect(Collectors.toList());
 		return listaTerrenoDTO;
 	}
+
+	@Override
+	public TerrenoDTO findById(int idTerreno) {
+		TerrenoDTO terrenoDTO = TerrenoDTO.ConvertToDTO(terrenoRepository.findById(idTerreno).get());
+		return terrenoDTO;
+	}
+
+
 }
 

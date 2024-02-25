@@ -9,4 +9,6 @@ public interface ViajesService {
     ViajesDTO findById(ViajesDTO viajesDTO);
     List<ViajesDTO> findFiltro();
     List<ViajesDTO> todosItiid(String dato);
+    List<ViajesDTO> filtrado(String respuesta);
 }
+

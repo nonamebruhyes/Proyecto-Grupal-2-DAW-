@@ -43,4 +43,15 @@ public class PaisServiceImpl implements PaisService{
             return null;
         }
     }
+
+    @Override
+    public PaisDTO findById(int idPais) {
+        Optional<PaisEntity> paisEntity = paisRepository.findById(idPais);
+        if(paisEntity.isPresent()) {
+           PaisDTO paisDTO = PaisDTO.ConvertToDTO(paisEntity.get());
+            return paisDTO;
+        }else {
+            return null;
+        }
+    }
 }

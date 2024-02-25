@@ -21,6 +21,12 @@ public interface ViajesRepository extends JpaRepository<ViajesEntity, Integer> {
             nativeQuery = true)
     public List<ViajesEntity> findIDCiu(@Param("idd1") String  idCiudad);
 
-
+    @Query(value = "SELECT v.* FROM viajes v JOIN ciudades c ON v.id_Ciudad = c.id WHERE " +
+            "    (v.planes = :paramPlanes OR :paramPlanes = '0') AND" +
+            "    (v.id_Ciudad = :paramCiudad OR :paramCiudad = 0) AND" +
+            "    (c.id_Pais = :paramPais OR :paramPais = 0) AND" +
+            "    (v.id_Terreno = :paramTerreno OR :paramTerreno = 0 OR v.id_Terreno IS NULL) AND" +
+            "    (v.id_Transporte = :paramTransporte OR :paramTransporte = 0 OR v.id_Transporte IS NULL);", nativeQuery = true )
+    public List<ViajesEntity> filtrado(@Param("paramPlanes") String planes, @Param("paramCiudad") int ciudad, @Param("paramPais") int pais, @Param("paramTerreno") int terreno, @Param("paramTransporte") int transporte);
 
 }

@@ -43,4 +43,15 @@ public class CiudadesServiceImpl implements CiudadesService{
         }
     }
 
+    @Override
+    public CiudadesDTO findById(int idCiudad) {
+        Optional<CiudadesEntity> ciudadesEntity = ciudadesRepository.findById(idCiudad);
+        if(ciudadesEntity.isPresent()) {
+            CiudadesDTO ciudadesDTO = CiudadesDTO.ConvertToDTO(ciudadesEntity.get());
+            return ciudadesDTO;
+        }else {
+            return null;
+        }
+    }
+
 }

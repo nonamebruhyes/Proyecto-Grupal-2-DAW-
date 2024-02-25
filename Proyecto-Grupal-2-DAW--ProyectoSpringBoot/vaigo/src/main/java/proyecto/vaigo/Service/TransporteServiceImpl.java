@@ -43,4 +43,15 @@ public class TransporteServiceImpl implements TransporteService{
             return null;
         }
     }
+
+    @Override
+    public TransporteDTO findById(int idTransporte) {
+        Optional<TransporteEntity> transporteEntity = transporteRepository.findById(idTransporte);
+        if(transporteEntity.isPresent()) {
+           TransporteDTO transporteDTO = TransporteDTO.ConvertToDTO(transporteEntity.get());
+            return transporteDTO;
+        }else {
+            return null;
+        }
+    }
 }
