@@ -15,7 +15,7 @@ if (JSON.parse(localStorage.getItem('usuario1')) !== null) {
 
     a.addEventListener('click',function(){
      localStorage.setItem("usuario1", null);
-    window.location.href=window.location.toString();
+    window.location.href="http://localhost:8888/";
     })
 
     regi.remove();
