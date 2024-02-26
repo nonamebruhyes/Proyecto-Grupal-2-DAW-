@@ -33,9 +33,12 @@ function response(data) {
     let name = document.getElementById("nombre1").value;
         let password = document.getElementById("nombre2").value;
 
-    let  data2 = { correo: name, password: password };
+    let  data2 = { "correo": name, "password": password };
     console.log(data2);
+
+
     if (respuesta == "true") {
+
         fetch("http://localhost:8888/api/obtenerusuario",
         {
             method: "POST",
@@ -43,15 +46,19 @@ function response(data) {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify(data2)
-        }).then(response => response.json()).then(data => {
-        console.log(JSON.stringify(data));
+        }).then(response => response.json())
+        .then(data => {
+
             let usuario = {
-                "imgperfil": data.imgperfil,
+                    "id":data.id,
                 "username": data.username,
                 "correo": data.correo
             }
-            localStorage.setItem("usuario", JSON.stringify(usuario));
+          localStorage.setItem("usuario1", JSON.stringify(usuario));
+
+window.location.href="http://localhost:8888/";
         })
+
 
     } else {
         document.getElementById("error").textContent = "Usuario o contraseña incorrectos";

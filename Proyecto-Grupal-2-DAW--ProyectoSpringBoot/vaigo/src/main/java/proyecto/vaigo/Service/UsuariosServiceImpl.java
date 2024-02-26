@@ -59,6 +59,7 @@ public class UsuariosServiceImpl implements UsuariosService {
         if (usuariosEntity == null )
             return null;
         UsuariosDTO usuariosDTO = UsuariosDTO.ConvertToDTO(usuariosEntity);
+        log.info(String.valueOf(usuariosDTO));
         return usuariosDTO;
     }
 }

@@ -1,4 +1,36 @@
+window.addEventListener("load", function (event)  {
+
+if (JSON.parse(localStorage.getItem('usuario1')) !== null) {
+    // El localStorage existe, puedes realizar acciones adicionales aquí
+    var valorAlmacenado = JSON.parse(localStorage.getItem('usuario1'));
+    console.log('El valor almacenado es: ', valorAlmacenado);
+    let login=document.getElementById('ini');
+    let regi=document.getElementById('regi');
+    let perf=document.getElementById('perfil2');
+    let padre= document.getElementById('profileDropdown');
+    perf.href="http://localhost:8888/perfilUsuario?"+valorAlmacenado.id;
+
+    let a=document.createElement('a');
+    a.textContent='Cerrar Sesion';
+
+    a.addEventListener('click',function(){
+     localStorage.setItem("usuario1", null);
+    window.location.href=window.location.toString();
+    })
+
+    regi.remove();
+    login.remove();
+    padre.appendChild(a);
+
+} else {
+    // El localStorage no existe o no tiene un valor para la clave 'miClave'
+    console.log('El localStorage no tiene un valor para la clave "miClave".');
+}
+});
+
 document.addEventListener('DOMContentLoaded', function () {
+
+
     var ilustracion = document.getElementById('ilustracion');
     var rectangle1 = document.getElementById('Rectangle1');
     var rectangle3 = document.getElementById('Rectangle3');

@@ -1,5 +1,7 @@
 package proyecto.vaigo.web.controller;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
@@ -12,6 +14,8 @@ import java.util.List;
 @RestController
 public class LoginController{
 
+    private static final Logger log =
+            LoggerFactory.getLogger(LoginController.class);
     @Autowired
     private UsuariosService usuariosService;
     @GetMapping("/login")
@@ -37,6 +41,7 @@ public class LoginController{
 
     @PostMapping("/api/obtenerusuario")
     public UsuariosDTO obtenerusuario (@RequestBody UsuariosDTO usuariosDTO){
-        return usuariosService.findUsuario(usuariosDTO.getUsername(), usuariosDTO.getPassword());
+        log.info(String.valueOf(usuariosDTO));
+        return usuariosService.findUsuario(usuariosDTO.getCorreo(), usuariosDTO.getPassword());
     }
 }

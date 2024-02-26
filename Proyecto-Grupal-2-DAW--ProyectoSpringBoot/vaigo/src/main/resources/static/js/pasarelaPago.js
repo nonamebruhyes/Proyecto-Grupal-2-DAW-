@@ -1,9 +1,21 @@
+
 window.addEventListener("load", function (event)  {
+
+
 let datosRecoje=JSON.parse(localStorage.getItem("datospasa"));
 let datosHotel=JSON.parse(localStorage.getItem("datoshotel"));
 
 
+let boton=document.getElementById('submit');
 
+boton.addEventListener('click',function(){
+
+swal({
+  title: "Pago realizado con exito",
+  icon: "success"
+});
+
+});
 
 let url1 = "http://localhost:8888/api/Hotelid?dato="+datosHotel.hotel_id+"";
                         fetch(url1, {
@@ -118,6 +130,9 @@ let precio=0;
                                                         perso.textContent=datosHotel.persona;
 
                             })
+
+
+
 
 
 
