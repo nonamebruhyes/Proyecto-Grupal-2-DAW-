@@ -1,4 +1,5 @@
 document.getElementById("login").addEventListener("click", function(){
+
     let name = document.getElementById("nombre1").value;
     let password = document.getElementById("nombre2").value;
     if (isvalid(name, "correo")) {
@@ -16,14 +17,24 @@ document.getElementById("login").addEventListener("click", function(){
         body:  JSON.stringify(data)
     })
         .then(response => response.json() )
-        .then(data => response(data))
+        .then(data =>{
+
+        response(data);
+        }
+         )
         .catch(error => console.error("Error:", error));
     }
 }
 });
 
 function response(data) {
+
     let respuesta = JSON.stringify(data);
+    let name = document.getElementById("nombre1").value;
+        let password = document.getElementById("nombre2").value;
+
+    let  data2 = { correo: name, password: password };
+    console.log(data2);
     if (respuesta == "true") {
         fetch("http://localhost:8888/api/obtenerusuario",
         {
@@ -31,8 +42,9 @@ function response(data) {
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify(data)
+            body: JSON.stringify(data2)
         }).then(response => response.json()).then(data => {
+        console.log(JSON.stringify(data));
             let usuario = {
                 "imgperfil": data.imgperfil,
                 "username": data.username,
@@ -40,7 +52,7 @@ function response(data) {
             }
             localStorage.setItem("usuario", JSON.stringify(usuario));
         })
-        window.location.href = "http://localhost:8888/index";
+
     } else {
         document.getElementById("error").textContent = "Usuario o contraseña incorrectos";
     }
