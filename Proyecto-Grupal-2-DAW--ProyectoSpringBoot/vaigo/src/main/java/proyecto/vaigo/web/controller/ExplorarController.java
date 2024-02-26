@@ -71,7 +71,7 @@ public class ExplorarController {
 				objetoNode.put("puntuacion", viajesDTO.getPuntuacion());
 				objetoNode.put("descripcion", viajesDTO.getDescripcion());
 				objetoNode.put("planes", viajesDTO.getPlanes());
-				for (ViajesimagenesDTO viajesImgDTO : viajesImgService.buscarporidviajes(ciudadesDTO.getIdPais())) {
+				for (ViajesimagenesDTO viajesImgDTO : viajesImgService.buscarporidviajes(viajesDTO.getId())) {
 					objetoNode.put("path", viajesImgDTO.getUrl());
 				}
 

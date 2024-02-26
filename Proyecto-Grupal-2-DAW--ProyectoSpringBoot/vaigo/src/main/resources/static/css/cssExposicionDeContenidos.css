@@ -98,6 +98,9 @@ div#exponer-contenido {
   margin: 10px;
   /* height: 100%; */
 }
+#exponer-contenido::-webkit-scrollbar {
+display:none;
+}
 
 .container {
   display: flex;

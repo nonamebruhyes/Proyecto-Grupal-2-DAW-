@@ -65,3 +65,8 @@ main>div>div>div p{
         width:100%;
     }
 }
+@media (min-width:1000px){
+main{
+height:86.5vh;
+}
+}
