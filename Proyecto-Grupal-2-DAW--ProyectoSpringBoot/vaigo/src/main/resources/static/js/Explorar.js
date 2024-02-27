@@ -60,6 +60,7 @@ window.addEventListener('load', function (e) {
         cargarfiltros("paises", pais);
         cargarfiltros("terrenos", terreno);
         cargarfiltros("transportes", transporte);
+        filtrar(planes, ciudad, pais, terreno, transporte);
     } else {
         cargarfiltros("ciudades", 0 );
         cargarfiltros("paises", 0);
