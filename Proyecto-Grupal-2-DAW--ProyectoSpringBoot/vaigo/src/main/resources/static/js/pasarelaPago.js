@@ -14,8 +14,13 @@ swal({
   title: "Pago realizado con exito",
   icon: "success"
 });
+setTimeout( function(){
+window.location.href="http://localhost:8888/";
+
+},400)
 
 });
+
 
 let url1 = "http://localhost:8888/api/Hotelid?dato="+datosHotel.hotel_id+"";
                         fetch(url1, {
