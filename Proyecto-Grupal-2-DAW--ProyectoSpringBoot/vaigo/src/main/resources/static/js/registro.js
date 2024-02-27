@@ -78,5 +78,7 @@ console.log("Error");
 }
 function res(dato){
 
- if(dato=='false'){ console.log('Usuario ya existe')}
+ if(dato=='false'){ console.log('Usuario ya existe')}else{
+ window.location.href="http://localhost:8888/";
+ }
 }
